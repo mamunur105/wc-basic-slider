@@ -7,7 +7,7 @@ namespace Basic\Slider;
 class Admin {
 	
 	function __construct(){
-		
+		new Admin\BSCpt(); 
 	}
 
 	function dispatch_action($addressbook){

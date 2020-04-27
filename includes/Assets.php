@@ -22,9 +22,14 @@ class Assets {
 	 */
 	public function get_scripts() {
 		return [
-			'slick-slider-script' => [
-				'src'     	=> BS_ASSETS . '/js/slick.min.js',
-				'version'	=> filemtime( BS_PATH . '/assets/js/slick.min.js' ),
+			'swiper-slider-script' => [
+				'src'     	=> BS_ASSETS . '/js/swiper.min.js',
+				'version'	=> filemtime( BS_PATH . '/assets/js/swiper.min.js' ),
+				'deps'   	=> [ 'jquery' ]
+			],
+			'swiper-animation-script' => [
+				'src'     	=> BS_ASSETS . '/js/swiper-animation.min.js',
+				'version'	=> filemtime( BS_PATH . '/assets/js/swiper-animation.min.js' ),
 				'deps'   	=> [ 'jquery' ]
 			],
 			'activation-script' => [
@@ -42,11 +47,19 @@ class Assets {
 	 */
 	public function get_styles() {
 		return [
-			'academy-style' => [
-				'src'     => BS_ASSETS . '/css/slick.css',
-				'version' => filemtime( BS_PATH . '/assets/css/slick.css' )
+			'swiper-style' => [
+				'src'     => BS_ASSETS . '/css/swiper.min.css',
+				'version' => filemtime( BS_PATH . '/assets/css/swiper.min.css' )
 			],
-			'academy-admin-style' => [
+			'animate-style' => [
+				'src'     => BS_ASSETS . '/css/animate.min.css',
+				'version' => filemtime( BS_PATH . '/assets/css/animate.min.css' )
+			],
+			'bs-frontend-style' => [
+				'src'     => BS_ASSETS . '/css/bs-frontend.css',
+				'version' => filemtime( BS_PATH . '/assets/css/bs-frontend.css' )
+			],
+			'admin-style' => [
 				'src'     => BS_ASSETS . '/css/admin.css',
 				'version' => filemtime( BS_PATH . '/assets/css/admin.css' )
 			]

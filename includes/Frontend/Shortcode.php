@@ -11,7 +11,7 @@ class Shortcode
 	 * Initilize the class 
 	 */
 	function __construct(){
-		add_shortcode('wd-ac',[$this,'random_shortcode']);
+		add_shortcode('bs_slider',[$this,'random_shortcode']);
 	}
 	/**
 	 * Shortcode handles class

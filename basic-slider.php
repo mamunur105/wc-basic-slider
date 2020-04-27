@@ -82,7 +82,7 @@ final class BS_Slider{
 	}
 
 	public function init_plugin(){
-
+		
 		new Basic\Slider\Assets(); 
 		if (is_admin()) {
 			new Basic\Slider\Admin();	
