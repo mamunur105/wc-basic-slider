@@ -1,5 +1,5 @@
 <?php
-namespace Basic\Slider\Admin;
+namespace Basic\Slider;
 
 /**
  * The admin class
@@ -15,15 +15,16 @@ class BSCpt {
      */
     public function __construct() {
         $this->slug = 'bs_slider';
-        add_action( 'init', array( $this, 'register_shortcode_post' ), 0 );
+        add_action( 'init', array( $this, 'register_bs_slider' ), 0 );
         add_filter( 'manage_' . $this->slug . '_posts_columns', array( $this, 'set_shortocode_column' ) );
-        add_filter( 'manage_' . $this->slug . '_posts_custom_column', array( $this, 'shortocode_column_data' ), 10, 2 );
+        add_action( 'manage_' . $this->slug . '_posts_custom_column', array( $this, 'shortocode_column_data' ), 10, 2 );
+
     }
 
     /**
      * Register post type
      */
-    public function register_shortcode_post() {
+    public function register_bs_slider() {
 
         $labels = array(
             'name'               => _x( 'Basic Slider', 'post type general name', 'bs-slider' ),
@@ -85,9 +86,8 @@ class BSCpt {
      */
     public function shortocode_column_data( $column, $post_id ) {
         switch ( $column ) {
-
-            case 'shortcode' :
-                echo "<strong style='padding:5px 10px 7px; background:#ddd'>[bs_slider id='{$post_id}']</strong>";
+            case "shortcode":
+                echo "<strong style='padding:5px 10px 7px; background:#ddd'>[bs_slider slider_id='{$post_id}']</strong>";
                 break;
         }
     }

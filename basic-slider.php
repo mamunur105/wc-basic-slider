@@ -33,11 +33,9 @@ final class BS_Slider{
 	 */
 	private function __construct(){
 		$this->define_constant();
-		// echo WD_AC_URL;
+		new Basic\Slider\BSCpt(); 
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
-		// add_action('plugin_loaded',[ $this,'init_plugin' ]);
 		add_action('plugin_loaded',[ $this,'init_plugin' ]);
-		add_action( 'after_setup_theme',[ $this,'carbon_fields_boot_plugin' ],99);
 	}
 
 	/**
@@ -71,17 +69,13 @@ final class BS_Slider{
 	public function activate(){ }
 
 	public function carbon_fields_boot_plugin(){ 
-		// var_dump(class_exists('\Carbon_Fields\Carbon_Fields'));
-		if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
-			require_once( __DIR__ . '/lib/carbon-fields/vendor/autoload.php' ); 
-		}
-		\Carbon_Fields\Carbon_Fields::boot(); 
-		require_once BS_PATH.'/includes/carbonbox.php'; 
+		
+		new Basic\Slider\Options();	 
 		
 	}
 
 	public function init_plugin(){
-		
+		new Basic\Slider\Options();	 
 		new Basic\Slider\Assets(); 
 		if (is_admin()) {
 			new Basic\Slider\Admin();	
