@@ -87,7 +87,7 @@ class BSCpt {
         switch ( $column ) {
 
             case 'shortcode' :
-                echo "<code>[bs_slider id='{$post_id}']</code>";
+                echo "<strong style='padding:5px 10px 7px; background:#ddd'>[bs_slider id='{$post_id}']</strong>";
                 break;
         }
     }

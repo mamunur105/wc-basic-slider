@@ -74,9 +74,8 @@ final class BS_Slider{
 		// var_dump(class_exists('\Carbon_Fields\Carbon_Fields'));
 		if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
 			require_once( __DIR__ . '/lib/carbon-fields/vendor/autoload.php' ); 
-			\Carbon_Fields\Carbon_Fields::boot();
-					// var_dump(class_exists('\Carbon_Fields\Carbon_Fields'));
 		}
+		\Carbon_Fields\Carbon_Fields::boot(); 
 		require_once BS_PATH.'/includes/carbonbox.php'; 
 		
 	}
