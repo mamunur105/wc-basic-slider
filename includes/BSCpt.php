@@ -14,6 +14,7 @@ class BSCpt {
      *
      */
     public function __construct() {
+        
         $this->slug = 'bs_slider';
         add_action( 'init', array( $this, 'register_bs_slider' ), 0 );
         add_filter( 'manage_' . $this->slug . '_posts_columns', array( $this, 'set_shortocode_column' ) );

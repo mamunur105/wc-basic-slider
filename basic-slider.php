@@ -34,6 +34,7 @@ final class BS_Slider{
 	private function __construct(){
 		$this->define_constant();
 		new Basic\Slider\BSCpt(); 
+		// new Basic\Slider\BsOptions();
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('plugin_loaded',[ $this,'init_plugin' ]);
 	}
@@ -68,14 +69,13 @@ final class BS_Slider{
 	 */
 	public function activate(){ }
 
-	public function carbon_fields_boot_plugin(){ 
+	// public function carbon_fields_boot_plugin(){ 
 		
-		new Basic\Slider\Options();	 
+	// 	new Basic\Slider\Options();	 
 		
-	}
+	// }
 
 	public function init_plugin(){
-		new Basic\Slider\Options();	 
 		new Basic\Slider\Assets(); 
 		if (is_admin()) {
 			new Basic\Slider\Admin();	
