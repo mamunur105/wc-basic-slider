@@ -51,12 +51,17 @@ class Shortcode
 					'post__in'			=>array($slider_id),
 				);
 				$slider_loop = new \WP_Query( $args );
+				$show_pagination = 0 ;
+				$show_arrow = 0 ;
 				// echo  $loop->found_posts;
 				if ( $slider_loop->have_posts() ) {
 					
 					while ( $slider_loop->have_posts() ) { 
 						$slider_loop->the_post();
 						$slider_item = carbon_get_the_post_meta("slider_item"); 
+						$show_pagination = carbon_get_the_post_meta("show_pagination"); 
+						$show_arrow = carbon_get_the_post_meta("show_arrow"); 
+
 						foreach ($slider_item as $slider) {
 							$attachment_id = $slider['main_slider_image'];
 							$slider_image = wp_get_attachment_image_src( $attachment_id,'full');
@@ -92,13 +97,16 @@ class Shortcode
 				} wp_reset_postdata();
 			?>
 			</div> <!-- end of swiper-slide -->
-
+			<?php if($show_arrow){?>
 			<!-- Slider Navigation -->
 			<div class="swiper-arrow next slide swiper-btn-next"></div>
 			<div class="swiper-arrow prev slide swiper-btn-prev"></div>
-
-			<!-- Slider Pagination -->
-			<div class="swiper-pagination"></div>
+			<?php } ?>
+			
+			<?php if($show_pagination){ ?>
+				<!-- Slider Pagination -->
+				<div class="swiper-pagination"></div>
+			<?php } ?>
 
 		</div>
 

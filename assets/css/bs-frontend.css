@@ -136,6 +136,7 @@
     z-index: 0;
     width: 100%;
     margin: 0;
+    margin-bottom: 15px;
     line-height: 1.1;
     color: #fff;
 }
@@ -161,16 +162,19 @@
 
 .primary_slider .swiper-pagination .swiper-pagination-bullet {
     border: none;
-    height: 11px;
-    margin: 0 5px;
-    width: 11px;
     cursor: pointer;
     background: #d7d7d7;
 	opacity: 1;
 	transition: all 0.3s;
 	outline: none;
+    border-radius: 0;
+    height: 2px;
+    width: 40px;
+    margin: 0 13px;
 }
-
+ .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #e3961d;
+}
 .primary_slider .slide-content {
     /*left: 50px; */
 }

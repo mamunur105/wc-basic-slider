@@ -13,6 +13,7 @@
  * Text Domain:       bs-slider
  * Domain Path:       /languages
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }

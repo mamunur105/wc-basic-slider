@@ -15,18 +15,41 @@ add_action( 'carbon_fields_register_fields', 'bs_slider_attach_post_meta' );
 // function 
 function bs_slider_attach_post_meta(){
 
+	global $wpdb;
+	// print_r($wpdb->term_taxonomy);
+	// echo "<br>";
+	// print_r($wpdb->terms);
+	$categories = $wpdb->get_results(
+		"SELECT ter.name ,ter.slug ,tax.count
+		FROM {$wpdb->term_taxonomy} AS tax,{$wpdb->terms} AS ter 
+		WHERE tax.taxonomy = 'product_cat' 
+		AND ter.term_id = tax.term_id 
+		AND tax.count > 0
+		"
+	);
+// print_r($categories);
+	$category_list = [];
+	$category_list[''] = __('--Select One--','bs-slider');
+
+    // $categories = get_terms( 'product_cat', 'orderby=name&hide_empty=0' );
+    if ( $categories ) {
+        foreach ( $categories as $cat ) {
+        	$category_name = $cat->name.' ('.$cat->count.')' ;
+            $category_list[$cat->slug] = esc_html( $category_name );
+        }
+    }
+
     Container::make( 'post_meta', __( 'Slider option' ) )
         ->where( 'post_type', '=', 'bs_slider' )
         ->add_fields( array(
         	Field::make( 'checkbox', 'crb_show_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
-	        Field::make( 'checkbox', 'crb_show_arrow', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
+	        Field::make( 'checkbox', 'crb_show_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
             Field::make( 'select', 'select_slider_type', __( 'Choose slider type' ) )
 			    ->set_options( array(
 			        'main_slider' => __('Main Slider','bs-slider'),
 			        'category_slider' => __('Woocommerce Category','bs-slider'),
 			    ) ),
-
-		    Field::make( 'complex', 'slider_item', 'Items' )
+		    Field::make( 'complex', 'slider_item', 'Add Slider Items' )
 		    	->set_layout( 'tabbed-vertical' )
 			    ->set_conditional_logic( array(
 			        'relation' => 'AND', // Optional, defaults to "AND"
@@ -37,7 +60,6 @@ function bs_slider_attach_post_meta(){
 			        )
 			    ) )
 	            ->add_fields( array(
-	                
 	                Field::make( 'image', 'main_slider_image', __( 'Slider Image' ) ),
 	                Field::make( 'complex', 'slider_title', __( 'Add more content ' ) )
 	                ->set_layout( 'tabbed-vertical' )
@@ -154,8 +176,44 @@ function bs_slider_attach_post_meta(){
  
 				    ) )
 
-	            ) )
+	            ) ),
 
+			
+	    	Field::make( 'radio_image', 'category_layout', 'Select Layout' )
+		    	->set_conditional_logic( array(
+			        'relation' => 'AND', // Optional, defaults to "AND"
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider', // Optional, defaults to "". 
+			            'compare' => '=', // Optional, defaults to "=". Available operators: =, <, >, <=, >=, IN, NOT IN
+			        )
+			    ) )
+			    ->add_options( array(
+			        'slider' => BS_ASSETS.'/image/slider.png',
+			        'grid' => BS_ASSETS.'/image/grid.png',
+			    ) ),
+			    
+			Field::make( 'complex', 'category_slider', __( 'Category slider' ) )
+				->set_layout( 'tabbed-vertical' )
+				->set_conditional_logic( array(
+			        'relation' => 'AND', // Optional, defaults to "AND"
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider', // Optional, defaults to "". 
+			            'compare' => '=', // Optional, defaults to "=". Available operators: =, <, >, <=, >=, IN, NOT IN
+			        )
+			    ) )
+			    ->add_fields( array(
+			    	
+			        Field::make( 'select', 'select_category', __( 'Choose slider type' ) )
+					    ->set_options( $category_list ),
+			        Field::make( 'image', 'category_image', __( 'Category Image' ) )
+			        	->set_help_text( 'Leave empty for default image' ) ,
+			        Field::make( 'checkbox', 'category_name', __( 'Hide Category Name' ) )
+			        	->set_option_value( 'yes' ),
+			        Field::make( 'checkbox', 'category_button', __( 'Hide Category Button' ) )
+			        	->set_option_value( 'yes' ),
+			    ) ),
 			
         ) );
 }
