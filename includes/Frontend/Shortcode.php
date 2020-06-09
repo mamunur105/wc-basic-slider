@@ -60,8 +60,8 @@ class Shortcode
 					while ( $slider_loop->have_posts() ) { 
 						$slider_loop->the_post();
 						$slider_item = carbon_get_the_post_meta("slider_item"); 
-						$show_pagination = carbon_get_the_post_meta("main_slider_pagination"); 
-						$show_arrow = carbon_get_the_post_meta("main_slider_arrow"); 
+						$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
+						$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 
 						foreach ($slider_item as $slider) {
 							$attachment_id = $slider['main_slider_image'];

@@ -43,8 +43,8 @@ function bs_slider_attach_post_meta(){
     Container::make( 'post_meta', __( 'Slider option' ) )
         ->where( 'post_type', '=', 'bs_slider' )
         ->add_fields( array(
-        	Field::make( 'checkbox', 'main_slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
-	        Field::make( 'checkbox', 'main_slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
+        	Field::make( 'checkbox', 'slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
+	        Field::make( 'checkbox', 'slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
             Field::make( 'select', 'select_slider_type', __( 'Choose slider type' ) )
 			    ->set_options( array(
 			        'main_slider' => __('Main Slider','bs-slider'),
