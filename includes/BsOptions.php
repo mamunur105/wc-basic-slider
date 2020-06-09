@@ -30,6 +30,7 @@ function bs_slider_attach_post_meta(){
 // print_r($categories);
 	$category_list = [];
 	$category_list[''] = __('--Select One--','bs-slider');
+	$category_list['all'] = __('All Category','bs-slider');
 
     // $categories = get_terms( 'product_cat', 'orderby=name&hide_empty=0' );
     if ( $categories ) {
@@ -42,8 +43,8 @@ function bs_slider_attach_post_meta(){
     Container::make( 'post_meta', __( 'Slider option' ) )
         ->where( 'post_type', '=', 'bs_slider' )
         ->add_fields( array(
-        	Field::make( 'checkbox', 'crb_show_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
-	        Field::make( 'checkbox', 'crb_show_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
+        	Field::make( 'checkbox', 'main_slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' ),
+	        Field::make( 'checkbox', 'main_slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
             Field::make( 'select', 'select_slider_type', __( 'Choose slider type' ) )
 			    ->set_options( array(
 			        'main_slider' => __('Main Slider','bs-slider'),
@@ -60,7 +61,8 @@ function bs_slider_attach_post_meta(){
 			        )
 			    ) )
 	            ->add_fields( array(
-	                Field::make( 'image', 'main_slider_image', __( 'Slider Image' ) ),
+	                Field::make( 'image', 'main_slider_image', __( 'Slider Image' ) )
+	                ->set_required( true ),
 	                Field::make( 'complex', 'slider_title', __( 'Add more content ' ) )
 	                ->set_layout( 'tabbed-vertical' )
 				    ->add_fields( array(
@@ -191,7 +193,7 @@ function bs_slider_attach_post_meta(){
 			    ->add_options( array(
 			        'slider' => BS_ASSETS.'/image/slider.png',
 			        'grid' => BS_ASSETS.'/image/grid.png',
-			    ) ),
+			    ) )->set_required( true ),
 			    
 			Field::make( 'complex', 'category_slider', __( 'Category slider' ) )
 				->set_layout( 'tabbed-vertical' )
@@ -206,7 +208,8 @@ function bs_slider_attach_post_meta(){
 			    ->add_fields( array(
 			    	
 			        Field::make( 'select', 'select_category', __( 'Choose slider type' ) )
-					    ->set_options( $category_list ),
+					    ->set_options( $category_list )
+			        	->set_help_text( 'Note: Empty category are hidden' ) ,
 			        Field::make( 'image', 'category_image', __( 'Category Image' ) )
 			        	->set_help_text( 'Leave empty for default image' ) ,
 			        Field::make( 'checkbox', 'category_name', __( 'Hide Category Name' ) )

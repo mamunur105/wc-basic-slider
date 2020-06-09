@@ -94,5 +94,45 @@
 			var swiper = new Swiper($pSlider, swiperOptions);
 		}
 
+		var $catSLider_1 = $(".category_slider_1");
+
+		if ($catSLider_1.elExists()) {
+		  	var swiper = new Swiper($catSLider_1, {
+				slidesPerView: 4,
+				spaceBetween: 30,
+				// slidesPerColumn: 2,
+				pagination: {
+				el: '.swiper-pagination',
+					clickable: true,
+				},
+				 // Responsive breakpoints
+				breakpoints: {
+				    // when window width is >= 320px
+				    320: {
+				      slidesPerView: 1,
+				      spaceBetween: 30
+				    },
+				    // when window width is >= 480px
+				    450: {
+				      slidesPerView: 2,
+				      spaceBetween: 30
+				    },
+				    // when window width is >= 640px
+				    768: {
+				      slidesPerView: 3,
+				      spaceBetween: 30
+				    },
+
+				    991: {
+				      slidesPerView: 4,
+				      spaceBetween: 30
+				    }
+				}
+		    });
+
+		}
+
+		
+
     })(jQuery);
     
