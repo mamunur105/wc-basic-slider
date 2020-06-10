@@ -11,7 +11,7 @@ class Shortcode
 	 * Initilize the class 
 	 */
 	function __construct(){
-		add_shortcode('bs_slider',[$this,'random_shortcode']);
+		add_shortcode('bs_slider',[$this,'main_slider_shortcode']);
 		add_shortcode('woocategory_slider',[$this,'woocategory_slider']); 
 	}
 	/**
@@ -22,7 +22,7 @@ class Shortcode
 	 *
 	 * @return string 
 	 */
-	function random_shortcode($atts,$contant){
+	function main_slider_shortcode($atts,$contant){
 		extract(shortcode_atts(array(
 			'slider_id' => '',
 		), $atts));
@@ -39,79 +39,72 @@ class Shortcode
 		$result = '';
 		ob_start(); 
 		// echo $slider_id ;
-		?>
-	
-		<div class="primary_slider swiper-container slider-type-1 
-			<?php echo apply_filters('primary_slider_parent_class', 'slider-wrapper-class' ); ?>">
-			<!-- Slides -->
-			<div class="swiper-wrapper">
-			<?php
-				$args = array(
-					'post_type'  		=> 'bs_slider',
-					'posts_per_page'   	=> 1,
-					'post__in'			=> array($slider_id),
-				);
-				$slider_loop = new \WP_Query( $args );
-				$show_pagination = 0 ;
-				$show_arrow = 0 ;
-				// echo  $loop->found_posts;
-				if ( $slider_loop->have_posts() ) {
-					
-					while ( $slider_loop->have_posts() ) { 
-						$slider_loop->the_post();
-						$slider_item = carbon_get_the_post_meta("slider_item"); 
-						$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
-						$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 
+		$args = array(
+			'post_type'  		=> 'bs_slider',
+			'posts_per_page'   	=> 1,
+			'post__in'			=> array($slider_id),
+		);
+		$slider_loop = new \WP_Query( $args );
+		// echo  $loop->found_posts;
+		if ( $slider_loop->have_posts() ) {
+			
+			while ( $slider_loop->have_posts() ) { $slider_loop->the_post();
+
+				$slider_item = carbon_get_the_post_meta("slider_item"); 
+				$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
+				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
+			?>
+		
+			<div class="primary_slider swiper-container slider-type-1 
+				<?php echo apply_filters('primary_slider_parent_class', 'slider-wrapper-class' ); ?>">
+				<!-- Slides -->
+				<div class="swiper-wrapper">
+					<?php 
 						foreach ($slider_item as $slider) {
 							$attachment_id = $slider['main_slider_image'];
 							$slider_image = wp_get_attachment_image_src( $attachment_id,'full');
 							$slider_image_url = $slider_image[0];
-
 							$animate_text = $slider['slider_title'] ;
-							$item = 1;
-							$title_content = "";
-							foreach ($animate_text as $slider_text) {
-								
-								if (1 == $item) {
-									$title_content .= "<h1 class='main-title' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}'><span>{$slider_text['main_slider_title']}</span></h1>";
-								}else{
-									$title_content .= "<p class='subtitle' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}' data-delay='1s'>{$slider_text['main_slider_title']}</p>";
-								}
-								
-								$item++;
-							}
 							
 						?>
-							<div class="swiper-slide bg-img-wrapper">
-								<div class="slide-inner image-placeholder pos-r" style="height:500px;background-image: url(<?php echo $slider_image_url ; ?>);">
-									
-									<div class="slide-content <?php echo apply_filters('primary_slider_slide_content_parent_class', 'slide-content-test' ); ?> ">
-										<?php echo $title_content ; ?>
-									</div> <!-- end of slide-content -->
-						
-								</div> <!-- end of slider-inner -->
-							</div> <!-- end of swiper-slide -->
-						<?php }
+						<div class="swiper-slide bg-img-wrapper">
+							<div class="slide-inner image-placeholder pos-r" style="height:500px;background-image: url(<?php echo $slider_image_url ; ?>);">
+								<div class="slide-content <?php echo apply_filters('primary_slider_slide_content_parent_class', 'slide-content-test' ); ?> ">
+									<?php 
+										$item = 1;
+										foreach ($animate_text as $slider_text) {
+											if (1 == $item) {
+												echo "<h1 class='main-title' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}'><span>{$slider_text['main_slider_title']}</span></h1>";
+											}else{
+												echo "<p class='subtitle' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}' data-delay='1s'>{$slider_text['main_slider_title']}</p>";
+											}	
+											$item++;
+										} 
+									?>
+								</div> <!-- end of slide-content -->
+							</div> <!-- end of slider-inner -->
+						</div> <!-- end of swiper-slide -->
 
-					}
-				} wp_reset_postdata();
-			?>
-			</div> <!-- end of swiper-slide -->
-			<?php if($show_arrow){?>
-			<!-- Slider Navigation -->
-			<div class="swiper-arrow next slide swiper-btn-next"></div>
-			<div class="swiper-arrow prev slide swiper-btn-prev"></div>
-			<?php } ?>
-			
-			<?php if($show_pagination){ ?>
-				<!-- Slider Pagination -->
-				<div class="swiper-pagination"></div>
-			<?php } ?>
+					<?php } ?>
+				</div> <!-- end of swiper-slide -->
+				<?php if($show_arrow){ ?>
+					<!-- Slider Navigation -->
+					<div class="swiper-arrow next slide swiper-btn-next"></div>
+					<div class="swiper-arrow prev slide swiper-btn-prev"></div>
+				<?php } ?>
+				
+				<?php if($show_pagination){ ?>
+					<!-- Slider Pagination -->
+					<div class="swiper-pagination"></div>
+				<?php } ?>
 
-		</div>
+			</div>
 
-		<?php
+				<?php
+			}
+		} wp_reset_postdata();
+
 		$result .= ob_get_clean();
 		return $result;
 	}
@@ -133,85 +126,94 @@ class Shortcode
 		$result = '';
 		ob_start(); 
 		// echo $slider_id ;
+		$args = array(
+			'post_type'  		=> 'bs_slider',
+			'posts_per_page'   	=> 1,
+			'post__in'			=> array($slider_id),
+		);
+		$cat_slider_loop = new \WP_Query( $args );
+	
+		// echo  $loop->found_posts;
+		if ( $cat_slider_loop->have_posts() ) {
+			while ( $cat_slider_loop->have_posts() ) {  $cat_slider_loop->the_post(); 
+				$category_slider = carbon_get_the_post_meta("category_slider");
+				$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
+				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
+				$category_layout = carbon_get_the_post_meta("category_layout");
+ 				$classes = [] ;
+				if ($show_pagination) {
+					$classes[] = 'cat-slider-pagination'; 
+				}
+				if ($show_arrow) {
+					 $classes[] = 'cat-slider-arrow'; 
+				}
+				if ('slider' == $category_layout) {
+					$classes[] = 'category_slider_1'; 	
+				}
+				if ('grid' == $category_layout) {
+					$classes[] = 'category_slider_2'; 	
+				}
+		
+				$class = implode(' ',$classes);
+				?>
+				
+					<div class="<?php echo $class; ?> swiper-container content-align " >
 
-		?>
-		<!-- Swiper -->
-		<div class="cat-slider-pagination swiper-container <?php echo apply_filters('category_slider_activation_class', 'category_slider_1' ); ?>" >
+						<div class="swiper-wrapper">
+							<?php 
+								foreach ($category_slider as $value) { 
+									if (!$value['select_category']) {
+										continue;
+									}
+									$term = get_term_by('slug', $value['select_category'], 'product_cat'); 
+									$categoryname = $term->name;
+									$category_link = get_category_link( $term->term_id );
+									$thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+		    						$category_image = wp_get_attachment_url( $thumbnail_id );
+									// $category_image = "";
+									if ($value['category_image']) {
+										$category_image = $value['category_image'];
+										$category_image = wp_get_attachment_image_src( $category_image,'full');
+										$category_image = $category_image[0];
+									}
 
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
+									?>
+
+									<div class="swiper-slide ">
+										<a href="<?php echo $category_link; ?>">
+											<img src="<?php echo $category_image ; ?>" alt="<?php echo $categoryname;?>">
+										</a>
+										<div class="cat-slide-content">
+											<div class="name"><?php echo $categoryname;?></div>
+											<div class="cat-buttno"><a href="<?php echo $category_link; ?>">Shop now</a></div>
+										</div>
+									</div>
+								
+								<?php  }
+							?>
+						</div>
+
+						<?php if($show_arrow){ ?>
+							<!-- Slider Navigation -->
+							<div class="swiper-arrow next swiper-btn-next"></div>
+								<div class="swiper-arrow prev swiper-btn-prev"></div>
+						<?php } ?>
+						
+						<?php if($show_pagination){ ?>
+							<!-- Slider Pagination -->
+							<div class="swiper-pagination"></div>
+						<?php } ?>
+
+
 					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<img src="/wp-content/uploads/2020/06/hoodie-2.jpg" alt="">
-					<div class="cat-slide-content">
-						<div class="name">Lorem ipsum dolor</div>
-						<div class="cat-buttno"><a href="#">Shop now</a></div>
-					</div>
-				</div>
-				
-				
-				
-			</div>
-			<!-- Add Pagination -->
-			<div class="swiper-pagination"></div>
-		</div>
-		<?php
+				<?php
+
+			}
+		} wp_reset_postdata();
+
 		$result .= ob_get_clean();
 		return $result;
 
 	}
+
 }

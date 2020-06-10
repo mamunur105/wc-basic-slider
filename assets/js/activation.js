@@ -101,10 +101,16 @@
 				slidesPerView: 4,
 				spaceBetween: 30,
 				// slidesPerColumn: 2,
+				navigation: {
+					nextEl: ".swiper-arrow.next",
+					prevEl: ".swiper-arrow.prev"
+				},
+
 				pagination: {
-				el: '.swiper-pagination',
+					el: '.swiper-pagination',
 					clickable: true,
 				},
+
 				 // Responsive breakpoints
 				breakpoints: {
 				    // when window width is >= 320px
