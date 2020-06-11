@@ -176,13 +176,10 @@ function bs_slider_attach_post_meta(){
 								'slideOutUp' => 'slideOutUp' ,
 							) ),
 				        
- 
 				    ) )
 
 	            ) ),
 
-			// Field::make( 'checkbox', 'category_name', __( 'Hide Category Name' ) )
-			//         	->set_option_value( 'yes' ),
 	    	Field::make( 'radio_image', 'category_layout', 'Select Layout' )
 		    	->set_conditional_logic( array(
 			        'relation' => 'AND', 
@@ -196,7 +193,17 @@ function bs_slider_attach_post_meta(){
 			        'slider' => BS_ASSETS.'/image/slider.png',
 			        'grid' => BS_ASSETS.'/image/grid.png',
 			    ) )->set_required( true ),
-
+				
+			Field::make( 'text', 'category_button_text', __( 'Button Text' ) )
+		        ->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider', 
+			            'compare' => '='
+			        )
+			    ) )->set_help_text( 'Leave empty for default image' ) ,
+		       
 
 			Field::make( 'complex', 'category_slider', __( 'Category slider' ) )
 				->set_layout( 'tabbed-vertical' )
@@ -229,5 +236,21 @@ function bs_slider_attach_post_meta(){
 
 			
         ) );
+}
+
+
+add_action( 'carbon_fields_register_fields','bs_slider_settings' );
+function bs_slider_settings(){
+	Container::make( 'theme_options', __( 'Settings', 'bs-slider' ) )
+	    ->set_page_parent( 'edit.php?post_type=bs_slider' )
+	    ->add_fields( array(
+
+	        Field::make( 'checkbox', 'deactive_css', __( 'Deactive Swiper CSS', 'bs-slider' ) ),
+	        Field::make( 'checkbox', 'deactive_js', __( 'Deactive Swiper Js', 'bs-slider' ) ),
+	        // Field::make( 'separator', 'crb_style_options', 'Style' ),
+	        Field::make( 'checkbox', 'related_product_slider', __( 'related_product_slider', 'bs-slider' ) ),
+	        Field::make( 'checkbox', 'upsel_product_slider', __( 'Upsel product slider', 'bs-slider' ) ),
+	    ) );
+
 }
 

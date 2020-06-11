@@ -137,7 +137,8 @@ class Shortcode
 		if ( $cat_slider_loop->have_posts() ) {
 			while ( $cat_slider_loop->have_posts() ) {  $cat_slider_loop->the_post(); 
 				$category_slider = carbon_get_the_post_meta("category_slider");
-				$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
+				$show_pagination = carbon_get_the_post_meta("slider_pagination");
+				$button_text = carbon_get_the_post_meta("category_button_text"); 
 				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 				$category_layout = carbon_get_the_post_meta("category_layout");
  				$classes = [] ;
@@ -185,7 +186,10 @@ class Shortcode
 										</a>
 										<div class="cat-slide-content">
 											<div class="name"><?php echo $categoryname;?></div>
-											<div class="cat-buttno"><a href="<?php echo $category_link; ?>">Shop now</a></div>
+											<div class="cat-buttno">
+												<a href="<?php echo $category_link; ?>">
+												<?php echo $button_text;?></a>
+											</div>
 										</div>
 									</div>
 								
