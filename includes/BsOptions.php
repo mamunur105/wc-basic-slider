@@ -3,7 +3,11 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+
+
+add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
 add_action( 'after_setup_theme', 'crb_load',99 );
+
 function crb_load() {
     if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
 		require_once( BS_PATH. '/lib/carbon-fields/vendor/autoload.php' ); 
@@ -11,7 +15,8 @@ function crb_load() {
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
-add_action( 'carbon_fields_register_fields', 'bs_slider_attach_post_meta' );
+
+
 // function 
 function bs_slider_attach_post_meta(){
 
@@ -209,11 +214,19 @@ function bs_slider_attach_post_meta(){
 					    ->set_options( $category_list )
 			        	->set_help_text( 'Note: Empty category are hidden' ) ,
 			        Field::make( 'image', 'category_image', __( 'Category Image' ) )
-			        	->set_help_text( 'Leave empty for default image' ) ,
+				        ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_category',
+				            'value' => '', 
+				            'compare' => '!='
+				        )
+				    ) )->set_help_text( 'Leave empty for default image' ) ,
 			       
 			        // Field::make( 'text', 'category_custom_url', __( 'Category Custom URL' ) )
 			        // 	->set_help_text( 'Leave empty for default category archive page' ),
 			    ) ),
+
 			
         ) );
 }

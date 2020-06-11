@@ -145,7 +145,7 @@ class Shortcode
 					$classes[] = 'cat-slider-pagination'; 
 				}
 				if ($show_arrow) {
-					 $classes[] = 'cat-slider-arrow'; 
+					$classes[] = 'cat-slider-arrow'; 
 				}
 				if ('slider' == $category_layout) {
 					$classes[] = 'category_slider_1'; 	
@@ -196,7 +196,7 @@ class Shortcode
 						<?php if($show_arrow){ ?>
 							<!-- Slider Navigation -->
 							<div class="swiper-arrow next swiper-btn-next"></div>
-								<div class="swiper-arrow prev swiper-btn-prev"></div>
+							<div class="swiper-arrow prev swiper-btn-prev"></div>
 						<?php } ?>
 						
 						<?php if($show_pagination){ ?>

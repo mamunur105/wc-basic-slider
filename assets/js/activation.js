@@ -110,8 +110,7 @@
 					el: '.swiper-pagination',
 					clickable: true,
 				},
-
-				 // Responsive breakpoints
+				// Responsive breakpoints
 				breakpoints: {
 				    // when window width is >= 320px
 				    320: {
@@ -138,7 +137,45 @@
 
 		}
 
-		
+		var $catSLider_2 = $(".category_slider_2");
+
+		if ($catSLider_2.elExists()) {
+		  	
+			var swiper = new Swiper($catSLider_2, {
+				slidesPerView: 4,
+				slidesPerColumn: 2,
+				spaceBetween: 30,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-arrow.next",
+					prevEl: ".swiper-arrow.prev"
+				},
+				breakpoints: {
+				    320: {
+				      slidesPerView: 2,
+				      slidesPerColumn: 2
+				    },
+				    450: {
+				      slidesPerView: 2
+				    },
+				    600: {
+				      slidesPerView: 2
+				    },
+				    767: {
+				      slidesPerView: 3
+				    },
+				    992: {
+				      slidesPerView: 4
+				    }
+				}
+
+    		});	
+
+		}
+
 
     })(jQuery);
     
