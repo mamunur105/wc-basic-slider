@@ -23,8 +23,7 @@
 					},
 					breakpoints: {
 					    320: {
-					      slidesPerView: 2,
-					      slidesPerColumn: 2
+					      slidesPerView: 2
 					    },
 					    450: {
 					      slidesPerView: 2
@@ -47,7 +46,7 @@
     	double_row_slider();
     	$(window).on('load resize',function(){
     		var content_height = 30 + ( $('.category_slider_2 .swiper-slide').outerHeight() * 2 );
-    		// console.log(content_height);
+    		console.log(content_height);
     		$('.category_slider_2.swiper-container').height(content_height);
  
     	});
