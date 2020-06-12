@@ -1,9 +1,56 @@
     !(function($){
-    		
-    	// Check if element exists
+    	    	// Check if element exists
 		$.fn.elExists = function() {
 			return this.length > 0;
 		};
+
+    	function double_row_slider(){
+			var $catSLider_2 = $(".category_slider_2");
+
+			if ($catSLider_2.elExists()) {
+			  	
+				var swiper = new Swiper($catSLider_2, {
+					slidesPerView: 4,
+					slidesPerColumn: 2,
+					spaceBetween: 30,
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true,
+					},
+					navigation: {
+						nextEl: ".swiper-arrow.next",
+						prevEl: ".swiper-arrow.prev"
+					},
+					breakpoints: {
+					    320: {
+					      slidesPerView: 2,
+					      slidesPerColumn: 2
+					    },
+					    450: {
+					      slidesPerView: 2
+					    },
+					    600: {
+					      slidesPerView: 2
+					    },
+					    767: {
+					      slidesPerView: 3
+					    },
+					    992: {
+					      slidesPerView: 4
+					    }
+					}
+
+	    		});	
+
+			}
+		}
+    	double_row_slider();
+    	$(window).on('load resize',function(){
+    		var content_height = 30 + ( $('.category_slider_2 .swiper-slide').outerHeight() * 2 );
+    		// console.log(content_height);
+    		$('.category_slider_2.swiper-container').height(content_height);
+ 
+    	});
 
 		var swiperAnimation = new SwiperAnimation();
 		/************************************************************
@@ -134,45 +181,6 @@
 				    }
 				}
 		    });
-
-		}
-
-		var $catSLider_2 = $(".category_slider_2");
-
-		if ($catSLider_2.elExists()) {
-		  	
-			var swiper = new Swiper($catSLider_2, {
-				slidesPerView: 4,
-				slidesPerColumn: 2,
-				spaceBetween: 30,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true,
-				},
-				navigation: {
-					nextEl: ".swiper-arrow.next",
-					prevEl: ".swiper-arrow.prev"
-				},
-				breakpoints: {
-				    320: {
-				      slidesPerView: 2,
-				      slidesPerColumn: 2
-				    },
-				    450: {
-				      slidesPerView: 2
-				    },
-				    600: {
-				      slidesPerView: 2
-				    },
-				    767: {
-				      slidesPerView: 3
-				    },
-				    992: {
-				      slidesPerView: 4
-				    }
-				}
-
-    		});	
 
 		}
 

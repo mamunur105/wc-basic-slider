@@ -141,6 +141,9 @@ class Shortcode
 				$button_text = carbon_get_the_post_meta("category_button_text"); 
 				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 				$category_layout = carbon_get_the_post_meta("category_layout");
+				$content_position = carbon_get_the_post_meta("category_content_position");
+				$hide_title = carbon_get_the_post_meta("hide_title");
+				$hide_button = carbon_get_the_post_meta("hide_button");
  				$classes = [] ;
 				if ($show_pagination) {
 					$classes[] = 'cat-slider-pagination'; 
@@ -180,16 +183,22 @@ class Shortcode
 
 									?>
 
-									<div class="swiper-slide ">
+									<div class="swiper-slide <?php echo apply_filters('categpry_slider', 'slider_content_class' ); ?>">
 										<a href="<?php echo $category_link; ?>">
 											<img src="<?php echo $category_image ; ?>" alt="<?php echo $categoryname;?>">
 										</a>
 										<div class="cat-slide-content">
-											<div class="name"><?php echo $categoryname;?></div>
+											<?php if(!$hide_title){?>
+												<div class="name"><?php echo $categoryname;?></div>
+											<?php } ?>
+											<?php if(!$hide_button){?>
+
 											<div class="cat-buttno">
 												<a href="<?php echo $category_link; ?>">
 												<?php echo $button_text;?></a>
 											</div>
+											<?php } ?>
+
 										</div>
 									</div>
 								

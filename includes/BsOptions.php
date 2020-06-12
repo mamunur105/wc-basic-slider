@@ -51,6 +51,7 @@ function bs_slider_attach_post_meta(){
 			        'main_slider' => __('Main Slider','bs-slider'),
 			        'category_slider' => __('Woocommerce Category','bs-slider'),
 			    ) ),
+
 		    Field::make( 'complex', 'slider_item', 'Add Slider Items' )
 		    	->set_layout( 'tabbed-vertical' )
 			    ->set_conditional_logic( array(
@@ -193,7 +194,38 @@ function bs_slider_attach_post_meta(){
 			        'slider' => BS_ASSETS.'/image/slider.png',
 			        'grid' => BS_ASSETS.'/image/grid.png',
 			    ) )->set_required( true ),
-				
+	    	Field::make( 'radio_image', 'category_content_position', 'Content Posotion' )
+		    	->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider',
+			            'compare' => '='
+			        )
+			    ) )
+			    ->add_options( array(
+			        'below-content' => BS_ASSETS.'/image/below-content.jpg',
+			        'overlay-content' => BS_ASSETS.'/image/overlay-content.jpg',
+			    ) )->set_required( true ),
+						
+			Field::make( 'checkbox', 'hide_title', __( 'Hide Title' ) )
+				->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider',
+			            'compare' => '='
+			        )
+			    ) )->set_option_value( 'yes' ),
+			Field::make( 'checkbox', 'hide_button', __( 'Hide Button' ) )
+				->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider',
+			            'compare' => '='
+			        )
+			    ) )->set_option_value( 'yes' ),
 			Field::make( 'text', 'category_button_text', __( 'Button Text' ) )
 		        ->set_conditional_logic( array(
 			        'relation' => 'AND', 
