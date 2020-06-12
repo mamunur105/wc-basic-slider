@@ -29,12 +29,18 @@ class Shortcode
 		if (!$slider_id) {
 			return ;
 		}
-		wp_enqueue_script( 'swiper-slider-script' );
-		wp_enqueue_script( 'swiper-animation-script' );
-		wp_enqueue_script( 'activation-script' );
-		wp_enqueue_style( 'swiper-style' );
-		wp_enqueue_style( 'animate-style' );
-		wp_enqueue_style( 'bs-frontend-style' );
+		
+		$swiper_js = carbon_get_theme_option( 'deactive_js' );
+		$swiper_css = carbon_get_theme_option( 'deactive_css' );
+		
+		if (!$swiper_js) {
+			wp_enqueue_script( 'swiper-slider-script' );
+			wp_enqueue_script( 'swiper-animation-script' );
+		}
+		if (!$swiper_css) {
+			wp_enqueue_style( 'swiper-style' );
+			wp_enqueue_style( 'animate-style' );
+		}
 
 		$result = '';
 		ob_start(); 
@@ -54,6 +60,7 @@ class Shortcode
 				$slider_item = carbon_get_the_post_meta("slider_item"); 
 				$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
 				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
+				$select_image_size = carbon_get_the_post_meta("select_image_size"); 
 			?>
 		
 			<div class="primary_slider swiper-container slider-type-1 
@@ -63,7 +70,7 @@ class Shortcode
 					<?php 
 						foreach ($slider_item as $slider) {
 							$attachment_id = $slider['main_slider_image'];
-							$slider_image = wp_get_attachment_image_src( $attachment_id,'full');
+							$slider_image = wp_get_attachment_image_src( $attachment_id,$select_image_size);
 							$slider_image_url = $slider_image[0];
 							$animate_text = $slider['slider_title'] ;
 							
@@ -116,11 +123,20 @@ class Shortcode
 		if (!$slider_id) {
 			return ;
 		}
-		wp_enqueue_script( 'swiper-slider-script' );
-		wp_enqueue_script( 'swiper-animation-script' );
+
+		$swiper_js = carbon_get_theme_option( 'deactive_js' );
+		$swiper_css = carbon_get_theme_option( 'deactive_css' );
+		
+		if (!$swiper_js) {
+			wp_enqueue_script( 'swiper-slider-script' );
+			wp_enqueue_script( 'swiper-animation-script' );
+		}
+		if (!$swiper_css) {
+			wp_enqueue_style( 'swiper-style' );
+			wp_enqueue_style( 'animate-style' );
+		}
+
 		wp_enqueue_script( 'activation-script' );
-		wp_enqueue_style( 'swiper-style' );
-		wp_enqueue_style( 'animate-style' );
 		wp_enqueue_style( 'bs-frontend-style' );
 
 		$result = '';
@@ -144,6 +160,7 @@ class Shortcode
 				$content_position = carbon_get_the_post_meta("category_content_position");
 				$hide_title = carbon_get_the_post_meta("hide_title");
 				$hide_button = carbon_get_the_post_meta("hide_button");
+				$select_image_size = carbon_get_the_post_meta("select_image_size"); 
  				$classes = [] ;
 				if ($show_pagination) {
 					$classes[] = 'cat-slider-pagination'; 
@@ -173,20 +190,21 @@ class Shortcode
 									$categoryname = $term->name;
 									$category_link = get_category_link( $term->term_id );
 									$thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
-		    						$category_image = wp_get_attachment_url( $thumbnail_id );
+		    						$category_image = wp_get_attachment_image_src( $thumbnail_id, $select_image_size);;
 									// $category_image = "";
 									if ($value['category_image']) {
 										$category_image = $value['category_image'];
-										$category_image = wp_get_attachment_image_src( $category_image,'full');
+										$category_image = wp_get_attachment_image_src( $category_image, $select_image_size);
 										$category_image = $category_image[0];
 									}
 
 									?>
 
-									<div class="swiper-slide <?php echo apply_filters('categpry_slider', 'slider_content_class' ); ?>">
-										<a href="<?php echo $category_link; ?>">
+									<div class="swiper-slide <?php  echo $content_position.' ';  echo apply_filters('categpry_slider', 'slider_content_class' );?>">
+										<a class="category_image" href="<?php echo $category_link; ?>">
 											<img src="<?php echo $category_image ; ?>" alt="<?php echo $categoryname;?>">
 										</a>
+
 										<div class="cat-slide-content">
 											<?php if(!$hide_title){?>
 												<div class="name"><?php echo $categoryname;?></div>

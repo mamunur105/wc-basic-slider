@@ -28,10 +28,10 @@ class BSCpt {
     public function register_bs_slider() {
 
         $labels = array(
-            'name'               => _x( 'Basic Slider', 'post type general name', 'bs-slider' ),
-            'singular_name'      => _x( 'Basic Slider', 'post type singular name', 'bs-slider' ),
-            'menu_name'          => _x( 'Basic Slider', 'admin menu', 'bs-slider' ),
-            'name_admin_bar'     => _x( 'Basic Slider', 'add new on admin bar', 'bs-slider' ),
+            'name'               => _x( 'Wc Basic Slider', 'post type general name', 'bs-slider' ),
+            'singular_name'      => _x( 'Wc Basic Slider', 'post type singular name', 'bs-slider' ),
+            'menu_name'          => _x( 'Wc Basic Slider', 'admin menu', 'bs-slider' ),
+            'name_admin_bar'     => _x( 'Wc Basic Slider', 'add new on admin bar', 'bs-slider' ),
             'add_new'            => _x( 'Add New', 'book', 'bs-slider' ),
             'add_new_item'       => __( 'Add New Slider', 'bs-slider' ),
             'new_item'           => __( 'New Slider', 'bs-slider' ),

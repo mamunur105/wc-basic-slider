@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       Basic slider
+ * Plugin Name:       Wc Basic Slider
  * Plugin URI:        https://wordpress.org/plugins/basic-slider
- * Description:       This is basic slider 
+ * Description:       This is for woocommearce Category,Related product, Upsel product, And also habe simple basic slider. 
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -39,11 +39,16 @@ final class BS_Slider{
 		if (is_admin()) {
 			new Basic\Slider\Admin();	
 		}
-		
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('plugin_loaded',[ $this,'init_plugin' ]);
+		add_action( 'after_setup_theme', [$this,'after_setup_theme']);
+		// add_image_size( 'custom-size', 220, 180, true );
+
 	}
 
+	function after_setup_theme(){
+		add_image_size( 'custom-size', 220, 180, true );
+	}
 	/**
 	 * initilize a singleton instance
 	 * @return \WD_ac
@@ -66,6 +71,7 @@ final class BS_Slider{
 		define('BS_PATH', __DIR__);
 		define('BS_URL', plugins_url('',BS_FILE));
 		define('BS_ASSETS', BS_URL.'/assets');
+	
 	}
 
 	/**
