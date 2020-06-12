@@ -6,10 +6,6 @@ namespace Basic\Slider;
  */
 class Admin {
 	
-	function __construct(){
-		// add_action('admin_menu', [$this,'bs_slider_register_ref_page']);
-	}
-
 	function get_all_image_sizes() {
 	        global $_wp_additional_image_sizes;
 	        $sizes = array();

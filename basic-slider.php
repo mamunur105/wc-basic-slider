@@ -33,16 +33,21 @@ final class BS_Slider{
 	 *
 	 */
 	private function __construct(){
+
 		$this->define_constant();
 		new Basic\Slider\BSCpt(); 
 		// new Basic\Slider\BsOptions();
 		if (is_admin()) {
 			new Basic\Slider\Admin();	
 		}
+
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
-		add_action('plugin_loaded',[ $this,'init_plugin' ]);
+		add_action('init',[ $this,'init_plugin' ]);
+		add_action( 'after_setup_theme', 'crb_load',99 );
+		add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
+		add_action( 'carbon_fields_register_fields','bs_slider_settings' );
 		add_action( 'after_setup_theme', [$this,'after_setup_theme']);
-		// add_image_size( 'custom-size', 220, 180, true );
+		// add_filter('','<');
 
 	}
 
@@ -80,12 +85,13 @@ final class BS_Slider{
 	 */
 	public function activate(){ }
 
-	public function init_plugin(){
+	public function init_plugin(){ 
 		new Basic\Slider\Assets(); 
+
 		if (!is_admin()) {
 			new Basic\Slider\Frontend();	 
 		}
-
+		
 	}
 
 

@@ -235,7 +235,6 @@ class Shortcode
 							<div class="swiper-pagination"></div>
 						<?php } ?>
 
-
 					</div>
 				<?php
 

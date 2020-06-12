@@ -3,11 +3,6 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-// print_r($admin->get_all_image_sizes());
-
-add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
-add_action( 'after_setup_theme', 'crb_load',99 );
-
 function crb_load() {
 
     if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
@@ -44,8 +39,6 @@ function bs_slider_attach_post_meta(){
         }
     }
 
-
-	
     Container::make( 'post_meta', __( 'Slider option' ) )
         ->where( 'post_type', '=', 'bs_slider' )
         ->add_fields( array(
@@ -258,7 +251,7 @@ function bs_slider_attach_post_meta(){
 			    ) )
 			    ->add_fields( array(
 			    	
-			        Field::make( 'select', 'select_category', __( 'Choose slider type' ) )
+			        Field::make( 'select', 'select_category', __( 'Choose One Category' ) )
 					    ->set_options( $category_list )
 			        	->set_help_text( 'Note: Empty category are hidden' ) ,
 			        Field::make( 'image', 'category_image', __( 'Category Image' ) )
@@ -279,31 +272,50 @@ function bs_slider_attach_post_meta(){
         ) );
 }
 
-
-add_action( 'carbon_fields_register_fields','bs_slider_settings' );
 function bs_slider_settings(){
 	Container::make( 'theme_options', __( 'Settings', 'bs-slider' ) )
 	    ->set_page_parent( 'edit.php?post_type=bs_slider' )
 	    ->add_fields( array(
 
-	        Field::make( 'checkbox', 'deactive_css', __( 'Deactive Swiper CSS if already included', 'bs-slider' ) ),
-	        Field::make( 'checkbox', 'deactive_js', __( 'Deactive Swiper Js if already included', 'bs-slider' ) ),
+	        Field::make( 'checkbox', 'deactive_css', __( 'Deactive Swiper CSS if already included', 'bs-slider' ) )->set_help_text( 'Don\'t deactive if Swiper css is not previously included.' ),
+	        Field::make( 'checkbox', 'deactive_js', __( 'Deactive Swiper Js if included', 'bs-slider' ) )->set_help_text( 'Don\'t deactive if Swiper js is not previously included.' ),
 	        // Field::make( 'separator', 'crb_style_options', 'Style' ),
-	        Field::make( 'checkbox', 'related_product_slider', __( 'Related product slider', 'bs-slider' ) ),
-	        Field::make( 'checkbox', 'upsel_product_slider', __( 'Upsel product slider', 'bs-slider' ) ),
+	        Field::make( 'checkbox', 'related_product_slider', __( 'Related product slider', 'bs-slider' ) )->set_help_text( 'Visit Product page and see the change.' ),
+
+
+	        Field::make( 'checkbox', 'related_product_pagination', __( 'Show Pagination' ) )
+	        	->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'related_product_slider',
+			            'value' => true  
+			        )
+			    ) )
+	        	->set_option_value( 'yes' ),
+	        Field::make( 'checkbox', 'related_product_arrow', __( 'Show Arrow' ) )
+	        	->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'related_product_slider',
+			            'value' => true  
+			        )
+			    ) )
+	        	->set_option_value( 'yes' ),
+
+
+	        Field::make( 'checkbox', 'upsel_product_slider', __( 'Upsel product slider', 'bs-slider' ) 
+	    		)->set_help_text( 'Visit Product page and see the change.' ),
 	        Field::make( 'html', 'bs_slider_pro' )
-    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  WooCommerce Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>Create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
-    		// Field::make( 'html', 'bs_slider_rating' )
-    		// 	->set_html( '' )
+    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  Wc Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>Create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
 
 
 	    ) );
 	Container::make( 'theme_options', __( 'PRO', 'bs-slider' ) )
 	    ->set_page_parent( 'edit.php?post_type=bs_slider' )
 	    ->add_fields( array(
-	        Field::make( 'separator', 'crb_style_options', 'Pro Version' ),
+	        Field::make( 'separator', 'crb_style_options', 'Pro Services' ),
 	        Field::make( 'html', 'bs_slider_pro' )
-    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  WooCommerce Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>And you can create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
+    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  Wc Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>And you can create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
 
 	    ) );
 
