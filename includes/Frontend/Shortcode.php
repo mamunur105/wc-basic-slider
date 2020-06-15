@@ -124,21 +124,6 @@ class Shortcode
 			return ;
 		}
 
-		$swiper_js = carbon_get_theme_option( 'deactive_js' );
-		$swiper_css = carbon_get_theme_option( 'deactive_css' );
-		
-		if (!$swiper_js) {
-			wp_enqueue_script( 'swiper-slider-script' );
-			wp_enqueue_script( 'swiper-animation-script' );
-		}
-		if (!$swiper_css) {
-			wp_enqueue_style( 'swiper-style' );
-			wp_enqueue_style( 'animate-style' );
-		}
-
-		wp_enqueue_script( 'activation-script' );
-		wp_enqueue_style( 'bs-frontend-style' );
-
 		$result = '';
 		ob_start(); 
 		// echo $slider_id ;
@@ -157,6 +142,7 @@ class Shortcode
 				$button_text = carbon_get_the_post_meta("category_button_text"); 
 				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 				$category_layout = carbon_get_the_post_meta("category_layout");
+				$category_slidesPerView = carbon_get_the_post_meta("select_perview");
 				$content_position = carbon_get_the_post_meta("category_content_position");
 				$hide_title = carbon_get_the_post_meta("hide_title");
 				$hide_button = carbon_get_the_post_meta("hide_button");
@@ -178,7 +164,7 @@ class Shortcode
 				$class = implode(' ',$classes);
 				?>
 				
-					<div class="<?php echo $class; ?> swiper-container content-align " >
+					<div class="<?php echo $class; ?> swiper-container content-align " data-slidesPerView="<?php echo $category_slidesPerView; ?>"  >
 
 						<div class="swiper-wrapper">
 							<?php 
@@ -240,6 +226,22 @@ class Shortcode
 
 			}
 		} wp_reset_postdata();
+
+
+		$swiper_js = carbon_get_theme_option( 'deactive_js' );
+		$swiper_css = carbon_get_theme_option( 'deactive_css' );
+		
+		if (!$swiper_js) {
+			wp_enqueue_script( 'swiper-slider-script' );
+			wp_enqueue_script( 'swiper-animation-script' );
+		}
+		if (!$swiper_css) {
+			wp_enqueue_style( 'swiper-style' );
+			wp_enqueue_style( 'animate-style' );
+		}
+
+		wp_enqueue_script( 'activation-script' );
+		wp_enqueue_style( 'bs-frontend-style' );
 
 		$result .= ob_get_clean();
 		return $result;

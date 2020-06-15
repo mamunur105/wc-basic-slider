@@ -209,7 +209,22 @@ function bs_slider_attach_post_meta(){
 			        'below-content' => BS_ASSETS.'/image/below-content.jpg',
 			        'overlay-content' => BS_ASSETS.'/image/overlay-content.jpg',
 			    ) )->set_required( true ),
-						
+			
+			Field::make( 'select', 'select_perview', __( 'Choose slider perview' ) )
+				->set_conditional_logic( array(
+			        'relation' => 'AND', 
+			        array(
+			            'field' => 'select_slider_type',
+			            'value' => 'category_slider',
+			            'compare' => '='
+			        )
+			    ) )
+			    ->set_options( array(
+			        '3' => __('3 Items','bs-slider'),
+			        '4' => __('4 Items','bs-slider'),
+			        '5' => __('5 Items','bs-slider'),
+			        '6' => __('6 Items','bs-slider'),
+			    ) ),			
 			Field::make( 'checkbox', 'hide_title', __( 'Hide Title' ) )
 				->set_conditional_logic( array(
 			        'relation' => 'AND', 

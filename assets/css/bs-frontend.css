@@ -67,6 +67,9 @@
     position: relative;
 }
 
+.swiper-slide a.category_image img{
+    width: 100%;
+}
 .swiper-slide.overlay-content {
     position: relative;
 }
@@ -366,6 +369,14 @@
     right: calc(50% - 30px);
     left: inherit;
 }
+
+.related_product ul.swiper-wrapper.products {
+    /* display: block; */
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+
 /*
 .category_slider_2.swiper-container-multirow-column>.swiper-wrapper {
     align-items: flex-start;

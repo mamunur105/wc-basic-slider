@@ -1,16 +1,26 @@
     !(function($){
-    	    	// Check if element exists
+    	// Check if element exists
 		$.fn.elExists = function() {
 			return this.length > 0;
 		};
+
+
+		var swiperAnimation = new SwiperAnimation();
 
     	function double_row_slider(){
 			var $catSLider_2 = $(".category_slider_2");
 
 			if ($catSLider_2.elExists()) {
-			  	
+
+			  	var slidesPerView = $catSLider_2.attr("data-slidesPerView"); 
+
+			  	// console.log(slidesPerView);
+			  	if (!slidesPerView) {
+			  		slidesPerView = 4 ;
+			  	}
+
 				var swiper = new Swiper($catSLider_2, {
-					slidesPerView: 4,
+					slidesPerView: slidesPerView,
 					slidesPerColumn: 2,
 					spaceBetween: 30,
 					pagination: {
@@ -32,10 +42,10 @@
 					      slidesPerView: 2
 					    },
 					    767: {
-					      slidesPerView: 3
+					      slidesPerView: slidesPerView - 1 
 					    },
 					    992: {
-					      slidesPerView: 4
+					      slidesPerView: slidesPerView
 					    }
 					}
 
@@ -51,7 +61,6 @@
  
     	});
 
-		var swiperAnimation = new SwiperAnimation();
 		/************************************************************
 		Primary Slider Settings
 		*************************************************************/
@@ -143,8 +152,15 @@
 		var $catSLider_1 = $(".category_slider_1");
 
 		if ($catSLider_1.elExists()) {
+			var slidesPerView = $catSLider_1.attr("data-slidesPerView"); 
+
+		  	// console.log(slidesPerView);
+		  	if (!slidesPerView) {
+		  		slidesPerView = 4 ;
+		  	}
+
 		  	var swiper = new Swiper($catSLider_1, {
-				slidesPerView: 4,
+				slidesPerView: slidesPerView,
 				spaceBetween: 30,
 				// slidesPerColumn: 2,
 				navigation: {
@@ -170,24 +186,31 @@
 				    },
 				    // when window width is >= 640px
 				    768: {
-				      slidesPerView: 3,
+				      slidesPerView: slidesPerView - 1,
 				      spaceBetween: 30
 				    },
 
-				    991: {
-				      slidesPerView: 4,
+				    992: {
+				      slidesPerView: slidesPerView,
 				      spaceBetween: 30
 				    }
 				}
 		    });
 
 		}
-		var $related_product = "";
+		var $related_product = $(".related_product");
 		if ($related_product.elExists()) {
-		  	var swiper = new Swiper($catSLider_1, {
-				slidesPerView: 4,
+
+			var slidesPerView = $related_product.attr("data-slidesPerView"); 
+			
+		  	console.log(slidesPerView);
+		  	if (!slidesPerView) {
+		  		slidesPerView = 4 ;
+		  	}
+
+		  	var swiper = new Swiper($related_product, {
+				slidesPerView: slidesPerView,
 				spaceBetween: 30,
-				// slidesPerColumn: 2,
 				navigation: {
 					nextEl: ".swiper-arrow.next",
 					prevEl: ".swiper-arrow.prev"
@@ -201,23 +224,18 @@
 				breakpoints: {
 				    // when window width is >= 320px
 				    320: {
-				      slidesPerView: 1,
-				      spaceBetween: 30
+				      slidesPerView: 1
 				    },
 				    // when window width is >= 480px
 				    450: {
-				      slidesPerView: 2,
-				      spaceBetween: 30
+				      slidesPerView: 2
 				    },
 				    // when window width is >= 640px
 				    768: {
-				      slidesPerView: 3,
-				      spaceBetween: 30
+				      slidesPerView: slidesPerView -1
 				    },
-
 				    991: {
-				      slidesPerView: 4,
-				      spaceBetween: 30
+				      slidesPerView: slidesPerView
 				    }
 				}
 		    });

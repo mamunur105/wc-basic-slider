@@ -26,7 +26,22 @@ class ProductSlider
 
 	function  relatedProduct(){ 
 
-		
+		$swiper_js = carbon_get_theme_option( 'deactive_js' );
+		$swiper_css = carbon_get_theme_option( 'deactive_css' );
+
+		if (!$swiper_js) {
+			wp_enqueue_script( 'swiper-slider-script' );
+			wp_enqueue_script( 'swiper-animation-script' );
+		}
+		if (!$swiper_css) {
+			wp_enqueue_style( 'swiper-style' );
+			wp_enqueue_style( 'animate-style' );
+		}
+
+		wp_enqueue_script( 'activation-script' );
+		wp_enqueue_style( 'bs-frontend-style' );
+
+
 		global $product;
 
 		if ( ! $product ) {
@@ -50,21 +65,24 @@ class ProductSlider
 		wc_set_loop_prop( 'name', 'related' );
 		wc_set_loop_prop( 'columns', apply_filters( 'woocommerce_related_products_columns', $args['columns'] ) );
 		extract($args);
+
+		$total = count($related_products);
+
 		if ( $related_products ) : ?>
 
 			<section class="related products">
 
 				<?php
 				$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products here', 'woocommerce' ) );
-
+				$column = esc_attr( wc_get_loop_prop( 'columns' ) ) ;
 				if ( $heading ) :
 					?>
 					<h2><?php echo esc_html( $heading ); ?></h2>
 				<?php endif; ?>
-				<div class="swiper-container">
+				<div class="related_product swiper-container" data-slidesPerView="<?php echo $column;?>">
 	   				
 					<?php 
-						$loop_start = '<ul class="swiper-wrapper products columns-'.esc_attr( wc_get_loop_prop( 'columns' ) ).'">';
+						$loop_start = '<ul class="swiper-wrapper products columns-'.$column.'">';
 						echo $loop_start = apply_filters( 'woocommerce_product_loop_start', $loop_start );
 					?>
 
@@ -82,8 +100,11 @@ class ProductSlider
 
 					<?php woocommerce_product_loop_end(); ?>
 					
-				    <!-- Add Pagination -->
-				    <div class="swiper-pagination"></div>
+					<?php if($total > $column){ ?>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					<?php } ?>
+
 				 </div>
 
 			</section>
