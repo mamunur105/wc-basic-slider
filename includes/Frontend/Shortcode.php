@@ -82,9 +82,9 @@ class Shortcode
 										$item = 1;
 										foreach ($animate_text as $slider_text) {
 											if (1 == $item) {
-												echo "<h1 class='main-title' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}'><span>{$slider_text['main_slider_title']}</span></h1>";
+												echo "<h1 class='main-title' data-swiper-animation='".esc_attr($slider_text['select_slider_animation'])."' data-duration='".esc_attr($slider_text['animation_duration'])."' data-delay='".esc_attr($slider_text['animation_delay'])."'><span>{$slider_text['main_slider_title']}</span></h1>";
 											}else{
-												echo "<p class='subtitle' data-swiper-animation='{$slider_text['select_slider_animation']}' data-duration='{$slider_text['animation_duration']}' data-delay='1s'>{$slider_text['main_slider_title']}</p>";
+												echo "<p class='subtitle' data-swiper-animation='".esc_attr($slider_text['select_slider_animation'])."' data-duration='".esc_attr($slider_text['animation_duration'])."' data-delay='".esc_attr($slider_text['animation_delay'])."'>{$slider_text['main_slider_title']}</p>";
 											}	
 											$item++;
 										} 
