@@ -318,11 +318,10 @@ function bs_slider_settings(){
 	        	->set_option_value( 'yes' ),
 
 
-	        Field::make( 'checkbox', 'upsel_product_slider', __( 'Upsel product slider', 'bs-slider' ) 
-	    		)->set_help_text( 'Visit Product page and see the change.' ),
+	      //   Field::make( 'checkbox', 'upsel_product_slider', __( 'Upsel product slider', 'bs-slider' ) 
+	    		// )->set_help_text( 'Visit Product page and see the change.' ),
 	        Field::make( 'html', 'bs_slider_pro' )
-    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  Wc Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>Create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
-
+    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a>If you like  Wc Basic Slider please leave us a rating <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a>. Your Review is very important to us as it helps us to grow more.</p><p>And you can create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
 
 	    ) );
 	Container::make( 'theme_options', __( 'PRO', 'bs-slider' ) )
@@ -330,7 +329,7 @@ function bs_slider_settings(){
 	    ->add_fields( array(
 	        Field::make( 'separator', 'crb_style_options', 'Pro Services' ),
 	        Field::make( 'html', 'bs_slider_pro' )
-    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a></p><p>If you like  Wc Basic Slider please leave us a  rating. Your Review is very important to us as it helps us to grow more. <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a></p><p>And you can create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
+    			->set_html( '<p>For more customization please <a href="mailto:rmamunur105@gmail.com"> contact here. </a>If you like  Wc Basic Slider please leave us a rating <a href="https://profiles.wordpress.org/mamunur105/#content-plugins"> ★★★★★ </a>. Your Review is very important to us as it helps us to grow more.</p><p>And you can create <a href="https://github.com/mamunur105/basic-slider/issues" target="_blank"> issues here. </a></p>' ),
 
 	    ) );
 
