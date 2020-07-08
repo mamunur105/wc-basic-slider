@@ -47,6 +47,8 @@ final class BS_Slider{
 		add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
 		add_action( 'carbon_fields_register_fields','bs_slider_settings' );
 		add_action( 'after_setup_theme', [$this,'after_setup_theme']);
+
+		add_action( 'admin_notices', [$this,'bs_slider_notice_message'] );
 		// add_filter('','<');
 
 	}
@@ -93,6 +95,15 @@ final class BS_Slider{
 		}
 		
 	}
+
+	public function bs_slider_notice_message( $type ) {
+		if ( !class_exists( 'woocommerce' ) ) {
+			echo '<div class="updated notice is-dismissible notice-sp-wcsp-woo"><p>';
+			echo __( 'Please active WooCommerce plugin to make the <b>Category Slider for WooCommerce</b>.', 'bs-slider' );
+			echo '</p></div>';
+		}
+	}
+
 
 
 }
