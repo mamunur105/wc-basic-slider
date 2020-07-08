@@ -53,7 +53,7 @@ function bs_slider_attach_post_meta(){
 			    ->set_options( 
 			    	$admin->get_all_image_sizes()
 			    ),
-
+			
 		    Field::make( 'complex', 'slider_item', 'Add Slider Items' )
 		    	->set_layout( 'tabbed-vertical' )
 			    ->set_conditional_logic( array(
@@ -182,6 +182,58 @@ function bs_slider_attach_post_meta(){
 				    ) )
 
 	            ) ),
+
+	    	Field::make( 'text', 'height_for_min_1200', __( 'Height For device min width: 1200px' ) )
+		    	->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 500px' ),
+		    Field::make( 'text', 'height_for_min_992', __( 'Height For device min width:992px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 500px' ),
+		    Field::make( 'text', 'height_for_min_768', __( 'Height For device min width:768px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 500px' ),
+		    Field::make( 'text', 'height_for_min_600', __( 'Height For device min width:600px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 500px' ),
+		    Field::make( 'text', 'height_for_min_320', __( 'Height For device min width:320px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 500px' ),
+
 
 	    	Field::make( 'radio_image', 'category_layout', 'Select Layout' )
 		    	->set_conditional_logic( array(
