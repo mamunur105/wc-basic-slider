@@ -164,7 +164,7 @@ class Shortcode
 				$class = implode(' ',$classes);
 				?>
 				
-					<div class="<?php echo $class; ?> swiper-container content-align " data-slidesPerView="<?php echo $category_slidesPerView; ?>"  >
+					<div class="<?php echo esc_attr($class); ?> swiper-container content-align " data-slidesPerView="<?php echo esc_attr($category_slidesPerView); ?>"  >
 
 						<div class="swiper-wrapper">
 							<?php 
@@ -186,9 +186,9 @@ class Shortcode
 
 									?>
 
-									<div class="swiper-slide <?php  echo $content_position.' ';  echo apply_filters('categpry_slider', 'slider_content_class' );?>">
-										<a class="category_image" href="<?php echo $category_link; ?>">
-											<img src="<?php echo $category_image ; ?>" alt="<?php echo $categoryname;?>">
+									<div class="swiper-slide <?php  echo esc_attr($content_position).' ';  echo apply_filters('categpry_slider', 'slider_content_class' );?>">
+										<a class="category_image" href="<?php echo esc_attr($category_link); ?>">
+											<img src="<?php echo esc_url($category_image) ; ?>" alt="<?php echo esc_attr($categoryname);?>">
 										</a>
 
 										<div class="cat-slide-content">

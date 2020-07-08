@@ -206,8 +206,8 @@ function bs_slider_attach_post_meta(){
 			        )
 			    ) )
 			    ->add_options( array(
-			        'below-content' => BS_ASSETS.'/image/below-content.jpg',
-			        'overlay-content' => BS_ASSETS.'/image/overlay-content.jpg',
+			        'below-content' => BS_ASSETS.'/image/below-content.png',
+			        'overlay-content' => BS_ASSETS.'/image/overlay-content.png',
 			    ) )->set_required( true ),
 			
 			Field::make( 'select', 'select_perview', __( 'Choose slider perview' ) )
