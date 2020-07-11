@@ -61,8 +61,42 @@ class Shortcode
 				$show_pagination = carbon_get_the_post_meta("slider_pagination"); 
 				$show_arrow = carbon_get_the_post_meta("slider_arrow"); 
 				$select_image_size = carbon_get_the_post_meta("select_image_size"); 
+
+				$height_for_min_1200 = carbon_get_the_post_meta("height_for_min_1200"); 
+				$height_for_min_992 = carbon_get_the_post_meta("height_for_min_992"); 
+				$height_for_min_768 = carbon_get_the_post_meta("height_for_min_768"); 
+				$height_for_min_600 = carbon_get_the_post_meta("height_for_min_600"); 
+				$height_for_min_320 = carbon_get_the_post_meta("height_for_min_320"); 
+
+				$height_for_min_320 = $height_for_min_320 ? $height_for_min_320 :'500px'; 
+				$height_for_min_600 =  $height_for_min_600 ? $height_for_min_600 : $height_for_min_320; 
+				$height_for_min_768 =  $height_for_min_768 ? $height_for_min_768 :$height_for_min_600; 
+				$height_for_min_992 =  $height_for_min_992 ? $height_for_min_992 :$height_for_min_768; 
+				$height_for_min_1200 =  $height_for_min_1200 ? $height_for_min_1200 :$height_for_min_992; 
+
+
 			?>
-		
+				<style>
+
+					/*.bg-img-wrapper .image-placeholder{height:500px}*/
+					@media (min-width: 300px) { 
+						.primary_slider .slide-inner{<?php echo "height:$height_for_min_320;";?>} 
+					}
+					@media (min-width: 600px) {
+						.primary_slider .slide-inner{<?php echo "height:$height_for_min_600;";?>} 
+					}
+					@media (min-width: 768px) {
+						.primary_slider .slide-inner{<?php echo "height:$height_for_min_768;";?>} 
+					}
+					@media (min-width: 992px) { 
+						.primary_slider .slide-inner{<?php echo "height:$height_for_min_992;";?>} 
+					}
+					@media (min-width: 1200px) { 
+						.primary_slider .slide-inner{<?php echo "height:$height_for_min_1200;";?>;} 
+					}
+
+				</style>
+
 			<div class="primary_slider swiper-container slider-type-1 
 				<?php echo apply_filters('primary_slider_parent_class', 'slider-wrapper-class' ); ?>">
 				<!-- Slides -->
@@ -73,10 +107,14 @@ class Shortcode
 							$slider_image = wp_get_attachment_image_src( $attachment_id,$select_image_size);
 							$slider_image_url = $slider_image[0];
 							$animate_text = $slider['slider_title'] ;
+
+							$image_url = "background-image: url($slider_image_url)";
+
 							
 						?>
+
 						<div class="swiper-slide bg-img-wrapper">
-							<div class="slide-inner image-placeholder pos-r" style="height:500px;background-image: url(<?php echo $slider_image_url ; ?>);">
+							<div class="slide-inner image-placeholder pos-r" style="<?php echo $image_url;?>">
 								<div class="slide-content <?php echo apply_filters('primary_slider_slide_content_parent_class', 'slide-content-test' ); ?> ">
 									<?php 
 										$item = 1;

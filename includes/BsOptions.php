@@ -182,8 +182,17 @@ function bs_slider_attach_post_meta(){
 				    ) )
 
 	            ) ),
-
-	    	Field::make( 'text', 'height_for_min_1200', __( 'Height For device min width: 1200px' ) )
+	        Field::make( 'html', 'bs_slider_pro' )
+	        		->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+    			->set_html( '<h1>Responsive Slider Height</h1>' ),
+	    	Field::make( 'text', 'height_for_min_1200', __( 'Device min width: 1200px' ) )
 		    	->set_conditional_logic( array(
 				        'relation' => 'AND', 
 				        array(
@@ -192,8 +201,28 @@ function bs_slider_attach_post_meta(){
 				            'compare' => '=', 
 				        )
 				    ) )
-		        ->set_help_text( 'Example: 500px' ),
-		    Field::make( 'text', 'height_for_min_992', __( 'Height For device min width:992px' ) )
+		        ->set_help_text( 'Example: 750px' ),
+		    Field::make( 'text', 'height_for_min_992', __( 'Device min width:992px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 700px' ),
+		    Field::make( 'text', 'height_for_min_768', __( 'Device min width:768px' ) )
+			    ->set_conditional_logic( array(
+				        'relation' => 'AND', 
+				        array(
+				            'field' => 'select_slider_type',
+				            'value' => 'main_slider',  
+				            'compare' => '=', 
+				        )
+				    ) )
+		        ->set_help_text( 'Example: 600px' ),
+		    Field::make( 'text', 'height_for_min_600', __( 'Device min width:600px' ) )
 			    ->set_conditional_logic( array(
 				        'relation' => 'AND', 
 				        array(
@@ -203,7 +232,7 @@ function bs_slider_attach_post_meta(){
 				        )
 				    ) )
 		        ->set_help_text( 'Example: 500px' ),
-		    Field::make( 'text', 'height_for_min_768', __( 'Height For device min width:768px' ) )
+		    Field::make( 'text', 'height_for_min_320', __( 'Device more small' ) )
 			    ->set_conditional_logic( array(
 				        'relation' => 'AND', 
 				        array(
@@ -212,27 +241,7 @@ function bs_slider_attach_post_meta(){
 				            'compare' => '=', 
 				        )
 				    ) )
-		        ->set_help_text( 'Example: 500px' ),
-		    Field::make( 'text', 'height_for_min_600', __( 'Height For device min width:600px' ) )
-			    ->set_conditional_logic( array(
-				        'relation' => 'AND', 
-				        array(
-				            'field' => 'select_slider_type',
-				            'value' => 'main_slider',  
-				            'compare' => '=', 
-				        )
-				    ) )
-		        ->set_help_text( 'Example: 500px' ),
-		    Field::make( 'text', 'height_for_min_320', __( 'Height For device min width:320px' ) )
-			    ->set_conditional_logic( array(
-				        'relation' => 'AND', 
-				        array(
-				            'field' => 'select_slider_type',
-				            'value' => 'main_slider',  
-				            'compare' => '=', 
-				        )
-				    ) )
-		        ->set_help_text( 'Example: 500px' ),
+		        ->set_help_text( 'Example: 400px' ),
 
 
 	    	Field::make( 'radio_image', 'category_layout', 'Select Layout' )
