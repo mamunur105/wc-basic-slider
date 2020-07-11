@@ -70,9 +70,9 @@ class ProductSlider
 					?>
 					<h2><?php echo esc_html( $heading ); ?></h2>
 				<?php endif; ?>
-				<div class="related_product swiper-container" data-slidesPerView="<?php echo $column;?>">
+				<div class="related_product swiper-container" data-slidesPerView="<?php echo esc_attr($column);?>">
 					<?php 
-						$loop_start = '<ul class="swiper-wrapper products columns-'.$column.'">';
+						$loop_start = '<ul class="swiper-wrapper products columns-'.esc_attr($column).'">';
 						echo $loop_start = apply_filters( 'woocommerce_product_loop_start', $loop_start );
 					?>
 

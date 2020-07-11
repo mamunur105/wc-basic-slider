@@ -114,7 +114,7 @@ class Shortcode
 						?>
 
 						<div class="swiper-slide bg-img-wrapper">
-							<div class="slide-inner image-placeholder pos-r" style="<?php echo $image_url;?>">
+							<div class="slide-inner image-placeholder pos-r" style="<?php echo esc_attr($image_url);?>">
 								<div class="slide-content <?php echo apply_filters('primary_slider_slide_content_parent_class', 'slide-content-test' ); ?> ">
 									<?php 
 										$item = 1;
