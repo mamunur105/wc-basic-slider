@@ -108,13 +108,13 @@ class Shortcode
 							$slider_image_url = $slider_image[0];
 							$animate_text = $slider['slider_title'] ;
 
-							$image_url = "background-image: url($slider_image_url)";
+							$background_image = "background-image: url($slider_image_url)";
 
 							
 						?>
 
 						<div class="swiper-slide bg-img-wrapper">
-							<div class="slide-inner image-placeholder pos-r" style="<?php echo esc_attr($image_url);?>">
+							<div class="slide-inner image-placeholder pos-r" style="<?php echo esc_attr($background_image);?>">
 								<div class="slide-content <?php echo apply_filters('primary_slider_slide_content_parent_class', 'slide-content-test' ); ?> ">
 									<?php 
 										$item = 1;
