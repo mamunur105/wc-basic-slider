@@ -289,11 +289,11 @@
     margin-top: 10px;
 }
 
-.cat-slider-pagination .cat-buttno {
+.cat-button {
     margin-top: 10px;
 }
 
-.cat-slider-pagination .cat-buttno a {
+.cat-button a {
     text-decoration: none;
     border: 1px solid;
     padding: 7px 15px;
@@ -361,11 +361,11 @@
 }
 
 .category_slider_2.cat-slider-arrow .swiper-btn-prev {
-    left: calc(100% - 30px);
+    left: calc(100% - 65px);
 }
 
 .category_slider_2.cat-slider-arrow .swiper-btn-next {
-    left: calc(100% - 100px);
+    left: calc(100% - 30px);
 }
 
 .related_product ul.swiper-wrapper.products {

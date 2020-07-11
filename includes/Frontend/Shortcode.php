@@ -235,7 +235,7 @@ class Shortcode
 											<?php } ?>
 											<?php if(!$hide_button){?>
 
-											<div class="cat-buttno">
+											<div class="cat-button">
 												<a href="<?php echo $category_link; ?>">
 												<?php echo $button_text;?></a>
 											</div>

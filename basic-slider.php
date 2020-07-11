@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Wc Basic Slider
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
- * Description:       This is for woocommearce Category,Related product, Upsel product, And also habe simple basic slider. 
+ * Description:       This is for woocommearce Category,Related product, And also habe simple basic slider. 
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
