@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Wc Basic Slider
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
- * Description:       This is for woocommearce Category,Related product, And also habe simple basic slider. 
+ * Description:       This is for woocommerce Category,Related product, And also For Promotional basic slider. 
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -43,6 +43,7 @@ final class BS_Slider{
 
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('init',[ $this,'init_plugin' ]);
+		add_action( 'plugins_loaded', [ $this , 'load_textdomain'] );
 		add_action( 'after_setup_theme', 'crb_load',99 );
 		add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
 		add_action( 'carbon_fields_register_fields','bs_slider_settings' );
@@ -51,6 +52,10 @@ final class BS_Slider{
 		add_action( 'admin_notices', [$this,'bs_slider_notice_message'] );
 		// add_filter('','<');
 
+	}
+
+  	function load_textdomain() {
+		load_plugin_textdomain( 'bs-slider', false, plugin_dir_path( __FILE__ ) . "languages" );
 	}
 
 	function after_setup_theme(){

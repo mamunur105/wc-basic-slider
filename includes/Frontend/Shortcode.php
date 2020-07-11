@@ -96,7 +96,7 @@ class Shortcode
 					}
 
 				</style>
-
+		
 			<div class="primary_slider swiper-container slider-type-1 
 				<?php echo apply_filters('primary_slider_parent_class', 'slider-wrapper-class' ); ?>">
 				<!-- Slides -->
