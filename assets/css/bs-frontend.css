@@ -375,7 +375,9 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
 }
-
+.woocommerce .related_product  ul.products li.product{
+    margin-bottom: 0;
+}
 
 /*
 .category_slider_2.swiper-container-multirow-column>.swiper-wrapper {

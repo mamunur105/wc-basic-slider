@@ -203,7 +203,7 @@
 
 			var slidesPerView = $related_product.attr("data-slidesPerView"); 
 			
-		  	console.log(slidesPerView);
+		  	// console.log(slidesPerView);
 		  	if (!slidesPerView) {
 		  		slidesPerView = 4 ;
 		  	}
