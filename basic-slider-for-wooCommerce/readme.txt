@@ -1,4 +1,4 @@
-=== Wc Basic Slider ===
+=== Basic Slider for WooCommerce ===
 Contributors: mamunur105
 Tags: Slider,Category slider,Related product Slider,Promotional Product slider
 Donate link: #

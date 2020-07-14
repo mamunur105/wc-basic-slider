@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Wc Basic Slider
+ * Plugin Name:       Basic Slider for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional basic slider. 
  * Version:           1.0.0
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // use Carbon_Fields;
 require_once __DIR__.'/vendor/autoload.php';  
 
-final class BS_Slider{
+final class bsfw_Slider{
 
    /**
 	* Plugin version 
@@ -44,9 +44,9 @@ final class BS_Slider{
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('init',[ $this,'init_plugin' ]);
 		add_action( 'plugins_loaded', [ $this , 'load_textdomain'] );
-		add_action( 'after_setup_theme', 'crb_load',99 );
-		add_action( 'carbon_fields_register_fields','bs_slider_attach_post_meta' );
-		add_action( 'carbon_fields_register_fields','bs_slider_settings' );
+		add_action( 'after_setup_theme', 'bsfw_crb_load',99 );
+		add_action( 'carbon_fields_register_fields','bsfw_slider_attach_post_meta' );
+		add_action( 'carbon_fields_register_fields','bsfw_slider_settings' );
 		add_action( 'after_setup_theme', [$this,'after_setup_theme']);
 
 		add_action( 'admin_notices', [$this,'bs_slider_notice_message'] );
@@ -78,11 +78,11 @@ final class BS_Slider{
 	 * @return \WD_ac
 	 */
 	public function define_constant(){
-		define('BS_VERSION', self::version);
-		define('BS_FILE', __FILE__);
-		define('BS_PATH', __DIR__);
-		define('BS_URL', plugins_url('',BS_FILE));
-		define('BS_ASSETS', BS_URL.'/assets');
+		define('BSFW_VERSION', self::version);
+		define('BSFW_FILE', __FILE__);
+		define('BSFW_PATH', __DIR__);
+		define('BSFW_URL', plugins_url('',BSFW_FILE));
+		define('BSFW_ASSETS', BSFW_URL.'/assets');
 	
 	}
 
@@ -113,9 +113,9 @@ final class BS_Slider{
 
 }
 
-function basic_slider(){
-	return BS_Slider::init();
+function bsfw_slider(){
+	return bsfw_Slider::init();
 }
 
-basic_slider();
+bsfw_slider();
 

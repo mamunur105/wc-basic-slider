@@ -3,10 +3,10 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-function crb_load() {
+function bsfw_crb_load() {
 
     if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
-		require_once( BS_PATH. '/lib/carbon-fields/vendor/autoload.php' ); 
+		require_once( BSFW_PATH. '/lib/carbon-fields/vendor/autoload.php' ); 
 	}
     \Carbon_Fields\Carbon_Fields::boot();
 }
@@ -14,7 +14,7 @@ function crb_load() {
 
 // print_r(_get_all_image_sizes());
 // function 
-function bs_slider_attach_post_meta(){
+function bsfw_slider_attach_post_meta(){
 
 	$admin = new \Basic\Slider\Admin();
 
@@ -254,8 +254,8 @@ function bs_slider_attach_post_meta(){
 			        )
 			    ) )
 			    ->add_options( array(
-			        'slider' => BS_ASSETS.'/image/slider.png',
-			        'grid' => BS_ASSETS.'/image/grid.png',
+			        'slider' => BSFW_ASSETS.'/image/slider.png',
+			        'grid' => BSFW_ASSETS.'/image/grid.png',
 			    ) )->set_required( true ),
 	    	Field::make( 'radio_image', 'category_content_position', 'Content Posotion' )
 		    	->set_conditional_logic( array(
@@ -267,8 +267,8 @@ function bs_slider_attach_post_meta(){
 			        )
 			    ) )
 			    ->add_options( array(
-			        'below-content' => BS_ASSETS.'/image/below-content.png',
-			        'overlay-content' => BS_ASSETS.'/image/overlay-content.png',
+			        'below-content' => BSFW_ASSETS.'/image/below-content.png',
+			        'overlay-content' => BSFW_ASSETS.'/image/overlay-content.png',
 			    ) )->set_required( true ),
 			
 			Field::make( 'select', 'select_perview', __( 'Choose slider perview' ) )
@@ -348,7 +348,7 @@ function bs_slider_attach_post_meta(){
         ) );
 }
 
-function bs_slider_settings(){
+function bsfw_slider_settings(){
 	Container::make( 'theme_options', __( 'Settings', 'bs-slider' ) )
 	    ->set_page_parent( 'edit.php?post_type=bs_slider' )
 	    ->add_fields( array(
