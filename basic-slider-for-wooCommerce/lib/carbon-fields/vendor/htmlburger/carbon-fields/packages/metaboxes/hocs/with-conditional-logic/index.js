@@ -35,10 +35,6 @@ import { fromSelector, withConditionalLogic } from '@carbon-fields/core';
  * @return {Object[]}
  */
 function getFieldsFromFieldsHolder( fieldsHolder, allFields, excludedIds = [] ) {
-	if ( typeof fieldsHolder === 'undefined' ) {
-		return [];
-	}
-
 	return pick( allFields, difference( map( fieldsHolder.fields, 'id' ), excludedIds ) );
 }
 

@@ -140,7 +140,7 @@ class Loader {
 	 * @return string
 	 */
 	protected function get_assets_context() {
-		return get_current_screen()->is_block_editor() ? 'gutenberg' : 'classic';
+		return wp_script_is( 'wp-element' ) ? 'gutenberg' : 'classic';
 	}
 
 	/**
