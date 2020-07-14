@@ -4,8 +4,8 @@
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional basic slider. 
  * Version:           1.0.0
- * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Requires at least: 5.0
+ * Requires PHP:      7.0
  * Author:            Mamunur rashid
  * Author URI:        https://profiles.wordpress.org/mamunur105
  * License:           GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // use Carbon_Fields;
 require_once __DIR__.'/vendor/autoload.php';  
 
-final class bsfw_Slider{
+final class BSFW_Slider{
 
    /**
 	* Plugin version 
@@ -35,10 +35,10 @@ final class bsfw_Slider{
 	private function __construct(){
 
 		$this->define_constant();
-		new Basic\Slider\BSCpt(); 
+		new BasicSliderForWooCommerce\BSCpt(); 
 		// new Basic\Slider\BsOptions();
 		if (is_admin()) {
-			new Basic\Slider\Admin();	
+			new BasicSliderForWooCommerce\Admin();	
 		}
 
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
@@ -93,10 +93,10 @@ final class bsfw_Slider{
 	public function activate(){ }
 
 	public function init_plugin(){ 
-		new Basic\Slider\Assets(); 
+		new BasicSliderForWooCommerce\Assets(); 
 
 		if (!is_admin()) {
-			new Basic\Slider\Frontend();	 
+			new BasicSliderForWooCommerce\Frontend();	 
 		}
 		
 	}
@@ -114,7 +114,7 @@ final class bsfw_Slider{
 }
 
 function bsfw_slider(){
-	return bsfw_Slider::init();
+	return BSFW_Slider::init();
 }
 
 bsfw_slider();

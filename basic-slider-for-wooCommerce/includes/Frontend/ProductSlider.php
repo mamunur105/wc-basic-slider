@@ -1,5 +1,5 @@
 <?php
-namespace Basic\Slider\Frontend;
+namespace BasicSliderForWooCommerce\Frontend;
 
 /**
  * 

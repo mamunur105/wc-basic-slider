@@ -1,6 +1,6 @@
 <?php
 
-namespace Basic\Slider;
+namespace BasicSliderForWooCommerce;
 
 /**
  * Assets handlers class
@@ -23,18 +23,18 @@ class Assets {
 	public function get_scripts() {
 		return [
 			'swiper-slider-script' => [
-				'src'     	=> BS_ASSETS . '/js/swiper.min.js',
-				'version'	=> filemtime( BS_PATH . '/assets/js/swiper.min.js' ),
+				'src'     	=> BSFW_ASSETS . '/js/swiper.min.js',
+				'version'	=> filemtime( BSFW_PATH . '/assets/js/swiper.min.js' ),
 				'deps'   	=> [ 'jquery' ]
 			],
 			'swiper-animation-script' => [
-				'src'     	=> BS_ASSETS . '/js/swiper-animation.min.js',
-				'version'	=> filemtime( BS_PATH . '/assets/js/swiper-animation.min.js' ),
+				'src'     	=> BSFW_ASSETS . '/js/swiper-animation.min.js',
+				'version'	=> filemtime( BSFW_PATH . '/assets/js/swiper-animation.min.js' ),
 				'deps'   	=> [ 'jquery' ]
 			],
 			'activation-script' => [
-				'src'     	=> BS_ASSETS . '/js/activation.js',
-				'version'	=> filemtime( BS_PATH . '/assets/js/activation.js' ),
+				'src'     	=> BSFW_ASSETS . '/js/activation.js',
+				'version'	=> filemtime( BSFW_PATH . '/assets/js/activation.js' ),
 				'deps'   	=> [ 'jquery' ]
 			],
 		];
@@ -48,20 +48,20 @@ class Assets {
 	public function get_styles() {
 		return [
 			'swiper-style' => [
-				'src'     => BS_ASSETS . '/css/swiper.min.css',
-				'version' => filemtime( BS_PATH . '/assets/css/swiper.min.css' )
+				'src'     => BSFW_ASSETS . '/css/swiper.min.css',
+				'version' => filemtime( BSFW_PATH . '/assets/css/swiper.min.css' )
 			],
 			'animate-style' => [
-				'src'     => BS_ASSETS . '/css/animate.min.css',
-				'version' => filemtime( BS_PATH . '/assets/css/animate.min.css' )
+				'src'     => BSFW_ASSETS . '/css/animate.min.css',
+				'version' => filemtime( BSFW_PATH . '/assets/css/animate.min.css' )
 			],
 			'bs-frontend-style' => [
-				'src'     => BS_ASSETS . '/css/bs-frontend.css',
-				'version' => filemtime( BS_PATH . '/assets/css/bs-frontend.css' )
+				'src'     => BSFW_ASSETS . '/css/bs-frontend.css',
+				'version' => filemtime( BSFW_PATH . '/assets/css/bs-frontend.css' )
 			],
 			'admin-style' => [
-				'src'     => BS_ASSETS . '/css/admin.css',
-				'version' => filemtime( BS_PATH . '/assets/css/admin.css' )
+				'src'     => BSFW_ASSETS . '/css/admin.css',
+				'version' => filemtime( BSFW_PATH . '/assets/css/admin.css' )
 			]
 		];
 	}

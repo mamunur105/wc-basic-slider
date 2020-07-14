@@ -1,5 +1,5 @@
 <?php
-namespace Basic\Slider;
+namespace BasicSliderForWooCommerce;
 
 /**
  * The admin class

@@ -1,6 +1,6 @@
 <?php
 
-namespace Basic\Slider\Frontend;
+namespace BasicSliderForWooCommerce\Frontend;
 
 /**
  * Shortcode handaler class 

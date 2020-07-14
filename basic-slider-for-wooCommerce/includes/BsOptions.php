@@ -16,7 +16,7 @@ function bsfw_crb_load() {
 // function 
 function bsfw_slider_attach_post_meta(){
 
-	$admin = new \Basic\Slider\Admin();
+	$admin = new BasicSliderForWooCommerce\Admin();
 
 	global $wpdb;
 	

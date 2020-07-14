@@ -14,12 +14,12 @@ class ComposerStaticInit536cad54cb9f1fd08779a77dac948e2e
     public static $prefixLengthsPsr4 = array (
         'B' => 
         array (
-            'Basic\\Slider\\' => 13,
+            'BasicSliderForWooCommerce\\' => 26,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Basic\\Slider\\' => 
+        'BasicSliderForWooCommerce\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
