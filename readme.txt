@@ -13,7 +13,7 @@ This is for woocommerce Category slider,Related product slider, And also For Pro
 
 == Description ==
 Everything is customizable. if you need more style you can customize css.
-You will get, Promotional slider, 2 types of Category slider, related product slider. 
+You will get Promotional slider, 2 types of Category slider, related product slider. 
 
 	FEATURES LIST
 		1. Add custom thumbnail.
@@ -21,14 +21,14 @@ You will get, Promotional slider, 2 types of Category slider, related product sl
 		3. Create unlimited category sliders with variation.
 		4. Display specific categories in the slider.
 		5. Filter the list of categories you want to show.
-		6. Swiper, powerful, and fast loading.
-		7. Responsive and mobile-ready.
-		8. Shortcode Generator.
+		6. Related product slider.
+		7. Swiper, powerful, and fast loading.
+		8. Responsive and mobile-ready.
+		9. Shortcode Generator.
 		
-	
+Let's Take a look.
 
-Take a look at the video.
-[youtube https://www.youtube.com/watch?v=tF0caDnTsBY]
+[youtube https://www.youtube.com/watch?v=H43D4AdS4o4&feature=youtu.be]
 
 == Installation ==
 Step 1. Download the wc-basic-slider plugin zip file from the Wordpress Plugin Repository.
@@ -44,15 +44,15 @@ Use shortcode for showing the slider.
 You just go to plugin setting and activate related product sider.
 
 = Why plugin has no won design ? =
-Related product will get the design from theme. like as others product.
+Related product will get the design from your theme. like as others product.
 And Category slider also need to design like your style.
 But any one can customize css his won style 
 
 == Screenshots ==
-1. category-slider-1.png
-2. category-slider-2.png
-3. related-product-3.png
-4. related-product-3.png
+1. Settings page
+2. Promotional slider or main slider 
+3. Category slider
+
 
 == Changelog ==
 = 1.0.0 =

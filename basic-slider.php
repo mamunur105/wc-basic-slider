@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Basic Slider for WooCommerce
- * Plugin URI:        https://wordpress.org/plugins/basic-slider-for-woocommerce
+ * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional basic slider. 
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.0
  * Requires PHP:      7.0
  * Author:            Mamunur rashid
@@ -26,7 +26,7 @@ final class BSFW_Slider{
    /**
 	* Plugin version 
 	*/
-	const version = '1.0.0';
+	const version = '1.0.1';
 
 	/**
 	 * class constructr 

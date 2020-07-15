@@ -41,6 +41,8 @@ class Shortcode
 			wp_enqueue_style( 'swiper-style' );
 			wp_enqueue_style( 'animate-style' );
 		}
+		wp_enqueue_script( 'activation-script' );
+		wp_enqueue_style( 'bs-frontend-style' );
 
 		$result = '';
 		ob_start(); 

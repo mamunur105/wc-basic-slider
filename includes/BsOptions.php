@@ -46,8 +46,8 @@ function bsfw_slider_attach_post_meta(){
 	        Field::make( 'checkbox', 'slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' ),
             Field::make( 'select', 'select_slider_type', __( 'Choose slider type' ) )
 			    ->set_options( array(
-			        'main_slider' => __('Main Slider','bs-slider'),
-			        'category_slider' => __('Woocommerce Category','bs-slider'),
+			        'main_slider' => __('Promotional slider','bs-slider'),
+			        'category_slider' => __('Woocommerce Category slider','bs-slider'),
 			    ) ),
 			Field::make( 'select', 'select_image_size', __( 'Choose Image size' ) )
 			    ->set_options( 
