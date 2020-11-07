@@ -3,14 +3,14 @@
  * The plugin bootstrap file
  *
  * @link              https://wordpress.org/plugins/wc-basic-slider
- * @since             1.0.1
+ * @since             1.0.2
  * @package           BSFW_Slider
  *
  * @wordpress-plugin
  * Plugin Name:       Basic Slider for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional basic slider.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 5.0
  * Requires PHP:      7.0
  * Author:            Mamunur rashid
