@@ -1,4 +1,9 @@
 <?php
+/**
+ * Assets load
+ *
+ * @package Assets
+ */
 
 namespace BasicSliderForWooCommerce;
 
@@ -10,9 +15,9 @@ class Assets {
 	/**
 	 * Class constructor
 	 */
-	function __construct() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'register_assets' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'register_assets' ] );
+	public function __construct() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_assets' ) );
 	}
 
 	/**
@@ -21,23 +26,23 @@ class Assets {
 	 * @return array
 	 */
 	public function get_scripts() {
-		return [
-			'swiper-slider-script' => [
-				'src'     	=> BSFW_ASSETS . '/js/swiper.min.js',
-				'version'	=> filemtime( BSFW_PATH . '/assets/js/swiper.min.js' ),
-				'deps'   	=> [ 'jquery' ]
-			],
-			'swiper-animation-script' => [
-				'src'     	=> BSFW_ASSETS . '/js/swiper-animation.min.js',
-				'version'	=> filemtime( BSFW_PATH . '/assets/js/swiper-animation.min.js' ),
-				'deps'   	=> [ 'jquery' ]
-			],
-			'activation-script' => [
-				'src'     	=> BSFW_ASSETS . '/js/activation.js',
-				'version'	=> filemtime( BSFW_PATH . '/assets/js/activation.js' ),
-				'deps'   	=> [ 'jquery' ]
-			],
-		];
+		return array(
+			'swiper-slider-script'    => array(
+				'src'     => BSFW_ASSETS . '/js/swiper.min.js',
+				'version' => filemtime( BSFW_PATH . '/assets/js/swiper.min.js' ),
+				'deps'    => array( 'jquery' ),
+			),
+			'swiper-animation-script' => array(
+				'src'     => BSFW_ASSETS . '/js/swiper-animation.min.js',
+				'version' => filemtime( BSFW_PATH . '/assets/js/swiper-animation.min.js' ),
+				'deps'    => array( 'jquery' ),
+			),
+			'activation-script'       => array(
+				'src'     => BSFW_ASSETS . '/js/activation.js',
+				'version' => filemtime( BSFW_PATH . '/assets/js/activation.js' ),
+				'deps'    => array( 'jquery' ),
+			),
+		);
 	}
 
 	/**
@@ -46,24 +51,24 @@ class Assets {
 	 * @return array
 	 */
 	public function get_styles() {
-		return [
-			'swiper-style' => [
+		return array(
+			'swiper-style'      => array(
 				'src'     => BSFW_ASSETS . '/css/swiper.min.css',
-				'version' => filemtime( BSFW_PATH . '/assets/css/swiper.min.css' )
-			],
-			'animate-style' => [
+				'version' => filemtime( BSFW_PATH . '/assets/css/swiper.min.css' ),
+			),
+			'animate-style'     => array(
 				'src'     => BSFW_ASSETS . '/css/animate.min.css',
-				'version' => filemtime( BSFW_PATH . '/assets/css/animate.min.css' )
-			],
-			'bs-frontend-style' => [
+				'version' => filemtime( BSFW_PATH . '/assets/css/animate.min.css' ),
+			),
+			'bs-frontend-style' => array(
 				'src'     => BSFW_ASSETS . '/css/bs-frontend.css',
-				'version' => filemtime( BSFW_PATH . '/assets/css/bs-frontend.css' )
-			],
-			'admin-style' => [
+				'version' => filemtime( BSFW_PATH . '/assets/css/bs-frontend.css' ),
+			),
+			'admin-style'       => array(
 				'src'     => BSFW_ASSETS . '/css/admin.css',
-				'version' => filemtime( BSFW_PATH . '/assets/css/admin.css' )
-			]
-		];
+				'version' => filemtime( BSFW_PATH . '/assets/css/admin.css' ),
+			),
+		);
 	}
 
 	/**
@@ -79,7 +84,7 @@ class Assets {
 
 			$deps = isset( $script['deps'] ) ? $script['deps'] : false;
 			wp_register_script( $handle, $script['src'], $deps, $script['version'], true );
-			
+
 		}
 
 		foreach ( $styles as $handle => $style ) {
@@ -88,4 +93,5 @@ class Assets {
 			wp_register_style( $handle, $style['src'], $deps, $style['version'] );
 		}
 	}
+
 }
