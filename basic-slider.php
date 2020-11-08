@@ -3,7 +3,7 @@
  * The plugin bootstrap file
  *
  * @link              https://wordpress.org/plugins/wc-basic-slider
- * @since             1.0.2
+ * @since             1.0.3
  * @package           BSFW_Slider
  *
  * @wordpress-plugin

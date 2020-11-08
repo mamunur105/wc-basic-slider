@@ -55,6 +55,10 @@ But any one can customize css his won style
 
 
 == Changelog ==
+= 1.0.3 =
+Stractural change
+= 1.0.2 =
+Some feature update
 = 1.0.0 =
 * First active version, first launch
 
