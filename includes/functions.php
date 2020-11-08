@@ -1,3 +1,6 @@
 <?php
-// Function file prepared for additional function 
-
+/**
+ * Function file prepared for additional function.
+ *
+ * @package functions.
+ */
