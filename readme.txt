@@ -32,8 +32,8 @@ Let's Take a look.
 
 == Installation ==
 Step 1. Download the wc-basic-slider plugin zip file from the Wordpress Plugin Repository.
-Step 2. Upload \'wc-basic-slider\' to the ’/wp-content/plugins/\' directory
-Step 3. Activate the plugin through the \'Plugins\' menu in WordPress
+Step 2. Upload 'wc-basic-slider' to the ’wp-content/plugins/' directory
+Step 3. Activate the plugin through the 'Plugins' menu in WordPress
 
 
 == Frequently Asked Questions ==
