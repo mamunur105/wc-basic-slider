@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'BasicSliderForWooCommerce\\' => array($baseDir . '/includes'),
+    'BSFW\\Slider\\' => array($baseDir . '/lib'),
 );

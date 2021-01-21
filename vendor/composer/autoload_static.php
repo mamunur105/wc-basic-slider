@@ -4,32 +4,43 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit536cad54cb9f1fd08779a77dac948e2e
+class ComposerStaticInita58c256ee3a99091df5cde75748e7bae
 {
-    public static $files = array (
-        'd9be239054fcf2389d574edc4ee8860d' => __DIR__ . '/../..' . '/includes/functions.php',
-        'dfaacb6c2b5f9f5596cc5fd6336f1af5' => __DIR__ . '/../..' . '/includes/BsOptions.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'B' => 
         array (
-            'BasicSliderForWooCommerce\\' => 26,
+            'BSFW\\Slider\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'BasicSliderForWooCommerce\\' => 
+        'BSFW\\Slider\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/includes',
+            0 => __DIR__ . '/../..' . '/lib',
         ),
+    );
+
+    public static $classMap = array (
+        'BSFW\\Slider\\Activator' => __DIR__ . '/../..' . '/lib/Activator.php',
+        'BSFW\\Slider\\Admin' => __DIR__ . '/../..' . '/lib/Admin.php',
+        'BSFW\\Slider\\Admin\\Custom_Post_Type' => __DIR__ . '/../..' . '/lib/Admin/Custom_Post_Type.php',
+        'BSFW\\Slider\\Admin\\Metabox' => __DIR__ . '/../..' . '/lib/Admin/Metabox.php',
+        'BSFW\\Slider\\Admin\\Notice' => __DIR__ . '/../..' . '/lib/Admin/Notice.php',
+        'BSFW\\Slider\\Admin\\Settings' => __DIR__ . '/../..' . '/lib/Admin/Settings.php',
+        'BSFW\\Slider\\Common\\Images' => __DIR__ . '/../..' . '/lib/Common/Images.php',
+        'BSFW\\Slider\\Deactivator' => __DIR__ . '/../..' . '/lib/Deactivator.php',
+        'BSFW\\Slider\\Frontend' => __DIR__ . '/../..' . '/lib/Frontend.php',
+        'BSFW\\Slider\\I18n' => __DIR__ . '/../..' . '/lib/I18n.php',
+        'BSFW\\Slider\\Loader' => __DIR__ . '/../..' . '/lib/Loader.php',
+        'BSFW\\Slider\\Plugin' => __DIR__ . '/../..' . '/lib/Plugin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit536cad54cb9f1fd08779a77dac948e2e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit536cad54cb9f1fd08779a77dac948e2e::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$classMap;
 
         }, null, ClassLoader::class);
     }

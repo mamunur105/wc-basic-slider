@@ -1,22 +1,26 @@
 {
-    "name": "rmamunur105/wd-ac",
-    "type": "wordpress-plugin",
-    "license": "GPLv2",
-    "authors": [
-        {
-            "name": "Mamun",
-            "email": "rmamunur105@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload":{
-        "psr-4":{
-            "BasicSliderForWooCommerce\\": "includes/"
-        },
-        "files":[
-            "includes/functions.php",
-            "includes/BsOptions.php"
-        ]
-    }
+	"name": "mamun/plugin-boilerplate",
+	"description": "WordPress Plguin's Basic Slider.",
+	"type": "wordpress-plugin",
+	"keywords": [ "wordpress", "plugin" ],
+	"homepage": "https://github.com/mamunur105/wc-basic-slider",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "admins",
+			"email": "rmamunur105@gmail.com",
+			"homepage": "https://github.com/mamunur105/wc-basic-slider"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/mamunur105/wc-basic-slider/issues",
+		"source": "https://github.com/mamunur105/wc-basic-slider/"
+	},
+	"autoload": {
+		"psr-4": {
+			"BSFW\\Slider\\": "lib/"
+		}
+	},
+	"require": {}
 }
+
