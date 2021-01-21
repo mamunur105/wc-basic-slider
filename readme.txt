@@ -32,8 +32,8 @@ Let's Take a look.
 
 == Installation ==
 Step 1. Download the wc-basic-slider plugin zip file from the Wordpress Plugin Repository.
-Step 2. Upload \'wc-basic-slider\' to the ’/wp-content/plugins/\' directory
-Step 3. Activate the plugin through the \'Plugins\' menu in WordPress
+Step 2. Upload 'wc-basic-slider' to the ’wp-content/plugins/' directory
+Step 3. Activate the plugin through the 'Plugins' menu in WordPress
 
 
 == Frequently Asked Questions ==
@@ -55,6 +55,10 @@ But any one can customize css his won style
 
 
 == Changelog ==
+= 1.0.3 =
+Stractural change
+= 1.0.2 =
+Some feature update
 = 1.0.0 =
 * First active version, first launch
 
