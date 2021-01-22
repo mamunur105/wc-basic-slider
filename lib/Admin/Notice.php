@@ -32,15 +32,15 @@ class Notice {
 		}
 		ob_start();
 		$activation_time  = get_option( BSFW_PLUGIN_PREFIX . '_plugin_activation_time' );
-		$notice_available = strtotime( '+7 day', $activation_time );
+		$notice_available = strtotime( '+0 day', $activation_time );
 
-		if ( true || $activation_time && $notice_available < time() ) {
+		if ( $activation_time && $notice_available < time() ) {
 			$using               = human_time_diff( $activation_time, time() );
 			$display_rate_notice = $this->display_notice( 'rate-the-plugin' );
-			if ( true || $display_rate_notice ) {
+			if ( $display_rate_notice ) {
 				$plugin_data = get_plugin_data( BSFW_PLUGIN_FILE );
 				?>
-				<div class="bsfw-mlh-notice notice notice-success is-dismissible" data-notice="rate-the-plugin">
+				<div class="bsfw-notice notice notice-success is-dismissible" data-notice="rate-the-plugin">
 					<p>
 					<?php
 						/* translators: %1$s: For using time */
@@ -52,9 +52,9 @@ class Notice {
 							$review_url = 'https://wordpress.org/support/plugin/' . basename( BSFW_PLUGIN_DIR ) . '/reviews/#new-post';
 						?>
 						<a class="rate-link button-primary" href="<?php echo esc_url( $review_url ); ?>" target="_blank"><?php esc_html_e( 'Rate the plugin', 'wc-basic-slider' ); ?> </a>
-						<button type="button"  data-dismiss="remind-me-later" class="bsfw-mlh-notice-action"><?php esc_html_e( 'Remind me later', 'wc-basic-slider' ); ?> </button>
-						<button type="button" data-dismiss="dont-show-again" class="bsfw-mlh-notice-action"><?php esc_html_e( 'Don\'t show again', 'wc-basic-slider' ); ?> </button>
-						<button type="button" data-dismiss="i-already-did" class="bsfw-mlh-notice-action"><?php esc_html_e( 'I already did', 'wc-basic-slider' ); ?> </button>
+						<button type="button"  data-dismiss="remind-me-later" class="bsfw-notice-action"><?php esc_html_e( 'Remind me later', 'wc-basic-slider' ); ?> </button>
+						<button type="button" data-dismiss="dont-show-again" class="bsfw-notice-action"><?php esc_html_e( 'Don\'t show again', 'wc-basic-slider' ); ?> </button>
+						<button type="button" data-dismiss="i-already-did" class="bsfw-notice-action"><?php esc_html_e( 'I already did', 'wc-basic-slider' ); ?> </button>
 					</p>
 				</div>
 				<?php
@@ -104,9 +104,9 @@ class Notice {
 		if ( 'i-already-did' === $dismiss_type ) {
 			$show_again = 0;
 		} elseif ( 'dont-show-again' === $dismiss_type ) {
-			$show_again = strtotime( '+2 months', time() );
+			$show_again = strtotime( '+2 day', time() );
 		} else {
-			$show_again = strtotime( '+2 week', time() );
+			$show_again = strtotime( '+1 day', time() );
 		}
 
 		$rate_bsfw_mlh = maybe_serialize(

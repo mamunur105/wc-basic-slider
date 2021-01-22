@@ -18,6 +18,7 @@ namespace BSFW\Slider;
 use BSFW\Slider\Admin\Notice;
 use BSFW\Slider\Admin\Custom_Post_Type;
 use BSFW\Slider\Admin\Metabox;
+use BSFW\Slider\Frontend\Shortcodes;
 /**
  * The core plugin class.
  *
@@ -51,7 +52,7 @@ class Plugin {
 	 * @access   protected
 	 * @var      string    $pluginname    The string used to uniquely identify this plugin.
 	 */
-	protected $pluginname = 'wc-basic-slider';
+	protected $pluginname;
 
 	/**
 	 * The current version of the plugin.
@@ -60,7 +61,7 @@ class Plugin {
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
-	protected $version = '1.0.0';
+	protected $version;
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -71,6 +72,17 @@ class Plugin {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
+		if ( defined( 'BSFW_VERSION' ) ) {
+			$this->version = BSFW_VERSION;
+		} else {
+			$this->version = '1.0.0';
+		}
+
+		if ( defined( 'BSFW_PLUGIN_NAME' ) ) {
+			$this->pluginname = BSFW_PLUGIN_NAME;
+		} else {
+			$this->pluginname = 'PluginBoilerplate';
+		}
 		$this->loader = new Loader();
 	}
 
@@ -107,7 +119,7 @@ class Plugin {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue' );
 		$this->loader->add_action( 'after_setup_theme', $plugin_admin, 'boot' );
 		$this->loader->add_action( 'admin_notices', $notice, 'notice' );
-		$this->loader->add_action( 'wp_ajax_rate_the_plugin', $notice, 'rate_the_plugin_action' );
+		$this->loader->add_action( 'wp_ajax_bsfw_rate_the_plugin', $notice, 'rate_the_plugin_action' );
 		$this->loader->add_action( 'admin_notices', $notice, 'bs_slider_notice_message' );
 		$this->loader->add_action( 'init', $post_type, 'register_bs_slider', 0 );
 		$this->loader->add_filter( 'manage_' . $post_type->slug . '_posts_columns', $post_type, 'set_shortocode_column' );
@@ -124,9 +136,9 @@ class Plugin {
 	 * @access   private
 	 */
 	private function define_frontend_hooks() {
-
 		$plugin_frontend = new Frontend( $this );
-
+		$wc_shortcode    = new Shortcodes();
+		$this->loader->add_action( 'init', $wc_shortcode, 'shortcode_list' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_scripts' );
 

@@ -52,6 +52,7 @@ if ( ! defined( 'WPINC' ) ) {
 	function () {
 		define( 'BSFW_VERSION', '1.0.3' );
 		define( 'BSFW_PLUGIN_PREFIX', 'bsfw' );
+		define( 'BSFW_PLUGIN_NAME', 'wc-basic-slider' );
 		define( 'BSFW_PLUGIN_DIR', __DIR__ );
 		define( 'BSFW_PLUGIN_FILE', __FILE__ );
 		define( 'BSFW_URL', plugins_url( '', BSFW_PLUGIN_FILE ) );

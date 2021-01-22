@@ -99,7 +99,13 @@ class Frontend {
 		 * The Loader will then create the relationship between the defined
 		 * hooks and the functions defined in this class.
 		 */
-
+		\wp_enqueue_script(
+			'swiper-animation-script',
+			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/vendors/swiper-animation.min.js',
+			array( 'jquery' ),
+			$this->plugin->get_version(),
+			false
+		);
 		\wp_enqueue_script(
 			$this->plugin->get_plugin_name(),
 			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts/frontend' . $this->suffix . '.js',
