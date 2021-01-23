@@ -121,24 +121,13 @@ class Admin {
 			$this->plugin->get_plugin_name(),
 			'bsfw_script',
 			array(
-				'admin_ajax'     => admin_url( 'admin-ajax.php' ),
-				'ajx_nonce'      => wp_create_nonce( 'ajax-nonce' ),
-				'plugin_prefix'  => BSFW_PLUGIN_PREFIX,
+				'admin_ajax'    => admin_url( 'admin-ajax.php' ),
+				'ajx_nonce'     => wp_create_nonce( 'ajax-nonce' ),
+				'plugin_prefix' => BSFW_PLUGIN_PREFIX,
 			)
 		);
 
 	}
-	// 'swiper-slider-script'    => array(
-	// 	'src'     => BSFW_ASSETS . '/js/swiper.min.js',
-	// 	'version' => filemtime( BSFW_PATH . '/assets/js/swiper.min.js' ),
-	// 	'deps'    => array( 'jquery' ),
-	// ),
-	// 'swiper-animation-script' => array(
-	// 	'src'     => BSFW_ASSETS . '/js/swiper-animation.min.js',
-	// 	'version' => filemtime( BSFW_PATH . '/assets/js/swiper-animation.min.js' ),
-	// 	'deps'    => array( 'jquery' ),
-	// ),
-
 	/**
 	 * Carbon field metabox and settings page
 	 *

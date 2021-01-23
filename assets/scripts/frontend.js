@@ -29,17 +29,7 @@
    * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
    * be doing this, we should try to minimize doing that in our own work.
    */
-
-  var _wp$i18n = wp.i18n,
-      __ = _wp$i18n.__,
-      _x = _wp$i18n._x,
-      _n = _wp$i18n._n,
-      _nx = _wp$i18n._nx;
-  $(window).load(function () {
-    var data = __('I am frontend', 'bsfw-plugin');
-
-    console.log(data);
-  }); // Check if element exists
+  // Check if element exists
 
   $.fn.elExists = function () {
     return this.length > 0;

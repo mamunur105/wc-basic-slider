@@ -71,14 +71,25 @@ class Frontend {
 		 * The Loader will then create the relationship between the defined
 		 * hooks and the functions defined in this class.
 		 */
-
-		\wp_enqueue_style(
-			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/styles/frontend' . $this->suffix . '.css',
-			array(),
-			$this->plugin->get_version(),
-			'all'
+		$css_list = array(
+			'swiper-style'      => array(
+				'src'     => BSFW_ASSETS . '/vendors/swiper.min.css',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/vendors/swiper.min.css' ),
+			),
+			'animate-style'     => array(
+				'src'     => BSFW_ASSETS . '/vendors/animate.min.css',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/vendors/animate.min.css' ),
+			),
+			'bs-frontend-style' => array(
+				'src'     => BSFW_ASSETS . '/styles/frontend' . $this->suffix . '.css',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/styles/frontend' . $this->suffix . '.css' ),
+			),
 		);
+
+		foreach ( $css_list as $handle => $style ) {
+			$deps = isset( $style['deps'] ) ? $style['deps'] : false;
+			wp_register_style( $handle, $style['src'], $deps, $style['version'] );
+		}
 
 	}
 
@@ -99,26 +110,36 @@ class Frontend {
 		 * The Loader will then create the relationship between the defined
 		 * hooks and the functions defined in this class.
 		 */
-		\wp_enqueue_script(
-			'swiper-animation-script',
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/vendors/swiper-animation.min.js',
-			array( 'jquery' ),
-			$this->plugin->get_version(),
-			false
+
+		$js_list = array(
+			'swiper-slider-script'    => array(
+				'src'     => BSFW_ASSETS . '/vendors/swiper.min.js',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/vendors/swiper.min.js' ),
+				'deps'    => array( 'jquery' ),
+			),
+			'swiper-animation-script' => array(
+				'src'     => BSFW_ASSETS . '/vendors/swiper-animation.min.js',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/vendors/swiper-animation.min.js' ),
+				'deps'    => array( 'jquery' ),
+			),
+			'activation-script'       => array(
+				'src'     => BSFW_ASSETS . '/scripts/frontend.js',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/scripts/frontend.js' ),
+				'deps'    => array( 'jquery' ),
+			),
 		);
-		\wp_enqueue_script(
-			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts/frontend' . $this->suffix . '.js',
-			array( 'wp-i18n', 'jquery' ),
-			$this->plugin->get_version(),
-			false
-		);
+
+		foreach ( $js_list as $handle => $script ) {
+			$deps = isset( $script['deps'] ) ? $script['deps'] : false;
+			wp_register_script( $handle, $script['src'], $deps, $script['version'], true );
+		}
 		wp_set_script_translations(
 			$this->plugin->get_plugin_name(),
 			'wc-basic-slider',
-			plugin_dir_path( dirname( __FILE__ ) ) . 'languages'
+			BSFW_PLUGIN_DIR . '/languages'
 		);
 
 	}
+
 
 }
