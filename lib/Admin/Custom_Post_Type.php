@@ -101,10 +101,10 @@ class Custom_Post_Type {
 		$slider_type = carbon_get_post_meta( $post_id, 'select_slider_type' );
 		$shortcode   = '';
 		if ( 'main_slider' === $slider_type ) {
-			$shortcode = "<strong style='padding:5px 10px 7px; background:#ddd'>[bs_slider slider_id='{$post_id}']</strong>";
+			$shortcode = "[bs_slider slider_id='{$post_id}']";
 		}
 		if ( 'category_slider' === $slider_type ) {
-			$shortcode = "<strong style='padding:5px 10px 7px; background:#ddd'>[woocategory_slider slider_id='{$post_id}']</strong>";
+			$shortcode = "[woocategory_slider slider_id='{$post_id}']";
 		}
 
 		switch ( $column ) {
