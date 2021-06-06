@@ -3,3 +3,59 @@
  * included in this file.
  */
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.tooltip #copy_shortcode,
+.tooltip .copy_shortcode {
+    padding: 0 5px;
+    background: #f1f1f1;
+    color: #333;
+    text-align: center;
+    min-width: 250px;
+}
+
+.tooltip .copy-button {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
