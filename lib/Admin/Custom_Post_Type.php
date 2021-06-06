@@ -101,17 +101,38 @@ class Custom_Post_Type {
 		$slider_type = carbon_get_post_meta( $post_id, 'select_slider_type' );
 		$shortcode   = '';
 		if ( 'main_slider' === $slider_type ) {
-			$shortcode = "[bs_slider slider_id='{$post_id}']";
+			$shortcode = '[bs_slider slider_id="' . $post_id . '"]';
+			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
 		}
 		if ( 'category_slider' === $slider_type ) {
-			$shortcode = "[woocategory_slider slider_id='{$post_id}']";
+			$shortcode = '[woocategory_slider slider_id="' . $post_id . '"]';
+			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
 		}
 
 		switch ( $column ) {
 			case 'shortcode':
-				echo wp_kses_post( $shortcode );
+				echo wp_kses(
+					$shortcode,
+					array(
+						'input' => array(
+							'class'    => array(),
+							'type'     => 'text',
+							'value'    => array(),
+							'disabled' => true,
+							'readonly' => true,
+						),
+						'div'   => array(
+							'class' => array(),
+						),
+						'span'  => array(
+							'class' => array(),
+						),
+
+					)
+				);
 				break;
 		}
 	}
 
 }
+

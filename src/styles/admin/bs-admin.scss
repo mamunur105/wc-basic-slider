@@ -1,0 +1,69 @@
+//-------------------- Common Variables --------------------//
+$text_color  : #333;
+$color_white : #fff;
+$color_offset: #f1f1f1;
+
+
+//-------------------- Admin Variables --------------------//
+$admin_shortcode_bg : #f1f1f1;
+$field_select_color : #007cba;
+$field_select_color_hover: #0071a1;
+
+
+//-------------------- Frontend Variables --------------------//
+
+$cx-xlg-screen:					1200px !default;
+$cx-lg-screen:					1025px !default;
+$cx-md-screen: 					992px !default;
+$cx-sm-screen:					768px !default;
+$cx-vsm-screen:					576px !default;
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	margin: 10px 0;
+	#copy_shortcode,
+	.copy_shortcode {
+		padding: 0 5px;
+		background: $admin_shortcode_bg;
+		color: $text_color;
+		text-align: center;
+		min-width: 250px;
+	}
+	.copy-button{
+		position: relative;
+		cursor: pointer;
+	}
+	.tooltiptext {
+		visibility: hidden;
+		width: 140px;
+		background-color: $text_color;
+		color: $color-white;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px;
+		position: absolute;
+		z-index: 1;
+		bottom: 150%;
+		left: 50%;
+		margin-left: -75px;
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+	.tooltiptext::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: $text_color transparent transparent transparent;
+	}
+	&:hover{
+		.tooltiptext {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

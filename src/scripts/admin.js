@@ -1,13 +1,47 @@
 (function($) {
 	'use strict';
 
-
- 	// Check if element exists
-	$.fn.elExists = function() {
-		return this.length > 0;
-	};
-
 	$(document).ready(function() {
+		// Check if element exists
+		$.fn.elExists = function() {
+			return this.length > 0;
+		};
+
+
+		function copyToClipboard(selector) {
+			const str = selector.value;
+			const tooltip = selector.previousElementSibling;
+			const el = document.createElement('textarea');
+			el.value = str;
+			el.setAttribute('readonly', '');
+			el.style.position = 'absolute';
+			el.style.left = '-9999px';
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			tooltip.innerHTML = "Copied!";
+			document.body.removeChild(el);
+		}
+
+		// Click button
+		var copyButton = document.querySelectorAll(".copy_shortcode");
+		if(copyButton){
+			console.log('ok')
+			copyButton.forEach(function(item){
+				item.addEventListener('click', function(){
+					item.style.color = '#0073aa';
+					item.style.borderColor = '#0073aa';
+					copyToClipboard(item);
+					console.log('click');
+				});
+				item.addEventListener('mouseout', function(){
+					var tooltip = item.previousElementSibling;
+					tooltip.innerHTML = "Copy to clipboard";
+					item.style.color = '';
+					item.style.borderColor = '';
+				});
+			});
+		}
 		/**
 		 * Admin code for dismissing notifications.
 		 *
