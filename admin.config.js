@@ -74,7 +74,6 @@ module.exports = {
 		'!src/images/**/*',
 		'!src/scripts/**/*',
 		'!src/styles/**/*',
-		'!assets/images/**',
 		'!vendor/htmlburger/carbon-fields/bin/**/*',
 		'!vendor/htmlburger/carbon-fields/composer.json',
 		'!vendor/htmlburger/carbon-fields/webpack.config.js'
