@@ -41,7 +41,6 @@
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.0.2"
 	},
-
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
