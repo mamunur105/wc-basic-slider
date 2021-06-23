@@ -27,7 +27,11 @@ class Custom_Post_Type {
 	 * Const
 	 */
 	public function __construct() {
-		$this->slug = 'bs_slider';
+		if ( defined( 'BSFW_POST_TYPE' ) ) {
+			$this->slug = BSFW_POST_TYPE;
+		} else {
+			$this->slug = 'bs_slider';
+		}
 	}
 
 	/**

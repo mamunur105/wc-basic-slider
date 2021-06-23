@@ -396,4 +396,72 @@ class Metabox {
 			);
 	}
 
+	/**
+	 * Register Custom Meta Box
+	 *
+	 * @param mixed $post_type current post type name.
+	 * @return void
+	 */
+	public function shortcode_register_meta_box( $post_type ) {
+
+		$types = array( BSFW_POST_TYPE );
+
+		if ( in_array( $post_type, $types, true ) ) {
+			add_meta_box(
+				'bs-slider-metabox-shortcode',
+				esc_html__( 'Shortcode', 'bs-slider' ),
+				array( $this, 'shortcode_meta_box_callback' ),
+				$types,
+				'side',
+				'low'
+			);
+		}
+
+	}
+
+	/**
+	 * Add shortcode field
+	 *
+	 * @param object $post Post Object.
+	 * @return void
+	 */
+	public function shortcode_meta_box_callback( $post ) {
+
+		$slider_type = carbon_get_post_meta( $post->ID, 'select_slider_type' );
+		$shortcode   = '';
+		if ( 'main_slider' === $slider_type ) {
+			$shortcode = '[bs_slider slider_id="' . $post->ID . '"]';
+			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
+		}
+		if ( 'category_slider' === $slider_type ) {
+			$shortcode = '[woocategory_slider slider_id="' . $post->ID . '"]';
+			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
+		}
+
+		// $outline   = '';
+		// $shortcode = '[cdxn_gallery id="' . $post->ID . '"]';
+		// $before    = esc_html__( 'Click to copy the shortcode', 'bs-slider' );
+		// $after     = esc_html__( 'Copy and paste this shortcode inside your WordPress Post, Pages and widgets.', 'bs-slider' );
+		// $outline   = '<div class="cdxn-ig-tooltip"><div class="tooltip-before">' . $before . '</div><div class="tooltip"><span class="copy-button"><span class="tooltiptext" >' . __( 'Copy to clipboard', 'bs-slider' ) . '</span><input class="copy_shortcode" type="text" value="' . esc_attr( $shortcode ) . '" readonly></code></span></div><div class="tooltip-before">' . $after . '</div></div>';
+
+		echo wp_kses(
+			$shortcode,
+			array(
+				'input' => array(
+					'class'    => array(),
+					'type'     => 'text',
+					'value'    => array(),
+					'disabled' => true,
+					'readonly' => true,
+				),
+				'div'   => array(
+					'class' => array(),
+				),
+				'span'  => array(
+					'class' => array(),
+				),
+
+			)
+		);
+	}
 }

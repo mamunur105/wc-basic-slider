@@ -125,6 +125,7 @@ class Plugin {
 		$this->loader->add_filter( 'manage_' . $post_type->slug . '_posts_columns', $post_type, 'set_shortocode_column' );
 		$this->loader->add_action( 'manage_' . $post_type->slug . '_posts_custom_column', $post_type, 'shortocode_column_data', 10, 2 );
 		$this->loader->add_action( 'carbon_fields_register_fields', $metabox, 'bsfw_slider_attach_post_meta' );
+		$this->loader->add_action( 'add_meta_boxes', $metabox, 'shortcode_register_meta_box' );
 
 	}
 
