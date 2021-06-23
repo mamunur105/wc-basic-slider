@@ -103,16 +103,14 @@ class Custom_Post_Type {
 	 */
 	public function shortocode_column_data( $column, $post_id ) {
 		$slider_type = carbon_get_post_meta( $post_id, 'select_slider_type' );
-		$shortcode   = '';
+		$shortcode_id   = '';
 		if ( 'main_slider' === $slider_type ) {
-			$shortcode = '[bs_slider slider_id="' . $post_id . '"]';
-			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
+			$shortcode_id = '[bs_slider slider_id="' . $post_id . '"]';
 		}
 		if ( 'category_slider' === $slider_type ) {
-			$shortcode = '[woocategory_slider slider_id="' . $post_id . '"]';
-			$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode ) . '" readonly></span></div>';
+			$shortcode_id = '[woocategory_slider slider_id="' . $post_id . '"]';
 		}
-
+		$shortcode = '<div class="tooltip"><span class="copy-button"  ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="' . esc_html( $shortcode_id ) . '" readonly></span></div>';
 		switch ( $column ) {
 			case 'shortcode':
 				echo wp_kses(

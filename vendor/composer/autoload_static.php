@@ -21,18 +21,7 @@ class ComposerStaticInita58c256ee3a99091df5cde75748e7bae
     );
 
     public static $classMap = array (
-        'BSFW\\Slider\\Activator' => __DIR__ . '/../..' . '/lib/Activator.php',
-        'BSFW\\Slider\\Admin' => __DIR__ . '/../..' . '/lib/Admin.php',
-        'BSFW\\Slider\\Admin\\Custom_Post_Type' => __DIR__ . '/../..' . '/lib/Admin/Custom_Post_Type.php',
-        'BSFW\\Slider\\Admin\\Metabox' => __DIR__ . '/../..' . '/lib/Admin/Metabox.php',
-        'BSFW\\Slider\\Admin\\Notice' => __DIR__ . '/../..' . '/lib/Admin/Notice.php',
-        'BSFW\\Slider\\Admin\\Settings' => __DIR__ . '/../..' . '/lib/Admin/Settings.php',
-        'BSFW\\Slider\\Common\\Images' => __DIR__ . '/../..' . '/lib/Common/Images.php',
-        'BSFW\\Slider\\Deactivator' => __DIR__ . '/../..' . '/lib/Deactivator.php',
-        'BSFW\\Slider\\Frontend' => __DIR__ . '/../..' . '/lib/Frontend.php',
-        'BSFW\\Slider\\I18n' => __DIR__ . '/../..' . '/lib/I18n.php',
-        'BSFW\\Slider\\Loader' => __DIR__ . '/../..' . '/lib/Loader.php',
-        'BSFW\\Slider\\Plugin' => __DIR__ . '/../..' . '/lib/Plugin.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
