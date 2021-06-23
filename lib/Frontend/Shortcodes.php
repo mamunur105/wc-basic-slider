@@ -154,35 +154,10 @@ class Shortcodes {
 							$animate_text         = $slider['slider_title'];
 							$background_image     = "background-image: url($slider_image_url)";
 							$content_parent_class = apply_filters( 'primary_slider_slide_content_parent_class', 'slide-content-test' );
-							?>
-								<div class="swiper-slide bg-img-wrapper">
-									<div class="slide-inner image-placeholder pos-r" style="<?php echo esc_attr( $background_image ); ?>">
-										<div class="slide-content <?php echo esc_attr( $content_parent_class ); ?> ">
-										<?php
-											$item = 1;
-										foreach ( $animate_text as $slider_text ) {
-											$select_slider_animation = esc_attr( $slider_text['select_slider_animation'] );
-											$animation_duration      = esc_attr( $slider_text['animation_duration'] );
-											$animation_delay         = esc_attr( $slider_text['animation_delay'] );
-											$main_slider_title       = esc_attr( $slider_text['main_slider_title'] );
-											if ( 1 == $item ) {
-												?>
-													<h1 class='main-title' data-swiper-animation='<?php echo esc_attr( $select_slider_animation ); ?>' data-duration='<?php echo esc_attr( $animation_duration ); ?>' data-delay='<?php echo esc_attr( $animation_delay ); ?>'>
-														<span> <?php echo esc_attr( $main_slider_title ); ?> </span>
-													</h1>
-												<?php } else { ?>
-													<p class='subtitle' data-swiper-animation='<?php echo esc_attr( $select_slider_animation ); ?>' data-duration='<?php echo esc_attr( $animation_duration ); ?>' data-delay='<?php echo esc_attr( $animation_delay ); ?>'>
-														<span> <?php echo esc_attr( $main_slider_title ); ?> </span>
-													</p>
-												<?php
-												}
-												$item++;
-										}
-										?>
-										</div> <!-- end of slide-content -->
-									</div> <!-- end of slider-inner -->
-								</div> <!-- end of swiper-slide -->
-							<?php } ?>
+
+							include BSFW_PLUGIN_DIR . '/templates/simple_slider_1.php';
+						}
+						?>
 						</div> <!-- end of swiper-slide -->
 							<?php if ( $show_arrow ) { ?>
 						<!-- Slider Navigation -->
@@ -278,27 +253,8 @@ class Shortcodes {
 									$category_image = $category_image[0];
 								}
 
-								?>
-									<div class="swiper-slide  <?php echo esc_attr( $content_position ) . ' '; 	echo esc_attr( apply_filters( 'categpry_slider', 'slider_content_class' ) ); ?>">
-										<a class="category_image" href="<?php echo esc_attr( $category_link ); ?>">
-											<img src="<?php echo esc_url( $category_image ); ?>" alt="<?php echo esc_attr( $categoryname ); ?>">
-										</a>
+								include BSFW_PLUGIN_DIR . '/templates/category_slider_1.php';
 
-										<div class="cat-slide-content">
-										<?php if ( ! $hide_title ) { ?>
-												<div class="name"><?php echo esc_attr( $categoryname ); ?></div>
-											<?php } ?>
-										<?php if ( ! $hide_button ) { ?>
-
-											<div class="cat-button">
-												<a href="<?php echo esc_attr( $category_link ); ?>">
-												<?php echo esc_html( $button_text ); ?></a>
-											</div>
-											<?php } ?>
-
-										</div>
-									</div>
-								<?php
 							}
 							?>
 						</div>
