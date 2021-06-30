@@ -17,7 +17,6 @@ You will get Promotional slider, 2 types of Category slider, related product sli
 
 FEATURES LIST
 	1. Unlimited Category slider with variation
-	2. Related product slider.
 	3. Promotional slider
 	4. Add custom thumbnail.
 	5. Compatible with any Theme
