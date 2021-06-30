@@ -1,4 +1,4 @@
-=== Unlimited Category slider for WooCommerce - With Related product Slider ===
+=== Unlimited Category slider for WooCommerce ===
 Contributors: mamunur105
 Tags: Slider, Category slider, Related product Slider, Promotional Product slider
 Donate link: #
@@ -9,7 +9,7 @@ Stable tag: trunk
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This is for woocommerce Category slider,Related product slider, And also For Promotional basic slider
+This is for woocommerce Category slider, And also For Promotional basic slider
 
 == Description ==
 Everything is customizable. if you need more style you can customize css.
