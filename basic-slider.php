@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+<?php
 /**
  * The plugin bootstrap file
  *

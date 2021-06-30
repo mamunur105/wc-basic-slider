@@ -1,5 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
+<?php
 /**
  * The file that defines the core plugin class
  *

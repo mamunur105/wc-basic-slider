@@ -1,5 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
+<?php
 /**
  * Fired during plugin deactivation
  *

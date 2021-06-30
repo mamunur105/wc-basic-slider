@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+<?php
 /**
  * Settings Page functionality of the plugin.
  *

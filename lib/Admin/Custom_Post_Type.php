@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+<?php
 /**
  * Custom Post Type functionality of the plugin.
  *
@@ -72,7 +72,7 @@ class Custom_Post_Type {
 			'menu_icon'          => 'dashicons-images-alt',
 			'supports'           => array( 'title' ),
 			'show_in_rest'       => true,
-			'rewrite'             => array(
+			'rewrite'            => array(
 				'slug'       => apply_filters( 'bs_slider_slug', 'bs-slider' ),
 				'with_front' => false,
 			),
@@ -102,8 +102,8 @@ class Custom_Post_Type {
 	 * @param int    $post_id post id.
 	 */
 	public function shortocode_column_data( $column, $post_id ) {
-		$slider_type = carbon_get_post_meta( $post_id, 'select_slider_type' );
-		$shortcode_id   = '';
+		$slider_type  = carbon_get_post_meta( $post_id, 'select_slider_type' );
+		$shortcode_id = '';
 		if ( 'main_slider' === $slider_type ) {
 			$shortcode_id = '[bs_slider slider_id="' . $post_id . '"]';
 		}

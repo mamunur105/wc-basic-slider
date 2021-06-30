@@ -1,5 +1,4 @@
-<?php // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
+<?php
 /**
  * The dashboard-specific functionality of the plugin.
  *
