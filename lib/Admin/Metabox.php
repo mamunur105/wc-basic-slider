@@ -98,9 +98,9 @@ class Metabox {
 	 * @return Array
 	 */
 	private function additional() {
-		$fields   = array();
+		$fields     = array();
 		$image_size = Helpers::get_all_image_sizes();
-		$fields[] = Field::make( 'select', 'select_perview', __( 'Slider per view' ) )
+		$fields[]   = Field::make( 'select', 'select_perview', __( 'Slider per view' ) )
 			->set_conditional_logic(
 				array(
 					'relation' => 'AND',
@@ -119,11 +119,11 @@ class Metabox {
 					'6' => __( '6 Items', 'bs-slider' ),
 				)
 			);
-		$fields[] = Field::make( 'select', 'select_image_size', __( 'Choose Image size' ) )
+		$fields[]   = Field::make( 'select', 'select_image_size', __( 'Choose Image size' ) )
 					->set_options( $image_size );
-		$fields[] = Field::make( 'checkbox', 'slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' );
-		$fields[] = Field::make( 'checkbox', 'slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' );
-		$fields[] = Field::make( 'checkbox', 'hide_title', __( 'Hide Title' ) )
+		$fields[]   = Field::make( 'checkbox', 'slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' );
+		$fields[]   = Field::make( 'checkbox', 'slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' );
+		$fields[]   = Field::make( 'checkbox', 'hide_title', __( 'Hide Title' ) )
 					->set_conditional_logic(
 						array(
 							'relation' => 'AND',
@@ -134,7 +134,7 @@ class Metabox {
 							),
 						)
 					)->set_option_value( 'yes' );
-		$fields[] = Field::make( 'checkbox', 'hide_button', __( 'Hide Button' ) )
+		$fields[]   = Field::make( 'checkbox', 'hide_button', __( 'Hide Button' ) )
 					->set_conditional_logic(
 						array(
 							'relation' => 'AND',
@@ -145,7 +145,7 @@ class Metabox {
 							),
 						)
 					)->set_option_value( 'yes' );
-		$fields[] = Field::make( 'text', 'category_button_text', __( 'Button Text' ) )
+		$fields[]   = Field::make( 'text', 'category_button_text', __( 'Button Text' ) )
 					->set_conditional_logic(
 						array(
 							'relation' => 'AND',
@@ -248,7 +248,7 @@ class Metabox {
 							),
 						)
 					)
-				->set_html( '<h1>Responsive Setting Is not available For Category Slider</h1>' );
+				->set_html( '<h1 class="setting-not-suport">Responsive Setting Is not available For Category Slider</h1>' );
 		return $fields;
 	}
 	/**
@@ -373,8 +373,8 @@ class Metabox {
 	 */
 	public function shortcode_meta_box_callback( $post ) {
 
-		$slider_type = carbon_get_post_meta( $post->ID, 'select_slider_type' );
-		$shortcode_by_id   = '';
+		$slider_type     = carbon_get_post_meta( $post->ID, 'select_slider_type' );
+		$shortcode_by_id = '';
 		if ( 'main_slider' === $slider_type ) {
 			$shortcode_by_id = '[bs_slider slider_id="' . $post->ID . '"]';
 		}

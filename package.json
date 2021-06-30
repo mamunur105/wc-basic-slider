@@ -1,5 +1,5 @@
 {
-	"name": "bsfw-plugin",
+	"name": "wc-basic-slider",
 	"version": "1.0.0",
 	"description": "WordPress bsfw Plugin",
 	"main": "admin.config.js",

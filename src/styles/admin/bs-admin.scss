@@ -67,3 +67,24 @@ $cx-vsm-screen:					576px !default;
 		}
 	}
 }
+
+// Tab css 
+
+div#carbon_fields_container_slider_settings{
+	li.cf-container__tabs-item {
+		padding: 15px 30px;
+		margin: 0;
+		margin-left: -1px;
+		font-size: 18px;
+		letter-spacing: 0.5px;
+		font-weight: 500;
+	}
+	.cf-container__tabs {
+		padding: 0;
+		margin-top: -1px;
+	}
+	h1.setting-not-suport {
+		padding: 40px;
+		min-height: 100px;
+	}
+}

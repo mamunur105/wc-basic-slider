@@ -4,3 +4,6 @@
 .tooltip .tooltiptext{visibility:hidden;width:140px;background-color:#333;color:#fff;text-align:center;-webkit-border-radius:6px;border-radius:6px;padding:5px;position:absolute;z-index:1;bottom:150%;left:50%;margin-left:-75px;opacity:0;-webkit-transition:opacity .3s;-o-transition:opacity .3s;transition:opacity .3s}
 .tooltip .tooltiptext::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;border-width:5px;border-style:solid;border-color:#333 transparent transparent transparent}
 .tooltip:hover .tooltiptext{visibility:visible;opacity:1}
+div#carbon_fields_container_slider_settings li.cf-container__tabs-item{padding:15px 30px;margin:0;margin-left:-1px;font-size:18px;letter-spacing:.5px;font-weight:500}
+div#carbon_fields_container_slider_settings .cf-container__tabs{padding:0;margin-top:-1px}
+div#carbon_fields_container_slider_settings h1.setting-not-suport{padding:40px;min-height:100px}

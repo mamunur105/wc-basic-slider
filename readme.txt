@@ -57,6 +57,10 @@ But any one can customize css his won style
 
 
 == Changelog ==
+= 2.1.0 =
+Security update
+= 2.0.0 =
+Some feature update
 = 1.0.2 =
 Some feature update
 = 1.0.0 =

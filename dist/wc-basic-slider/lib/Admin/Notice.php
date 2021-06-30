@@ -92,8 +92,7 @@ class Notice {
 	 * @return mixed
 	 */
 	public function rate_the_plugin_action() {
-
-		if ( isset( $_POST['cx_nonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['cx_nonce'] ) ), 'ajax-nonce' ) ) {
+		if ( ! isset( $_POST['ajx_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ajx_nonce'] ) ), 'ajax-nonce' ) ) {
 			wp_send_json( boolval( 0 ) );
 		}
 		$user_id       = get_current_user_id();

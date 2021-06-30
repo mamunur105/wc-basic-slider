@@ -65,7 +65,7 @@
         action: 'bsfw_rate_the_plugin',
         dismiss_type: dismiss_type,
         notice_type: notice_type,
-        cx_nonce: bsfw_script.ajx_nonce
+        ajx_nonce: bsfw_script.ajx_nonce
       }; // console.log( data );
 
       jQuery.ajax({
