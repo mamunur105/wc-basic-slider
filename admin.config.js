@@ -56,7 +56,7 @@ module.exports = {
 		'**/*.woff2',
 		'**/*.pot',
 		'LICENSE.txt',
-		'README.txt',
+		'readme.txt',
 		'**/*/installed.json',
 		'**/*/LICENSE',
 		'**/*/composer.json',
