@@ -13,7 +13,7 @@ This is for woocommerce Category slider And also For Promotional basic slider
 
 == Description ==
 Everything is customizable. if you need more style you can customize css.
-You will get Promotional slider, 2 types of Category slider, related product slider.
+You will get Promotional slider, 2 types of Category slider.
 
 FEATURES LIST
 	1. Unlimited Category slider with variation

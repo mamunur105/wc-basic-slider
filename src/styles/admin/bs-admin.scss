@@ -88,7 +88,51 @@ div#carbon_fields_container_slider_settings{
 		min-height: 100px;
 	}
 	.postbox-header h2{
-		padding: 20px 30px;
-    	font-size: 20px;
+		padding: 15px 30px;
+		font-size: 20px;
+	}
+	.cf-field__head {
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 20px;
+		.cf-field__label {
+			font-size: 20px;
+			padding: 15px 0px;
+		}
+	}
+	.cf-container .cf-field{
+		padding: 0;
+	}
+	.cf-field,
+	.cf-field__head,
+	.cf-field__body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.cf-field__body{
+		padding-bottom: 20px;
+	}
+	.cf-field__help {
+		margin-bottom: 20px;
+		padding-left: 20px;
+		margin-top: 0;
+	}
+	.cf-radio-image .cf-radio__label img,
+	.cf-radio-image .cf-radio__label {
+		width: 100%;
+	}
+	.cf-complex__tabs .cf-complex__inserter-button,
+	.cf-complex__tabs-item {
+		padding: 15px 20px;
+	}
+	.cf-complex__tabs .cf-complex__inserter {
+		height: auto;
+	}
+	.cf-field__body {
+		select,
+		input:not([type=checkbox]):not([type=radio]){
+			height: 45px;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
 	}
 }

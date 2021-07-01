@@ -155,7 +155,8 @@ class Metabox {
 								'compare' => '=',
 							),
 						)
-					)->set_help_text( 'Leave empty for default image' );
+					)->set_default_value( 'Shop' )
+					->set_help_text( 'Leave empty for default image' );
 		return $fields;
 	}
 	/**
