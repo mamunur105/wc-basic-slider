@@ -21,6 +21,7 @@
 			"BSFW\\Slider\\": "lib/"
 		}
 	},
-	"require": {}
+	"require": {
+		"htmlburger/carbon-fields": "^3.3"
+	}
 }
-

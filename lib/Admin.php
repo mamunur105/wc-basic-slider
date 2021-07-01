@@ -133,10 +133,9 @@ class Admin {
 	 * @return void
 	 */
 	public function boot() {
-		if ( ! class_exists( '\Carbon_Fields\Carbon_Fields' ) ) {
-			require_once BSFW_PLUGIN_DIR . '/vendor/carbon-fields/vendor/autoload.php';
+		if ( class_exists( '\Carbon_Fields\Carbon_Fields' ) ) {
+			\Carbon_Fields\Carbon_Fields::boot();
 		}
-		\Carbon_Fields\Carbon_Fields::boot();
 	}
 
 

@@ -4,9 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita58c256ee3a99091df5cde75748e7bae
+class ComposerStaticInit16c3290305237130b0263b18a8a29940
 {
     public static $prefixLengthsPsr4 = array (
+        'C' => 
+        array (
+            'Carbon_Fields\\' => 14,
+        ),
         'B' => 
         array (
             'BSFW\\Slider\\' => 12,
@@ -14,6 +18,10 @@ class ComposerStaticInita58c256ee3a99091df5cde75748e7bae
     );
 
     public static $prefixDirsPsr4 = array (
+        'Carbon_Fields\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/htmlburger/carbon-fields/core',
+        ),
         'BSFW\\Slider\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lib',
@@ -27,9 +35,9 @@ class ComposerStaticInita58c256ee3a99091df5cde75748e7bae
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita58c256ee3a99091df5cde75748e7bae::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit16c3290305237130b0263b18a8a29940::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit16c3290305237130b0263b18a8a29940::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit16c3290305237130b0263b18a8a29940::$classMap;
 
         }, null, ClassLoader::class);
     }

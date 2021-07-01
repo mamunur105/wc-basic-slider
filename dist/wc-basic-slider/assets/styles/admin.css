@@ -78,3 +78,8 @@ div#carbon_fields_container_slider_settings h1.setting-not-suport {
     min-height: 100px;
 }
 
+div#carbon_fields_container_slider_settings .postbox-header h2 {
+    padding: 20px 30px;
+    font-size: 20px;
+}
+
