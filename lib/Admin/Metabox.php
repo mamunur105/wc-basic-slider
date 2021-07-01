@@ -119,8 +119,39 @@ class Metabox {
 					'6' => __( '6 Items', 'bs-slider' ),
 				)
 			);
+		$fields[]   = Field::make( 'checkbox', 'use_default_image_size', __( 'Use Defined image size' ) )->set_option_value( 'yes' );
+
 		$fields[]   = Field::make( 'select', 'select_image_size', __( 'Choose Image size' ) )
-					->set_options( $image_size );
+		->set_conditional_logic(
+			array(
+				'relation' => 'AND',
+				array(
+					'field'   => 'use_default_image_size',
+					'value'   => true
+				),
+			)
+		)
+		->set_options( $image_size );
+		$fields[]   = Field::make( 'text', 'image_width', __( 'Image Width' ) )
+			->set_conditional_logic(
+				array(
+					'relation' => 'AND',
+					array(
+						'field'   => 'use_default_image_size',
+						'value'   => false
+					),
+				)
+			);
+		$fields[]   = Field::make( 'text', 'image_height', __( 'Image Height' ) )
+			->set_conditional_logic(
+				array(
+					'relation' => 'AND',
+					array(
+						'field'   => 'use_default_image_size',
+						'value'   => false
+					),
+				)
+			);
 		$fields[]   = Field::make( 'checkbox', 'slider_pagination', __( 'Show Pagination' ) )->set_option_value( 'yes' );
 		$fields[]   = Field::make( 'checkbox', 'slider_arrow', __( 'Show Arrow' ) )->set_option_value( 'yes' );
 		$fields[]   = Field::make( 'checkbox', 'hide_title', __( 'Hide Title' ) )
