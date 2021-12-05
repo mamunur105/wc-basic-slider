@@ -1,5 +1,5 @@
 === Basic Slider for WooCommerce ===
-Contributors: mamunur105
+Contributors: mamunur105, tinysolution
 Tags: Slider,Category slider,Related product Slider,Promotional Product slider
 Donate link: #
 Requires at least: 5.0
