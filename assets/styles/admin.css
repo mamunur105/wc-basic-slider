@@ -1,0 +1,137 @@
+/**
+ * All of the CSS for your dashboard-specific functionality should be
+ * included in this file.
+ */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.tooltip #copy_shortcode,
+.tooltip .copy_shortcode {
+    padding: 0 5px;
+    background: #f1f1f1;
+    color: #333;
+    text-align: center;
+    min-width: 250px;
+}
+
+.tooltip .copy-button {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+div#carbon_fields_container_slider_settings li.cf-container__tabs-item {
+    padding: 15px 30px;
+    margin: 0;
+    margin-left: -1px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+div#carbon_fields_container_slider_settings .cf-container__tabs {
+    padding: 0;
+    margin-top: -1px;
+}
+
+div#carbon_fields_container_slider_settings h1.setting-not-suport {
+    padding: 40px;
+    min-height: 100px;
+}
+
+div#carbon_fields_container_slider_settings .postbox-header h2 {
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+div#carbon_fields_container_slider_settings .cf-field__head {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+div#carbon_fields_container_slider_settings .cf-field__head .cf-field__label {
+    font-size: 20px;
+    padding: 15px 0px;
+}
+
+div#carbon_fields_container_slider_settings .cf-container .cf-field {
+    padding: 0;
+}
+
+div#carbon_fields_container_slider_settings .cf-field,
+div#carbon_fields_container_slider_settings .cf-field__head,
+div#carbon_fields_container_slider_settings .cf-field__body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div#carbon_fields_container_slider_settings .cf-field__body {
+    padding-bottom: 20px;
+}
+
+div#carbon_fields_container_slider_settings .cf-field__help {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+div#carbon_fields_container_slider_settings .cf-radio-image .cf-radio__label img,
+div#carbon_fields_container_slider_settings .cf-radio-image .cf-radio__label {
+    width: 100%;
+}
+
+div#carbon_fields_container_slider_settings .cf-complex__tabs .cf-complex__inserter-button,
+div#carbon_fields_container_slider_settings .cf-complex__tabs-item {
+    padding: 15px 20px;
+}
+
+div#carbon_fields_container_slider_settings .cf-complex__tabs .cf-complex__inserter {
+    height: auto;
+}
+
+div#carbon_fields_container_slider_settings .cf-field__body select,
+div#carbon_fields_container_slider_settings .cf-field__body input:not([type=checkbox]):not([type=radio]) {
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
