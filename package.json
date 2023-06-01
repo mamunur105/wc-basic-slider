@@ -1,57 +1,34 @@
 {
-	"name": "wc-basic-slider",
-	"version": "1.0.0",
-	"description": "WordPress bsfw Plugin",
-	"main": "admin.config.js",
-	"dependencies": {
-		"@babel/core": "^7.12.3",
-		"@babel/preset-env": "^7.12.1",
-		"babel-core": "^6.26.3",
-		"beepbeep": "^1.3.0",
-		"browser-sync": "^2.26.14",
-		"del": "^6.0.0",
-		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^7.0.1",
-		"gulp-babel": "^8.0.0-beta.2",
-		"gulp-cache": "^1.1.3",
-		"gulp-concat": "^2.6.1",
-		"gulp-cssbeautify": "^3.0.0",
-		"gulp-filter": "^6.0.0",
-		"gulp-if": "^3.0.0",
-		"gulp-ignore": "^3.0.0",
-		"gulp-imagemin": "^7.1.0",
-		"gulp-jshint": "^2.1.0",
-		"gulp-line-ending-corrector": "^1.0.3",
-		"gulp-load-plugins": "^2.0.5",
-		"gulp-merge-media-queries": "^0.2.1",
-		"gulp-newer": "^1.4.0",
-		"gulp-notify": "^3.2.0",
-		"gulp-phpcs": "^3.1.0",
-		"gulp-pixrem": "^1.0.0",
-		"gulp-plumber": "^1.2.1",
-		"gulp-remember": "^1.0.1",
-		"gulp-rename": "^2.0.0",
-		"gulp-rtlcss": "^1.4.1",
-		"gulp-run-sequence": "^0.3.2",
-		"gulp-sass": "^4.1.0",
-		"gulp-sort": "^2.0.0",
-		"gulp-sourcemaps": "^2.6.5",
-		"gulp-uglify": "^3.0.2",
-		"gulp-uglifycss": "^1.1.0",
-		"gulp-wp-pot": "^2.5.0",
-		"gulp-zip": "^5.0.2"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mamunur105/wc-basic-slider"
-	},
-	"author": "admins",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/mamunur105/wc-basic-slider/issues"
-	},
-	"homepage": "https://github.com/mamunur105/wc-basic-slider"
+  "name": "cpt-woo-integration",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/mamunur105/cpt-woo-integration.git",
+  "author": "Mamunur Rashid <30565480+mamunur105@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production && npm run cleanmap",
+    "production": "mix --production",
+    "package": "npm run clean && npm run dev && npm run prod && npm run dev --package",
+    "clean": "rm -rf dist/*",
+    "cleanmap": "rm -rf assets/**/**/*.map",
+    "zip": "npm run package && npm run dev --zip"
+  },
+
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "archiver": "^5.3.1",
+    "cli-color": "^2.0.3",
+    "emojic": "^1.1.17",
+    "fs-extra": "^10.1.0",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.3.1",
+    "sass": "^1.54.0",
+    "sass-loader": "^12.1.0",
+    "wp-pot": "^1.10.2"
+  }
 }

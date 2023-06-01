@@ -150,7 +150,7 @@ class Shortcodes {
 						foreach ( $slider_item as $slider ) {
 							$attachment_id        = $slider['main_slider_image'];
 							$slider_image         = wp_get_attachment_image_src( $attachment_id, $select_image_size );
-							$slider_image_url     = $slider_image[0];
+							$slider_image_url     = $slider_image[0] ?? '';
 							$animate_text         = $slider['slider_title'];
 							$background_image     = "background-image: url($slider_image_url)";
 							$content_parent_class = apply_filters( 'primary_slider_slide_content_parent_class', 'slide-content-test' );
@@ -250,9 +250,8 @@ class Shortcodes {
 								if ( $value['category_image'] ) {
 									$category_image = $value['category_image'];
 									$category_image = wp_get_attachment_image_src( $category_image, $select_image_size );
-									$category_image = $category_image[0];
 								}
-
+								$category_image = $category_image[0] ?? '';
 								include BSFW_PLUGIN_DIR . '/templates/category_slider_1.php';
 
 							}

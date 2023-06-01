@@ -1,7 +1,11 @@
-"use strict";
-
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!*********************************!*\
+  !*** ./src/scripts/frontend.js ***!
+  \*********************************/
 (function ($) {
   'use strict';
+
   /**
    * All of the code for your public-facing JavaScript source
    * should reside in this file.
@@ -29,24 +33,20 @@
    * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
    * be doing this, we should try to minimize doing that in our own work.
    */
-  // Check if element exists
 
+  // Check if element exists
   $.fn.elExists = function () {
     return this.length > 0;
   };
-
   var swiperAnimation = new SwiperAnimation();
-
   function double_row_slider() {
     var $catSLider_2 = $(".category_slider_2");
-
     if ($catSLider_2.elExists()) {
-      var slidesPerView = $catSLider_2.attr("data-slidesPerView"); // console.log(slidesPerView);
-
+      var slidesPerView = $catSLider_2.attr("data-slidesPerView");
+      // console.log(slidesPerView);
       if (!slidesPerView) {
         slidesPerView = 4;
       }
-
       var swiper = new Swiper($catSLider_2, {
         slidesPerView: slidesPerView,
         slidesPerColumn: 2,
@@ -79,27 +79,24 @@
       });
     }
   }
-
   double_row_slider();
   $(window).on('load resize', function () {
     var content_height = 30 + $('.category_slider_2 .swiper-slide').outerHeight() * 2;
     console.log(content_height);
     $('.category_slider_2.swiper-container').height(content_height);
   });
+
   /************************************************************
   Primary Slider Settings
   *************************************************************/
 
   var $pSlider = $(".primary_slider");
-
   if ($pSlider.elExists()) {
     var interleaveOffset = 0.5;
-
     if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
       // Firefox-related activities
       var interleaveOffset = 0;
     }
-
     var swiperOptions = {
       loop: true,
       speed: 1000,
@@ -123,8 +120,8 @@
       // Giving slider a background parallax sliding effect
       on: {
         progress: function progress() {
-          var swiper = this; // console.log(swiper.slides.length);
-
+          var swiper = this;
+          // console.log(swiper.slides.length);
           for (var i = 0; i < swiper.slides.length; i++) {
             var slideProgress = swiper.slides[i].progress;
             var innerOffset = swiper.width * interleaveOffset;
@@ -134,14 +131,12 @@
         },
         touchStart: function touchStart() {
           var swiper = this;
-
           for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = "";
           }
         },
         setTransition: function setTransition(speed) {
           var swiper = this;
-
           for (var i = 0; i < swiper.slides.length; i++) {
             swiper.slides[i].style.transition = speed + "ms";
             swiper.slides[i].querySelector(".slide-inner").style.transition = speed + "ms";
@@ -157,16 +152,13 @@
     };
     var swiper = new Swiper($pSlider, swiperOptions);
   }
-
   var $catSLider_1 = $(".category_slider_1");
-
   if ($catSLider_1.elExists()) {
-    var slidesPerView = $catSLider_1.attr("data-slidesPerView"); // console.log(slidesPerView);
-
+    var slidesPerView = $catSLider_1.attr("data-slidesPerView");
+    // console.log(slidesPerView);
     if (!slidesPerView) {
       slidesPerView = 4;
     }
-
     var swiper = new Swiper($catSLider_1, {
       slidesPerView: slidesPerView,
       spaceBetween: 30,
@@ -203,16 +195,13 @@
       }
     });
   }
-
   var $related_product = $(".related_product");
-
   if ($related_product.elExists()) {
-    var slidesPerView = $related_product.attr("data-slidesPerView"); // console.log(slidesPerView);
-
+    var slidesPerView = $related_product.attr("data-slidesPerView");
+    // console.log(slidesPerView);
     if (!slidesPerView) {
       slidesPerView = 4;
     }
-
     var swiper = new Swiper($related_product, {
       slidesPerView: slidesPerView,
       spaceBetween: 30,
@@ -245,3 +234,6 @@
     });
   }
 })(jQuery);
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map
