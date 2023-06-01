@@ -8,7 +8,7 @@ const archiver = require("archiver");
 const min = mix.inProduction() ? ".min" : "";
 
 const package_path = path.resolve(__dirname);
-const package_slug = path.basename(path.resolve(package_path));
+const package_slug = 'basic-slider'; // path.basename(path.resolve(package_path));
 const temDirectory = package_path + "/dist";
 
 mix.options({
