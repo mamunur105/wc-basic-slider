@@ -32,7 +32,7 @@ dwsync.xml
 
 # Package management
 node_modules/
-
+dist
 # Folders to ignore
 .hg
 .svn
