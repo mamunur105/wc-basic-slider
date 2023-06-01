@@ -30,6 +30,15 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+define( 'BSFW_VERSION', '2.1.1' );
+define( 'BSFW_PLUGIN_PREFIX', 'bsfw' );
+define( 'BSFW_POST_TYPE', 'bs_slider' );
+define( 'BSFW_PLUGIN_NAME', 'wc-basic-slider' );
+define( 'BSFW_PLUGIN_DIR', __DIR__ );
+define( 'BSFW_PLUGIN_FILE', __FILE__ );
+define( 'BSFW_URL', plugins_url( '', BSFW_PLUGIN_FILE ) );
+define( 'BSFW_ASSETS', BSFW_URL . '/assets' );
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in lib/Activator.php
@@ -42,22 +51,13 @@ if ( ! defined( 'WPINC' ) ) {
  */
 \register_deactivation_hook( __FILE__, '\BSFW\Slider\Deactivator::deactivate' );
 
+
 /**
  * Begins execution of the plugin.
  *
  * @since    1.0.0
  */
-\add_action(
-	'plugins_loaded',
-	function () {
-		define( 'BSFW_VERSION', '2.1.1' );
-		define( 'BSFW_PLUGIN_PREFIX', 'bsfw' );
-		define( 'BSFW_POST_TYPE', 'bs_slider' );
-		define( 'BSFW_PLUGIN_NAME', 'wc-basic-slider' );
-		define( 'BSFW_PLUGIN_DIR', __DIR__ );
-		define( 'BSFW_PLUGIN_FILE', __FILE__ );
-		define( 'BSFW_URL', plugins_url( '', BSFW_PLUGIN_FILE ) );
-		define( 'BSFW_ASSETS', BSFW_URL . '/assets' );
+\add_action( 'plugins_loaded', function () {
 		$plugin = new \BSFW\Slider\Plugin();
 		$plugin->run();
 	}

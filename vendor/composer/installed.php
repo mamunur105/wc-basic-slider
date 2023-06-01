@@ -6,19 +6,37 @@
     'aliases' => 
     array (
     ),
-    'reference' => '2e73084d1bcb77ef8cbf0e88cd59ad6a3c2c7f45',
+    'reference' => '6598f28f3149dc523b639ac819a513b752e4d4b2',
     'name' => 'mamun/plugin-boilerplate',
   ),
   'versions' => 
   array (
-    'htmlburger/carbon-fields' => 
+    'composer/installers' => 
     array (
-      'pretty_version' => 'v3.3.2',
-      'version' => '3.3.2.0',
+      'pretty_version' => 'v2.2.0',
+      'version' => '2.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'dd5663e14c6db365323b688dbae1cfbeaf14bee7',
+      'reference' => 'c29dc4b93137acb82734f672c37e029dfbd95b35',
+    ),
+    'htmlburger/carbon-fields' => 
+    array (
+      'pretty_version' => 'v3.6.0',
+      'version' => '3.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '47f1538cca6cd2860d1b37a040a42c59eb798d76',
+    ),
+    'htmlburger/carbon-fields-plugin' => 
+    array (
+      'pretty_version' => 'v3.6.0',
+      'version' => '3.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c17d60c3ed0b51004f68ca0424ea042db89902a8',
     ),
     'mamun/plugin-boilerplate' => 
     array (
@@ -27,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '2e73084d1bcb77ef8cbf0e88cd59ad6a3c2c7f45',
+      'reference' => '6598f28f3149dc523b639ac819a513b752e4d4b2',
     ),
   ),
 );
