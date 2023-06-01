@@ -39,5 +39,6 @@ dist
 .CVS
 intermediate
 .idea
+package-lock.json
 cache
 /lib/**/*.txt
