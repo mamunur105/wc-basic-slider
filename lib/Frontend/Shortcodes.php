@@ -8,9 +8,12 @@
 namespace BSFW\Slider\Frontend;
 
 // Do not allow directly accessing this file.
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
+
+use BSFW\Slider\Common\Helpers;
 
 /**
  * Redister shortcode
@@ -69,16 +72,16 @@ class Shortcodes {
 	 * @return string
 	 */
 	public function bs_slider_shortcode( $atts, $content ) {
-		$slider = shortcode_atts(
+		$data = shortcode_atts(
 			array(
 				'slider_id' => '',
 			),
 			$atts
 		);
-		if ( ! $slider['slider_id'] ) {
+		if ( ! $data['slider_id'] ) {
 			return;
 		}
-		$slider_id  = $slider['slider_id'];
+		$slider_id  = $data['slider_id'];
 		$swiper_js  = carbon_get_theme_option( 'deactive_js' );
 		$swiper_css = carbon_get_theme_option( 'deactive_css' );
 
@@ -141,21 +144,24 @@ class Shortcodes {
 						.primary_slider .slide-inner{<?php echo esc_attr( "height:$height_for_min_1200;" ); ?>;}
 					}
 				</style>
-				<?php $parent_class = apply_filters( 'primary_slider_parent_class', 'slider-wrapper-class' ); ?>
+				<?php $parent_class = apply_filters( 'bsfw_primary_slider_parent_class', 'slider-wrapper-class' ); ?>
 				<div class="primary_slider swiper-container slider-type-1
 				<?php echo esc_attr( $parent_class ); ?>">
 						<!-- Slides -->
 						<div class="swiper-wrapper">
 						<?php
 						foreach ( $slider_item as $slider ) {
+
 							$attachment_id        = $slider['main_slider_image'];
 							$slider_image         = wp_get_attachment_image_src( $attachment_id, $select_image_size );
 							$slider_image_url     = $slider_image[0] ?? '';
-							$animate_text         = $slider['slider_title'];
-							$background_image     = "background-image: url($slider_image_url)";
-							$content_parent_class = apply_filters( 'primary_slider_slide_content_parent_class', 'slide-content-test' );
 
-							include BSFW_PLUGIN_DIR . '/templates/simple_slider_1.php';
+							$data['animate_text']         = $slider['slider_title'];
+							$data['background_image']     = "background-image: url($slider_image_url)";
+							$data['content_parent_class'] = apply_filters( 'bsfw_primary_slider_slide_content_parent_class', 'slide-content-test' );
+
+							Helpers::load_template( 'simple_slider_1', $data );
+							//include BSFW_PLUGIN_DIR . '/templates/simple_slider_1.php';
 						}
 						?>
 						</div> <!-- end of swiper-slide -->
@@ -186,13 +192,13 @@ class Shortcodes {
 	 * @return void
 	 */
 	public function woocategory_slider_shortcode( $atts, $contant ) {
-		$slider    = shortcode_atts(
+		$data = shortcode_atts(
 			array(
 				'slider_id' => '',
 			),
 			$atts
 		);
-		$slider_id = $slider['slider_id'];
+		$slider_id = $data['slider_id'];
 		if ( ! $slider_id ) {
 			return;
 		}
@@ -208,62 +214,64 @@ class Shortcodes {
 		if ( $cat_slider_loop->have_posts() ) {
 			while ( $cat_slider_loop->have_posts() ) {
 				$cat_slider_loop->the_post();
-				$category_slider        = carbon_get_the_post_meta( 'category_slider' );
-				$show_pagination        = carbon_get_the_post_meta( 'slider_pagination' );
-				$button_text            = carbon_get_the_post_meta( 'category_button_text' );
-				$show_arrow             = carbon_get_the_post_meta( 'slider_arrow' );
-				$category_layout        = carbon_get_the_post_meta( 'category_layout' );
-				$category_slidesperview = carbon_get_the_post_meta( 'select_perview' );
-				$content_position       = carbon_get_the_post_meta( 'category_content_position' );
-				$hide_title             = carbon_get_the_post_meta( 'hide_title' );
-				$hide_button            = carbon_get_the_post_meta( 'hide_button' );
-				$select_image_size      = carbon_get_the_post_meta( 'select_image_size' );
+				$data['category_slider']        = carbon_get_the_post_meta( 'category_slider' );
+				$data['show_pagination']        = carbon_get_the_post_meta( 'slider_pagination' );
+				$data['button_text']            = carbon_get_the_post_meta( 'category_button_text' );
+				$data['show_arrow']             = carbon_get_the_post_meta( 'slider_arrow' );
+				$data['category_layout']        = carbon_get_the_post_meta( 'category_layout' );
+				$data['category_slidesperview'] = carbon_get_the_post_meta( 'select_perview' );
+				$data['content_position']       = carbon_get_the_post_meta( 'category_content_position' );
+				$data['hide_title']             = carbon_get_the_post_meta( 'hide_title' );
+				$data['hide_button']            = carbon_get_the_post_meta( 'hide_button' );
+				$data['select_image_size']      = carbon_get_the_post_meta( 'select_image_size' );
 				$classes                = array();
-				if ( $show_pagination ) {
+				if ( $data['show_pagination'] ) {
 					$classes[] = 'cat-slider-pagination';
 				}
-				if ( $show_arrow ) {
+				if ( $data['show_arrow'] ) {
 					$classes[] = 'cat-slider-arrow';
 				}
-				if ( 'slider' === $category_layout ) {
+				if ( 'slider' === $data['category_layout'] ) {
 					$classes[] = 'category_slider_1';
-				}
-				if ( 'grid' === $category_layout ) {
+				} else if ( 'grid' === $data['category_layout'] ) {
 					$classes[] = 'category_slider_2';
 				}
 
 				$class = implode( ' ', $classes );
 				?>
-					<div class="<?php echo esc_attr( $class ); ?> swiper-container content-align " data-slidesPerView="<?php echo esc_attr( $category_slidesperview ); ?>"  >
+					<div class="<?php echo esc_attr( $class ); ?> swiper-container content-align " data-slidesPerView="<?php echo esc_attr( $data['category_slidesperview'] ); ?>"  >
 
 						<div class="swiper-wrapper">
 							<?php
-							foreach ( $category_slider as $value ) {
+							foreach ( $data['category_slider'] as $value ) {
 								if ( ! $value['select_category'] ) {
 									continue;
 								}
+
 								$term           = get_term_by( 'slug', $value['select_category'], 'product_cat' );
-								$categoryname   = $term->name;
-								$category_link  = get_category_link( $term->term_id );
+								$data['categoryname']   = $term->name;
+								$data['category_link']  = get_category_link( $term->term_id );
 								$thumbnail_id   = get_term_meta( $term->term_id, 'thumbnail_id', true );
-								$category_image = wp_get_attachment_image_src( $thumbnail_id, $select_image_size );
+								$category_image = wp_get_attachment_image_src( $thumbnail_id, $data['select_image_size'] );
 								if ( $value['category_image'] ) {
 									$category_image = $value['category_image'];
-									$category_image = wp_get_attachment_image_src( $category_image, $select_image_size );
+									$category_image = wp_get_attachment_image_src( $category_image, $data['select_image_size'] );
 								}
-								$category_image = $category_image[0] ?? '';
-								include BSFW_PLUGIN_DIR . '/templates/category_slider_1.php';
+								$data['category_image'] = $category_image[0] ?? '';
+
+								Helpers::load_template( 'category_slider_1', $data );
+								//include BSFW_PLUGIN_DIR . '/templates/category_slider_1.php';
 
 							}
 							?>
 						</div>
 
-						<?php if ( $show_arrow ) { ?>
+						<?php if ( $data['show_arrow']  ) { ?>
 							<!-- Slider Navigation -->
 							<div class="swiper-arrow next swiper-btn-next"></div>
 							<div class="swiper-arrow prev swiper-btn-prev"></div>
 						<?php } ?>
-						<?php if ( $show_pagination ) { ?>
+						<?php if ( $data['show_pagination'] ) { ?>
 							<!-- Slider Pagination -->
 							<div class="swiper-pagination"></div>
 						<?php } ?>

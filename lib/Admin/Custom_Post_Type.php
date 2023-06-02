@@ -73,7 +73,7 @@ class Custom_Post_Type {
 			'supports'           => array( 'title' ),
 			'show_in_rest'       => true,
 			'rewrite'            => array(
-				'slug'       => apply_filters( 'bs_slider_slug', 'bs-slider' ),
+				'slug'       => apply_filters( 'bsfw_slider_slug', 'bs-slider' ),
 				'with_front' => false,
 			),
 		);

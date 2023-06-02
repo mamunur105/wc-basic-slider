@@ -1,4 +1,4 @@
-<div class="swiper-slide  <?php echo esc_attr( $content_position ) . ' '; 	echo esc_attr( apply_filters( 'categpry_slider', 'slider_content_class' ) ); ?>">
+<div class="swiper-slide  <?php echo esc_attr( $content_position ) . ' '; 	echo esc_attr( apply_filters( 'bsfw_categpry_slider', 'slider_content_class' ) ); ?>">
     <a class="category_image" href="<?php echo esc_attr( $category_link ); ?>">
         <img src="<?php echo esc_url( $category_image ); ?>" alt="<?php echo esc_attr( $categoryname ); ?>">
     </a>
