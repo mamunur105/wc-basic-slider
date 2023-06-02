@@ -72,7 +72,7 @@ $cx-vsm-screen:					576px !default;
 
 div#carbon_fields_container_slider_settings{
 	li.cf-container__tabs-item {
-		padding: 15px 30px;
+		padding: 5px 25px;
 		margin: 0;
 		margin-left: -1px;
 		font-size: 18px;
@@ -95,7 +95,7 @@ div#carbon_fields_container_slider_settings{
 		border-bottom: 1px solid #ddd;
 		margin-bottom: 20px;
 		.cf-field__label {
-			font-size: 20px;
+			font-size: 18px;
 			padding: 15px 0px;
 		}
 	}
@@ -133,6 +133,14 @@ div#carbon_fields_container_slider_settings{
 			height: 45px;
 			padding-left: 15px;
 			padding-right: 15px;
+		}
+	}
+	.cf-field.cf-radio-image{
+		.cf-radio__list{
+			.cf-radio__list-item{
+				width: 150px;
+				flex: unset;
+			}
 		}
 	}
 }
