@@ -51,7 +51,7 @@
 }
 
 div#carbon_fields_container_slider_settings li.cf-container__tabs-item {
-  padding: 15px 30px;
+  padding: 5px 25px;
   margin: 0;
   margin-left: -1px;
   font-size: 18px;
@@ -75,7 +75,7 @@ div#carbon_fields_container_slider_settings .cf-field__head {
   margin-bottom: 20px;
 }
 div#carbon_fields_container_slider_settings .cf-field__head .cf-field__label {
-  font-size: 20px;
+  font-size: 18px;
   padding: 15px 0px;
 }
 div#carbon_fields_container_slider_settings .cf-container .cf-field {
@@ -111,6 +111,10 @@ div#carbon_fields_container_slider_settings .cf-field__body input:not([type=chec
   height: 45px;
   padding-left: 15px;
   padding-right: 15px;
+}
+div#carbon_fields_container_slider_settings .cf-field.cf-radio-image .cf-radio__list .cf-radio__list-item {
+  width: 150px;
+  flex: unset;
 }
 
 /*# sourceMappingURL=admin.css.map*/
