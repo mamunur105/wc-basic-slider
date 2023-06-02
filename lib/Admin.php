@@ -82,7 +82,7 @@ class Admin {
 
 		\wp_enqueue_style(
 			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/styles/admin' . $this->suffix . '.css',
+			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/styles/admin.css',
 			array(),
 			$this->plugin->get_version(),
 			'all'
@@ -111,7 +111,7 @@ class Admin {
 
 		\wp_enqueue_script(
 			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts/admin' . $this->suffix . '.js',
+			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts/admin.js',
 			array( 'jquery' ),
 			$this->plugin->get_version(),
 			false

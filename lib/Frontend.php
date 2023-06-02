@@ -80,8 +80,8 @@ class Frontend {
 				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/vendors/animate.min.css' ),
 			),
 			'bs-frontend-style' => array(
-				'src'     => BSFW_ASSETS . '/styles/frontend' . $this->suffix . '.css',
-				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/styles/frontend' . $this->suffix . '.css' ),
+				'src'     => BSFW_ASSETS . '/styles/frontend.css',
+				'version' => filemtime( BSFW_PLUGIN_DIR . '/assets/styles/frontend.css' ),
 			),
 		);
 
