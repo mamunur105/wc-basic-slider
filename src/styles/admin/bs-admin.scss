@@ -122,7 +122,12 @@ div#carbon_fields_container_slider_settings{
 	}
 	.cf-complex__tabs .cf-complex__inserter-button,
 	.cf-complex__tabs-item {
-		padding: 15px 20px;
+		padding: 16.5px 20px;
+	}
+	.cf-complex__tabs-list{
+		span.cf-complex__tabs-index{
+			font-size: 16px;
+		}
 	}
 	.cf-complex__tabs .cf-complex__inserter {
 		height: auto;

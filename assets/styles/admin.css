@@ -101,7 +101,10 @@ div#carbon_fields_container_slider_settings .cf-radio-image .cf-radio__label {
 }
 div#carbon_fields_container_slider_settings .cf-complex__tabs .cf-complex__inserter-button,
 div#carbon_fields_container_slider_settings .cf-complex__tabs-item {
-  padding: 15px 20px;
+  padding: 16.5px 20px;
+}
+div#carbon_fields_container_slider_settings .cf-complex__tabs-list span.cf-complex__tabs-index {
+  font-size: 16px;
 }
 div#carbon_fields_container_slider_settings .cf-complex__tabs .cf-complex__inserter {
   height: auto;
