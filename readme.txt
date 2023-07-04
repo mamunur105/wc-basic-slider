@@ -1,4 +1,4 @@
-=== Category slider for WooCommerce - ( formerly Basic Slider ) ===
+=== Category slider for WooCommerce ===
 Contributors: mamunur105
 Tags: Slider, Category slider, Promotional Product slider
 Donate link: #
