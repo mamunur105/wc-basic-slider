@@ -15,9 +15,11 @@
 namespace BSFW\Slider;
 
 use BSFW\Slider\Admin\Notice;
-use BSFW\Slider\Admin\Custom_Post_Type;
 use BSFW\Slider\Admin\Metabox;
+use BSFW\Slider\Admin\Dependencies;
 use BSFW\Slider\Frontend\Shortcodes;
+use BSFW\Slider\Admin\Custom_Post_Type;
+
 /**
  * The core plugin class.
  *
@@ -40,7 +42,7 @@ class Plugin {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      bsfw_Plugin_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      bsfw_Plugin_Loader $loader Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -49,7 +51,7 @@ class Plugin {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $pluginname    The string used to uniquely identify this plugin.
+	 * @var      string $pluginname The string used to uniquely identify this plugin.
 	 */
 	protected $pluginname;
 
@@ -58,7 +60,7 @@ class Plugin {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * @var      string $version The current version of the plugin.
 	 */
 	protected $version;
 
@@ -113,13 +115,14 @@ class Plugin {
 
 		$plugin_admin = new Admin( $this );
 		$notice       = new Notice();
+		$dependencies = new Dependencies();
 		$metabox      = new Metabox();
 		$post_type    = new Custom_Post_Type();
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue' );
 		$this->loader->add_action( 'after_setup_theme', $plugin_admin, 'boot' );
 		$this->loader->add_action( 'admin_notices', $notice, 'notice' );
 		$this->loader->add_action( 'wp_ajax_bsfw_rate_the_plugin', $notice, 'rate_the_plugin_action' );
-		$this->loader->add_action( 'admin_notices', $notice, 'bs_slider_notice_message' );
+		$this->loader->add_action( 'admin_init', $dependencies, 'check' );
 		$this->loader->add_action( 'init', $post_type, 'register_bs_slider', 0 );
 		$this->loader->add_filter( 'manage_' . $post_type->slug . '_posts_columns', $post_type, 'set_shortocode_column' );
 		$this->loader->add_action( 'manage_' . $post_type->slug . '_posts_custom_column', $post_type, 'shortocode_column_data', 10, 2 );
@@ -163,8 +166,8 @@ class Plugin {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_plugin_name() {
 		return $this->pluginname;
@@ -173,8 +176,8 @@ class Plugin {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     1.0.0
 	 * @return    bsfw_Plugin_Loader    Orchestrates the hooks of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_loader() {
 		return $this->loader;
@@ -183,8 +186,8 @@ class Plugin {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_version() {
 		return $this->version;

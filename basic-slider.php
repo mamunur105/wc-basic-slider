@@ -7,7 +7,7 @@
  * @package           BSFW_Slider
  *
  * @wordpress-plugin
- * Plugin Name:       Unlimited Category slider for WooCommerce
+ * Plugin Name:       Category slider for WooCommerce - ( Formerly Basic Slider )
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional slider.
  * Version:           2.1.1.1

@@ -9,6 +9,25 @@ namespace BSFW\Slider\Common;
  * The admin class
  */
 class Helpers {
+	/**
+	 * Nonce id
+	 *
+	 * @var string
+	 */
+	public static string $nonceId = 'bsfw_wpnonce';
+	/**
+	 *  Verify nonce.
+	 *
+	 * @return bool
+	 */
+	public static function verify_nonce() {
+		$nonce = $_REQUEST[ self::$nonceId ] ?? null;
+		if ( wp_verify_nonce( $nonce, self::$nonceId ) ) {
+			return true;
+		}
+
+		return false;
+	}
 
 	/**
 	 * Get the template path.

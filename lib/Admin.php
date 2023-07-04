@@ -123,6 +123,7 @@ class Admin {
 				'admin_ajax'    => admin_url( 'admin-ajax.php' ),
 				'ajx_nonce'     => wp_create_nonce( 'ajax-nonce' ),
 				'plugin_prefix' => BSFW_PLUGIN_PREFIX,
+				'post_id' => get_the_ID(),
 			)
 		);
 
