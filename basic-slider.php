@@ -13,8 +13,8 @@
  * Version:           2.1.1.1
  * Requires at least: 5.0
  * Requires PHP:      7.0
- * Author:            Mamunur rashid
- * Author URI:        https://profiles.wordpress.org/mamunur105
+ * Author:            Mamunur rashid, Tiny Solutions
+ * Author URI:        https://wptinysolutions.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       bs-slider
@@ -31,13 +31,22 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'BSFW_VERSION', '2.1.1.1' );
+
 define( 'BSFW_PLUGIN_PREFIX', 'bsfw' );
+
 define( 'BSFW_POST_TYPE', 'bs_slider' );
+
 define( 'BSFW_PLUGIN_NAME', 'wc-basic-slider' );
+
 define( 'BSFW_PLUGIN_DIR', __DIR__ );
+
 define( 'BSFW_PLUGIN_FILE', __FILE__ );
+
 define( 'BSFW_URL', plugins_url( '', BSFW_PLUGIN_FILE ) );
+
 define( 'BSFW_ASSETS', BSFW_URL . '/assets' );
+
+define( 'BSFW_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.

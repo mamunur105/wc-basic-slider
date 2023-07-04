@@ -49,7 +49,24 @@ class Admin {
 	public function __construct( Plugin $plugin ) {
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$this->plugin = $plugin;
+		add_filter('plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2);
 	}
+	/**
+	 * @param $links
+	 * @param $file
+	 *
+	 * @return array
+	 */
+	public function plugin_row_meta($links, $file) {
+		if ( $file == BSFW_BASENAME ) {
+			//$report_url = 'https://www.wptinysolutions.com/contact' ;//home_url( '/wp-admin/upload.php?page=tsmlt-media-tools' );
+			//$row_meta['issues'] = sprintf('%2$s <a target="_blank" href="%1$s">%3$s</a>', esc_url($report_url), esc_html__('Facing issue?', 'tsmlt-media-tools'), '<span style="color: red">' . esc_html__('Please open a support ticket.', 'tsmlt-media-tools') . '</span>');
+			$row_meta['issues'] = 'Please open a support ticket. Email:<span style="color: red"> support@tinysolutions.freshdesk.com</span>';
+			return array_merge($links, $row_meta);
+		}
+		return (array)$links;
+	}
+
 	/**
 	 * Enqueue css and js
 	 *
