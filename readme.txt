@@ -5,7 +5,7 @@ Donate link: #
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,12 +46,15 @@ Use Shortcode for display the slider.
 
 
 == Changelog ==
+
+= 2.1.2 =
+Fixed: Error Fix
+
 = 2.1.0 =
 Security update
 = 2.0.0 =
 Some feature update
-= 1.0.2 =
-Some feature update
+
 = 1.0.0 =
 * First active version, first launch
 
