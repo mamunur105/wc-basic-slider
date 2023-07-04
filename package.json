@@ -1,8 +1,8 @@
 {
-  "name": "cpt-woo-integration",
+  "name": "wc-basic-slider",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/mamunur105/cpt-woo-integration.git",
+  "repository": "https://github.com/mamunur105/wc-basic-slider.git",
   "author": "Mamunur Rashid <30565480+mamunur105@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {

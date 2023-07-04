@@ -242,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkcpt_woo_integration"] = self["webpackChunkcpt_woo_integration"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkwc_basic_slider"] = self["webpackChunkwc_basic_slider"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
