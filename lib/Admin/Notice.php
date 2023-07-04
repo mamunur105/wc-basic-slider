@@ -224,19 +224,5 @@ class Notice {
 	}
 
 
-	/**
-	 * Notice
-	 *
-	 * @return void
-	 */
-//	public function bs_slider_notice_message() {
-//		if ( ! class_exists( 'woocommerce' ) ) {
-//			echo '<div class="error notice notice-sp-wcsp-woo"><p>';
-//			_e( 'Please active WooCommerce plugin to make the <b>Category Slider for WooCommerce</b>.', 'bs-slider' );
-//			echo '</p></div>';
-//		}
-//	}
-
-
 }
 

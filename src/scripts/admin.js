@@ -7,7 +7,7 @@
 			return this.length > 0;
 		};
 		/*global bs_slider */
-		$('.post-type-bs_slider').find('#title').after(
+		$('.post-type-bs_slider #titlediv').find('#title').after(
 			// eslint-disable-next-line camelcase
 			`<h3 style="margin-bottom:0;">ShortCode</h3><div class="tooltip"><span class="copy-button" ><span class="tooltiptext" >Copy to clipboard</span><input class="copy_shortcode" type="text" value="[woocategory_slider slider_id='${bsfw_script.post_id}']" readonly></span></div>`
 		);
