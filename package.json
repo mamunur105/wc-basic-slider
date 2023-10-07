@@ -26,7 +26,7 @@
     "emojic": "^1.1.17",
     "fs-extra": "^10.1.0",
     "laravel-mix": "^6.0.49",
-    "postcss": "^8.3.1",
+    "postcss": "^8.4.31",
     "sass": "^1.54.0",
     "sass-loader": "^12.1.0",
     "wp-pot": "^1.10.2"
