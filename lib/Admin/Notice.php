@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Gallery notice
  */
 class Notice {
+
+    private $textdomain;
 	/**
 	 * Init
 	 *
