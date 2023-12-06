@@ -1,51 +1,32 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => 'mamun/plugin-boilerplate',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'a19ee93c4fc625aa9dccb52ed1718110b21ee279',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
     ),
-    'reference' => '6598f28f3149dc523b639ac819a513b752e4d4b2',
-    'name' => 'mamun/plugin-boilerplate',
-  ),
-  'versions' => 
-  array (
-    'composer/installers' => 
-    array (
-      'pretty_version' => 'v2.2.0',
-      'version' => '2.2.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'c29dc4b93137acb82734f672c37e029dfbd95b35',
+    'versions' => array(
+        'htmlburger/carbon-fields' => array(
+            'pretty_version' => 'v3.6.3',
+            'version' => '3.6.3.0',
+            'reference' => 'd913a5148cb9dc61ed239719c747f4ebb513003f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../htmlburger/carbon-fields',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mamun/plugin-boilerplate' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'a19ee93c4fc625aa9dccb52ed1718110b21ee279',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
     ),
-    'htmlburger/carbon-fields' => 
-    array (
-      'pretty_version' => 'v3.6.0',
-      'version' => '3.6.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '47f1538cca6cd2860d1b37a040a42c59eb798d76',
-    ),
-    'htmlburger/carbon-fields-plugin' => 
-    array (
-      'pretty_version' => 'v3.6.0',
-      'version' => '3.6.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'c17d60c3ed0b51004f68ca0424ea042db89902a8',
-    ),
-    'mamun/plugin-boilerplate' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '6598f28f3149dc523b639ac819a513b752e4d4b2',
-    ),
-  ),
 );
