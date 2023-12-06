@@ -49,7 +49,7 @@ class Admin {
 	public function __construct( Plugin $plugin ) {
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$this->plugin = $plugin;
-		add_filter('plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2);
+		//add_filter('plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2);
 	}
 	/**
 	 * @param $links
