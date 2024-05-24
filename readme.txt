@@ -9,7 +9,7 @@ Stable tag: 2.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This is for woocommerce Category slider And also For Promotional basic slider
+This is for woocommerce Category slider And also For Promotional slider
 
 == Description ==
 Everything is customizable. if you need more style you can customize css.

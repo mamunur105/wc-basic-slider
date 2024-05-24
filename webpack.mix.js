@@ -8,7 +8,7 @@ const archiver = require("archiver");
 const min = mix.inProduction() ? ".min" : "";
 
 const package_path = path.resolve(__dirname);
-const package_slug = 'basic-slider'; // path.basename(path.resolve(package_path));
+const package_slug = 'wc-basic-slider'; // path.basename(path.resolve(package_path));
 const temDirectory = package_path + "/dist";
 
 mix.options({
@@ -33,7 +33,7 @@ if (process.env.npm_config_package) {
 			"LICENSE.txt",
 			"readme.txt",
 			"uninstall.php",
-			`${package_slug}.php`,
+			`basic-slider.php`,
 		];
 		fs.ensureDir(copyTo, function (err) {
 			if (err) return console.error(err);
@@ -73,7 +73,7 @@ if (
 				bugReport: "",
 				src: "**/*.php",
 				domain: "bs-slider",
-				destFile: `languages/${package_slug}.pot`,
+				destFile: `languages/bs-slider.pot`,
 			});
 		});
 	}
@@ -109,10 +109,11 @@ if (process.env.npm_config_zip) {
 	async function getVersion() {
 		let data;
 		try {
-			data = await fs.readFile(package_path + `/${package_slug}.php`, "utf-8");
+			data = await fs.readFile(package_path + `/basic-slider.php`, "utf-8");
 		} catch (err) {
 			console.error(err);
 		}
+        console.log( data )
 		const lines = data.split(/\r?\n/);
 		let version = "";
 		for (let i = 0; i < lines.length; i++) {
