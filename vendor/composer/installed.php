@@ -3,7 +3,7 @@
         'name' => 'mamun/plugin-boilerplate',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'a19ee93c4fc625aa9dccb52ed1718110b21ee279',
+        'reference' => '370b41ba0a876dc68c0de714ede17caa81fce87d',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'mamun/plugin-boilerplate' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'a19ee93c4fc625aa9dccb52ed1718110b21ee279',
+            'reference' => '370b41ba0a876dc68c0de714ede17caa81fce87d',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
