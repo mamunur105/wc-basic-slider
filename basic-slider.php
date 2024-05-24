@@ -21,9 +21,8 @@
  * Domain Path:       /languages
  */
 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require_once __DIR__ . '/vendor/autoload.php';
-}
+
+
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -44,6 +43,8 @@ define( 'BSFW_PLUGIN_FILE', __FILE__ );
 
 define( 'BSFW_URL', plugins_url( '', BSFW_PLUGIN_FILE ) );
 
+define( 'Carbon_Fields\URL', BSFW_URL . '/vendor/htmlburger/carbon-fields/' );
+
 define( 'BSFW_ASSETS', BSFW_URL . '/assets' );
 
 define( 'BSFW_BASENAME', plugin_basename( __FILE__ ) );
@@ -59,6 +60,10 @@ define( 'BSFW_BASENAME', plugin_basename( __FILE__ ) );
  * This action is documented in lib/Deactivator.php
  */
 \register_deactivation_hook( __FILE__, '\BSFW\Slider\Deactivator::deactivate' );
+
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+}
 
 
 /**
