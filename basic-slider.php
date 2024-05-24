@@ -6,6 +6,8 @@
  * Version:           2.2.0
  * Requires at least: 5.0
  * Requires PHP:      7.0
+ * Tested up to:      6.5
+ * WC tested up to:   8.8
  * Author:            Mamunur Rashid
  * Author URI:        https://profiles.wordpress.org/mamunur105/
  * License:           GPL v2 or later
@@ -14,10 +16,8 @@
  * Domain Path:       /languages
  */
 
-
-
-
 // If this file is called directly, abort.
+
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
