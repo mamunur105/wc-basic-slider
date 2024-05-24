@@ -1,11 +1,11 @@
 === Category slider for WooCommerce ===
 Contributors: mamunur105
-Tags: Slider, Category slider, Promotional Product slider
+Tags: Slider, product category slider, Promotional Product slider
 Donate link: #
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 2.1.3
+Stable tag: 2.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,6 @@ FEATURES LIST
 	6. Display specific categories in the slider.
 	7. Swiper, powerful, and fast loading.
 	8. Responsive and mobile-ready.
-
 
 Let's Take a look.
 
@@ -47,11 +46,15 @@ Use Shortcode for display the slider.
 
 == Changelog ==
 
+= 2.2.0 =
+Fixed: Error Fix
+
 = 2.1.2 =
 Fixed: Error Fix
 
 = 2.1.0 =
 Security update
+
 = 2.0.0 =
 Some feature update
 
