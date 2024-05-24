@@ -120,7 +120,6 @@ class Plugin {
 		$post_type    = new Custom_Post_Type();
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue' );
 		$this->loader->add_action( 'after_setup_theme', $plugin_admin, 'boot' );
-		$this->loader->add_action( 'admin_notices', $notice, 'notice' );
 		$this->loader->add_action( 'admin_footer', $notice, 'deactivation_popup' );
 		$this->loader->add_action( 'wp_ajax_bsfw_rate_the_plugin', $notice, 'rate_the_plugin_action' );
 		$this->loader->add_action( 'admin_init', $dependencies, 'check' );
