@@ -1,6 +1,10 @@
 {
     "/assets/scripts/admin.js": "/assets/scripts/admin.js",
+    "/assets/scripts/admin.js.map": "/assets/scripts/admin.js.map",
     "/assets/scripts/frontend.js": "/assets/scripts/frontend.js",
+    "/assets/scripts/frontend.js.map": "/assets/scripts/frontend.js.map",
     "/assets/styles/frontend.css": "/assets/styles/frontend.css",
-    "/assets/styles/admin.css": "/assets/styles/admin.css"
+    "/assets/styles/frontend.css.map": "/assets/styles/frontend.css.map",
+    "/assets/styles/admin.css": "/assets/styles/admin.css",
+    "/assets/styles/admin.css.map": "/assets/styles/admin.css.map"
 }

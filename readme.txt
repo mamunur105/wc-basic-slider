@@ -3,9 +3,9 @@ Contributors: mamunur105
 Tags: Slider, product category slider, Promotional Product slider
 Donate link: #
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,9 @@ Use Shortcode for display the slider.
 
 
 == Changelog ==
+
+= 2.2.1 =
+Update: Update Packages
 
 = 2.2.0 =
 Fixed: Error Fix

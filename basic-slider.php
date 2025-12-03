@@ -3,11 +3,11 @@
  * Plugin Name:       Category Slider for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/wc-basic-slider
  * Description:       This is for woocommerce Category,Related product, And also For Promotional slider.
- * Version:           2.2.0
+ * Version:           2.2.1-rc-1
  * Requires at least: 5.0
  * Requires PHP:      7.0
- * Tested up to:      6.5
- * WC tested up to:   8.8
+ * Tested up to:      6.9
+ * WC tested up to:   10.3.6
  * Author:            Mamunur Rashid
  * Author URI:        https://profiles.wordpress.org/mamunur105/
  * License:           GPL v2 or later
