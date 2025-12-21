@@ -54,21 +54,21 @@ class Dependencies {
 				$message        = sprintf(
 					'<strong>%s</strong> %s <strong>%s</strong> %s',
 					esc_html( self::PLUGIN_NAME ),
-					esc_html__( 'requires', 'bs-slider' ),
-					esc_html__( 'WooCommerce', 'bs-slider' ),
-					esc_html__( 'plugin to be active. Please activate WooCommerce to continue.', 'bs-slider' )
+					esc_html__( 'requires', 'wc-basic-slider' ),
+					esc_html__( 'WooCommerce', 'wc-basic-slider' ),
+					esc_html__( 'plugin to be active. Please activate WooCommerce to continue.', 'wc-basic-slider' )
 				);
-				$button_text    = esc_html__( 'Activate WooCommerce', 'bs-slider' );
+				$button_text    = esc_html__( 'Activate WooCommerce', 'wc-basic-slider' );
 			} else {
 				$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=woocommerce' ), 'install-plugin_woocommerce' );
 				$message        = sprintf(
 					'<strong>%s</strong> %s <strong>%s</strong> %s',
 					esc_html( self::PLUGIN_NAME ),
-					esc_html__( 'requires', 'bs-slider' ),
-					esc_html__( 'WooCommerce', 'bs-slider' ),
-					esc_html__( 'plugin to be installed and activated. Please install WooCommerce to continue.', 'bs-slider' )
+					esc_html__( 'requires', 'wc-basic-slider' ),
+					esc_html__( 'WooCommerce', 'wc-basic-slider' ),
+					esc_html__( 'plugin to be installed and activated. Please install WooCommerce to continue.', 'wc-basic-slider' )
 				);
-				$button_text    = esc_html__( 'Install WooCommerce', 'bs-slider' );
+				$button_text    = esc_html__( 'Install WooCommerce', 'wc-basic-slider' );
 			}
 			$this->missing['woocommerce'] = [
 				'name'       => 'WooCommerce',
@@ -101,9 +101,9 @@ class Dependencies {
 		}
 		$message = sprintf(
 		/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'bs-slider' ),
-			'<strong>' . esc_html__( 'Custom Post Type Woocommerce Integration', 'bs-slider' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'bs-slider' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'wc-basic-slider' ),
+			'<strong>' . esc_html__( 'Custom Post Type Woocommerce Integration', 'wc-basic-slider' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'wc-basic-slider' ) . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -121,7 +121,7 @@ class Dependencies {
 			if ( $counter == sizeof( $this->missing ) ) {
 				$sep = '';
 			} elseif ( $counter == sizeof( $this->missing ) - 1 ) {
-				$sep = ' ' . esc_html__( 'and', 'bs-slider' ) . ' ';
+				$sep = ' ' . esc_html__( 'and', 'wc-basic-slider' ) . ' ';
 			} else {
 				$sep = ', ';
 			}

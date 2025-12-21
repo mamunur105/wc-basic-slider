@@ -69,11 +69,11 @@ if (
 		fs.ensureDir(languages, function (err) {
 			if (err) return console.error(err); // if file or folder does not exist
 			wpPot({
-				package: "Unlimited Category slider for WooCommerce",
+				package: "Category slider for WooCommerce",
 				bugReport: "",
 				src: "**/*.php",
-				domain: "bs-slider",
-				destFile: `languages/bs-slider.pot`,
+				domain: "wc-basic-slider",
+				destFile: `languages/wc-basic-slider.pot`,
 			});
 		});
 	}

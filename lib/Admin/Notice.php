@@ -28,7 +28,7 @@ class Notice {
 	 * @return void
 	 */
 	public function __construct() {
-		$this->textdomain = 'bs-slider';
+		$this->textdomain = 'wc-basic-slider';
 	}
 
 	/**
@@ -439,7 +439,7 @@ class Notice {
 				color: #fff;
 			}
 
-			.ui-dialog[aria-describedby="deactivation-dialog-bs-slider"] {
+			.ui-dialog[aria-describedby="deactivation-dialog-wc-basic-slider"] {
 				background-color: #fefefe;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				z-index: 99;

@@ -113,10 +113,10 @@ class Metabox {
 			)
 			->set_options(
 				array(
-					'3' => __( '3 Items', 'bs-slider' ),
-					'4' => __( '4 Items', 'bs-slider' ),
-					'5' => __( '5 Items', 'bs-slider' ),
-					'6' => __( '6 Items', 'bs-slider' ),
+					'3' => __( '3 Items', 'wc-basic-slider' ),
+					'4' => __( '4 Items', 'wc-basic-slider' ),
+					'5' => __( '5 Items', 'wc-basic-slider' ),
+					'6' => __( '6 Items', 'wc-basic-slider' ),
 				)
 			);
 		$fields[]   = Field::make( 'checkbox', 'use_default_image_size', __( 'Use Defined image size' ) )->set_option_value( 'yes' );
@@ -299,7 +299,7 @@ class Metabox {
 			AND ter.term_id = tax.term_id
 			AND tax.count > 0 "
 		);
-		$category_list[''] = __( '--Select One--', 'bs-slider' );
+		$category_list[''] = __( '--Select One--', 'wc-basic-slider' );
 		if ( $categories ) {
 			foreach ( $categories as $cat ) {
 				$category_name               = $cat->name . ' (' . $cat->count . ')';
@@ -386,8 +386,8 @@ class Metabox {
 		$types = array( BSFW_POST_TYPE );
 		if ( in_array( $post_type, $types, true ) ) {
 			add_meta_box(
-				'bs-slider-metabox-shortcode',
-				esc_html__( 'Shortcode', 'bs-slider' ),
+				'wc-basic-slider-metabox-shortcode',
+				esc_html__( 'Shortcode', 'wc-basic-slider' ),
 				array( $this, 'shortcode_meta_box_callback' ),
 				$types,
 				'side',

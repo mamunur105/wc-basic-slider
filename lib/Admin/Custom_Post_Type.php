@@ -40,25 +40,25 @@ class Custom_Post_Type {
 	public function register_bs_slider() {
 
 		$labels = array(
-			'name'               => _x( 'Wc Slider', 'post type general name', 'bs-slider' ),
-			'singular_name'      => _x( 'Wc Slider', 'post type singular name', 'bs-slider' ),
-			'menu_name'          => _x( 'Wc Slider', 'admin menu', 'bs-slider' ),
-			'name_admin_bar'     => _x( 'Wc Slider', 'add new on admin bar', 'bs-slider' ),
-			'add_new'            => _x( 'Add New', 'book', 'bs-slider' ),
-			'add_new_item'       => __( 'Add New Slider', 'bs-slider' ),
-			'new_item'           => __( 'New Slider', 'bs-slider' ),
-			'edit_item'          => __( 'Edit Slider', 'bs-slider' ),
-			'view_item'          => __( 'View Slider', 'bs-slider' ),
-			'all_items'          => __( 'All Sliders', 'bs-slider' ),
-			'search_items'       => __( 'Search Slider', 'bs-slider' ),
-			'parent_item_colon'  => __( 'Parent Slider:', 'bs-slider' ),
-			'not_found'          => __( 'No Slider found.', 'bs-slider' ),
-			'not_found_in_trash' => __( 'No Slider found in Trash.', 'bs-slider' ),
+			'name'               => _x( 'Wc Slider', 'post type general name', 'wc-basic-slider' ),
+			'singular_name'      => _x( 'Wc Slider', 'post type singular name', 'wc-basic-slider' ),
+			'menu_name'          => _x( 'Wc Slider', 'admin menu', 'wc-basic-slider' ),
+			'name_admin_bar'     => _x( 'Wc Slider', 'add new on admin bar', 'wc-basic-slider' ),
+			'add_new'            => _x( 'Add New', 'book', 'wc-basic-slider' ),
+			'add_new_item'       => __( 'Add New Slider', 'wc-basic-slider' ),
+			'new_item'           => __( 'New Slider', 'wc-basic-slider' ),
+			'edit_item'          => __( 'Edit Slider', 'wc-basic-slider' ),
+			'view_item'          => __( 'View Slider', 'wc-basic-slider' ),
+			'all_items'          => __( 'All Sliders', 'wc-basic-slider' ),
+			'search_items'       => __( 'Search Slider', 'wc-basic-slider' ),
+			'parent_item_colon'  => __( 'Parent Slider:', 'wc-basic-slider' ),
+			'not_found'          => __( 'No Slider found.', 'wc-basic-slider' ),
+			'not_found_in_trash' => __( 'No Slider found in Trash.', 'wc-basic-slider' ),
 		);
 
 		$args = array(
 			'labels'             => $labels,
-			'description'        => __( 'Description.', 'bs-slider' ),
+			'description'        => __( 'Description.', 'wc-basic-slider' ),
 			'public'             => false,
 			'publicly_queryable' => false,
 			'show_ui'            => true,
@@ -73,7 +73,7 @@ class Custom_Post_Type {
 			'supports'           => array( 'title' ),
 			'show_in_rest'       => true,
 			'rewrite'            => array(
-				'slug'       => apply_filters( 'bsfw_slider_slug', 'bs-slider' ),
+				'slug'       => apply_filters( 'bsfw_slider_slug', 'wc-basic-slider' ),
 				'with_front' => false,
 			),
 		);
@@ -90,8 +90,8 @@ class Custom_Post_Type {
 	 */
 	public function set_shortocode_column( $columns ) {
 		unset( $columns['date'] );
-		$columns['shortcode'] = __( 'Shortcode', 'bs-slider' );
-		$columns['date']      = __( 'Date', 'bs-slider' );
+		$columns['shortcode'] = esc_html__( 'Shortcode', 'wc-basic-slider' );
+		$columns['date']      = esc_html__( 'Date', 'wc-basic-slider' );
 		return $columns;
 	}
 

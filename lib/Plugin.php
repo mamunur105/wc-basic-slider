@@ -86,24 +86,6 @@ class Plugin {
 		}
 		$this->loader = new Loader();
 	}
-
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the I18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		$plugin_i18n = new I18n();
-		$plugin_i18n->set_domain( $this->get_plugin_name() );
-		$plugin_i18n->load_plugin_textdomain();
-
-	}
-
 	/**
 	 * Register all of the hooks related to the dashboard functionality
 	 * of the plugin.
@@ -112,12 +94,12 @@ class Plugin {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new Admin( $this );
 		$notice       = new Notice();
 		$dependencies = new Dependencies();
 		$metabox      = new Metabox();
 		$post_type    = new Custom_Post_Type();
+		$this->loader->add_filter( 'plugin_action_links_' . BSFW_BASENAME, $plugin_admin, 'plugins_setting_links' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue' );
 		$this->loader->add_action( 'after_setup_theme', $plugin_admin, 'boot' );
 		$this->loader->add_action( 'admin_footer', $notice, 'deactivation_popup' );
@@ -130,7 +112,6 @@ class Plugin {
 		$this->loader->add_action( 'add_meta_boxes', $metabox, 'shortcode_register_meta_box' );
 
 	}
-
 	/**
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
@@ -144,7 +125,6 @@ class Plugin {
 		$this->loader->add_action( 'init', $wc_shortcode, 'shortcode_list' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_scripts' );
-
 	}
 
 	/**
@@ -156,7 +136,6 @@ class Plugin {
 	 * @since    1.0.0
 	 */
 	public function run() {
-		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_frontend_hooks();
 		$this->loader->run();

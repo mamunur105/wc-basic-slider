@@ -49,22 +49,31 @@ class Admin {
 	public function __construct( Plugin $plugin ) {
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$this->plugin = $plugin;
-		//add_filter('plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2);
 	}
+
+	/**
+	 * @param array $links default plugin action link.
+	 *
+	 * @return array [array] plugin action link
+	 */
+	public static function plugins_setting_links( $links ) {
+		$new_links                  = [];
+		$new_links['bsfw_settings'] = '<a href="' . admin_url( 'edit.php?post_type=bs_slider' ) . '">' . esc_html__( 'Settings', 'wc-basic-slider' ) . '</a>';
+		return array_merge( $new_links, $links );
+	}
+
 	/**
 	 * @param $links
 	 * @param $file
 	 *
 	 * @return array
 	 */
-	public function plugin_row_meta($links, $file) {
+	public function plugin_row_meta( $links, $file ) {
 		if ( $file == BSFW_BASENAME ) {
-			//$report_url = 'https://www.wptinysolutions.com/contact' ;//home_url( '/wp-admin/upload.php?page=tsmlt-media-tools' );
-			//$row_meta['issues'] = sprintf('%2$s <a target="_blank" href="%1$s">%3$s</a>', esc_url($report_url), esc_html__('Facing issue?', 'tsmlt-media-tools'), '<span style="color: red">' . esc_html__('Please open a support ticket.', 'tsmlt-media-tools') . '</span>');
 			$row_meta['issues'] = 'Please open a support ticket. Email:<span style="color: red;font-weight: 700;"> support@tinysolutions.freshdesk.com</span>';
-			return array_merge($links, $row_meta);
+			return array_merge( $links, $row_meta );
 		}
-		return (array)$links;
+		return (array) $links;
 	}
 
 	/**
@@ -99,8 +108,8 @@ class Admin {
 
 		\wp_enqueue_style(
 			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/styles/admin.css',
-			array(),
+			\plugin_dir_url( __DIR__ ) . 'assets/styles/admin.css',
+			[],
 			$this->plugin->get_version(),
 			'all'
 		);
@@ -128,22 +137,21 @@ class Admin {
 
 		\wp_enqueue_script(
 			$this->plugin->get_plugin_name(),
-			\plugin_dir_url( dirname( __FILE__ ) ) . 'assets/scripts/admin.js',
-			array( 'jquery' ),
+			\plugin_dir_url( __DIR__ ) . 'assets/scripts/admin.js',
+			[ 'jquery' ],
 			$this->plugin->get_version(),
 			false
 		);
 		wp_localize_script(
 			$this->plugin->get_plugin_name(),
 			'bsfw_script',
-			array(
+			[
 				'admin_ajax'    => admin_url( 'admin-ajax.php' ),
 				'ajx_nonce'     => wp_create_nonce( 'ajax-nonce' ),
 				'plugin_prefix' => BSFW_PLUGIN_PREFIX,
-				'post_id' => get_the_ID(),
-			)
+				'post_id'       => get_the_ID(),
+			]
 		);
-
 	}
 	/**
 	 * Carbon field metabox and settings page
@@ -155,7 +163,4 @@ class Admin {
 			\Carbon_Fields\Carbon_Fields::boot();
 		}
 	}
-
-
-
 }
